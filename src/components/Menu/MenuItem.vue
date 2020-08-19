@@ -27,8 +27,8 @@ export default {
 	},
 	methods: {
 		gotoRoute(name) {
-			// this.$router.push({ name });
-			console.log(name);
+			this.$router.push({ name });
+			this.$store.commit('setBreadcrumbRouter', this.$route.matched);
 		},
 	},
 };

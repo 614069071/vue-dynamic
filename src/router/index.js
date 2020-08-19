@@ -8,6 +8,11 @@ const Test1 = () => import(/* webpackChunkName: "test" */ '@/views/Test1.vue')
 
 Vue.use(VueRouter)
 
+const VueRouterPush = VueRouter.prototype.push;
+VueRouter.prototype.push = function (to) {
+  return VueRouterPush.call(this, to).catch(err => err)
+}
+
 const routes = [
   {
     path: '/login',

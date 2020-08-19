@@ -78,11 +78,6 @@ const menuTree = JSON.stringify(mapDynamicRouterArr);
 // 其他路由
 const otherRouter = [
   {
-    path: '/',
-    name: 'albumdefault',
-    redirect: '/album'
-  },
-  {
     path: '*',
     name: 'E404',
     component: E404
@@ -91,8 +86,8 @@ const otherRouter = [
 
 const dynamicRouterHome = [
   {
-    path: '/home',
-    name: 'Home',
+    path: '/',
+    name: 'layout',
     component: Home,
     meta: {
       name: '首页'
@@ -111,12 +106,17 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    hasPermission: false
+    hasPermission: false,
+    breadcrumbRouter: []
   },
   mutations: {
     setPermission(state, data = '') {
       router.addRoutes(dynamicRouterHome);
       state.hasPermission = data;
+    },
+    setBreadcrumbRouter(state, data = []) {
+      console.log(data, 'setBreadcrumbRouter');
+      state.breadcrumbRouter = data;
     }
   }
 })
