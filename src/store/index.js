@@ -24,6 +24,7 @@ function mapDynamicRouter(arr1 = [], arr2 = []) {
       if (url === ele.path) {
         item.path = ele.path;
         item.component = ele.component;
+        item.name = ele.name;
         item.meta = ele.meta;
       }
       if (children && children.length && ele.children && ele.children.length) {
@@ -55,14 +56,17 @@ function mapDynamicRouter(arr1 = [], arr2 = []) {
 const list = [
   {
     url: '/test',
+    name: 'test',
     children: [
       {
-        url: '/test1'
+        url: '/test1',
+        name: 'test1'
       }
     ]
   },
   {
-    url: '/about'
+    url: '/about',
+    name: 'about',
   }
 ];
 
@@ -75,6 +79,7 @@ const menuTree = JSON.stringify(mapDynamicRouterArr);
 const otherRouter = [
   {
     path: '/',
+    name: 'albumdefault',
     redirect: '/album'
   },
   {
