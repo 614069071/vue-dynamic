@@ -9,6 +9,8 @@ import './css/common.scss';
 
 Vue.use(ElementUI);
 
+Vue.prototype.$ELEMENT = { size: 'mini', zIndex: 3000 };
+
 Vue.config.productionTip = false
 
 router.beforeEach((to, from, next) => {

@@ -16,12 +16,11 @@
 .ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap
+  white-space: nowrap;
 }
 
 // 自定义scrollbar
 .scrollbar {
-
   /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
   &::-webkit-scrollbar {
     width: 10px;
