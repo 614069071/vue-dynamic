@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import router, { dynamicRouter } from '@/router'
 import E404 from '@/views/E404'
-const Home = () => import(/* webpackChunkName: "test" */ '@/views/Home.vue')
+const Layout = () => import(/* webpackChunkName: "test" */ '@/views/Layout.vue')
 
 
 // 将后台返回的菜单列表数据map成新的路由
@@ -88,7 +88,7 @@ const dynamicRouterHome = [
   {
     path: '/',
     name: 'layout',
-    component: Home,
+    component: Layout,
     meta: {
       name: '首页'
     },
@@ -115,7 +115,6 @@ export default new Vuex.Store({
       state.hasPermission = data;
     },
     setBreadcrumbRouter(state, data = []) {
-      console.log(data, 'setBreadcrumbRouter');
       state.breadcrumbRouter = data;
     }
   }

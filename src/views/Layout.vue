@@ -2,7 +2,6 @@
 	<div class="layout-wrap">
 		<header class="header">
 			Header
-			<el-button @click="toggle = !toggle">toggle</el-button>
 		</header>
 		<section class="content">
 			<div class="aside  clear-scroll-bar">
@@ -11,16 +10,21 @@
 			</div>
 
 			<div class="main">
-				<el-breadcrumb class="breadcrumb-wrap" separator="/">
-					<transition-group name="breadcrumb">
-						<!-- 防止面包屑导航出现 首页/首页， v-if="route.name!='home'" -->
-						<template v-for="(route,i) in breadcrumbRouter">
-							<el-breadcrumb-item :key="route.name" v-if="route.name!='home' && route.meta.name!='首页'" :class="{'is-last-link':i==breadcrumbRouter.length-1}">
-								{{route.meta.name}}
-							</el-breadcrumb-item>
-						</template>
-					</transition-group>
-				</el-breadcrumb>
+				<div class="breadcrumb-wrap">
+					<div class="menu-toggle-btn" :class="{active:toggle}" @click="toggle = !toggle">
+						<span class="menu-icon"></span>
+					</div>
+					<el-breadcrumb separator="/">
+						<transition-group name="breadcrumb">
+							<!-- 防止面包屑导航出现 首页/首页， v-if="route.name!='home'" -->
+							<template v-for="(route,i) in breadcrumbRouter">
+								<el-breadcrumb-item :key="route.name" v-if="route.name!='home' && route.meta.name!='首页'" :class="{'is-last-link':i==breadcrumbRouter.length-1}">
+									{{route.meta.name}}
+								</el-breadcrumb-item>
+							</template>
+						</transition-group>
+					</el-breadcrumb>
+				</div>
 				<router-view></router-view>
 			</div>
 		</section>
@@ -61,7 +65,6 @@ export default {
 	height: 100%;
 	display: flex;
 	flex-direction: column;
-	background-color: #eee;
 }
 
 .header {
@@ -74,7 +77,7 @@ export default {
 
 .content {
 	flex: 1;
-	background-color: #eee;
+	background-color: #fff;
 	display: flex;
 	overflow: hidden;
 	.aside {
@@ -87,6 +90,9 @@ export default {
 		background-color: #ccc;
 		text-align: center;
 		overflow: auto;
+		box-sizing: border-box;
+		padding-top: 30px;
+		position: relative;
 	}
 }
 
@@ -95,7 +101,11 @@ export default {
 	height: 30px;
 	display: flex;
 	align-items: center;
-	background-color: #aeaeae;
+	background-color: #eee;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 10;
 	&.el-breadcrumb {
 		// display: inline-block;
 		// vertical-align: middle;
@@ -111,6 +121,50 @@ export default {
 		.is-last-link .is-link {
 			font-weight: normal;
 			color: #999 !important;
+		}
+	}
+
+	.menu-toggle-btn {
+		width: 30px;
+		height: 30px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transform: 0.2s;
+		margin-right: 10px;
+		&.active {
+			transform: rotate(90deg);
+		}
+	}
+
+	.menu-icon {
+		$h: 7px;
+		$c: #666;
+
+		width: 20px;
+		height: 3px;
+		background-color: $c;
+		position: relative;
+		cursor: pointer;
+		display: block;
+
+		&::after,
+		&::before {
+			content: '';
+			display: block;
+			width: 20px;
+			height: 3px;
+			background-color: $c;
+			position: absolute;
+			left: 0;
+		}
+
+		&::after {
+			top: $h;
+		}
+
+		&::before {
+			top: -$h;
 		}
 	}
 }
