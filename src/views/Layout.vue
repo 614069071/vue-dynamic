@@ -1,15 +1,15 @@
 <template>
 	<div class="layout-wrap">
-		<header class="header">
+		<header class="layout-header">
 			Header
 		</header>
-		<section class="content">
-			<div class="aside  clear-scroll-bar">
+		<section class="layout-content">
+			<div class="layout-content-aside  clear-scroll-bar">
 				<!-- <MenuTree :collapse="toggle" /> -->
 				<Menu :list="list" :collapse="toggle"></Menu>
 			</div>
 
-			<div class="main">
+			<div class="layout-content-main">
 				<div class="breadcrumb-wrap">
 					<div class="menu-toggle-btn" :class="{active:toggle}" @click="toggle = !toggle">
 						<span class="menu-icon"></span>
@@ -62,30 +62,30 @@ export default {
 
 <style lang="scss" scoped>
 .layout-wrap {
-	height: 100%;
+	height: 100vh;
 	display: flex;
 	flex-direction: column;
 }
 
-.header {
-	height: 100px;
-	line-height: 100px;
+.layout-header {
+	height: 50px;
+	display: flex;
+	align-items: center;
 	background-color: #ccc;
 	margin-bottom: 6px;
-	text-align: center;
 }
 
-.content {
+.layout-content {
 	flex: 1;
 	background-color: #fff;
 	display: flex;
 	overflow: hidden;
-	.aside {
+	.layout-content-aside {
 		height: 100%;
 		margin-right: 6px;
 		overflow: auto;
 	}
-	.main {
+	.layout-content-main {
 		flex: 1;
 		background-color: #ccc;
 		text-align: center;
