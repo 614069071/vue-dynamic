@@ -25,7 +25,9 @@
 						</transition-group>
 					</el-breadcrumb>
 				</div>
-				<router-view></router-view>
+				<div class="page-wrap-content">
+					<router-view></router-view>
+				</div>
 			</div>
 		</section>
 	</div>
@@ -167,5 +169,11 @@ export default {
 			top: -$h;
 		}
 	}
+}
+
+.page-wrap-content {
+	height: 100%;
+	overflow-x: hidden;
+	overflow-y: scroll;
 }
 </style>
