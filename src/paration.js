@@ -1,11 +1,12 @@
 import Vue from 'vue';
-import { Dialog, Message, Button, Form, FormItem, Input } from 'element-ui';
-import Request from '@/fetch';
+// import { Dialog, Message, Button, Form, FormItem, Input } from 'element-ui';
+import store from '@/store';
 import router from '@/router';
+import Request from '@/fetch';
+import ElementUI, { Message } from 'element-ui';
 
 import 'element-ui/lib/theme-chalk/index.css';
 import 'normalize.css';
-import '@/css/base.css';
 
 let files = require.context('@/components', false, /\.vue$/);
 files.keys().forEach(path => {
@@ -22,14 +23,30 @@ Message.install = function (Vue, options) {
 
 const paration = {
   install(Vue, options) {
-    Vue.use(Dialog).use(Message).use(Button).use(Form).use(FormItem).use(Input);
+    Vue.use(ElementUI);
     Vue.prototype.$axios = Request;
   }
 };
 /* eslint-enable*/
 
+Vue.prototype.$ELEMENT = { size: 'mini', zIndex: 3000 };
+
+Vue.config.productionTip = false
+
 router.beforeEach((to, from, next) => {
-  next();
+  console.log(to, from, 'to');
+  if (!store.state.hasPermission) {
+    store.commit('setPermission', true);
+    next({ ...to, replace: true });
+  } else {
+    next();
+  }
+})
+
+router.afterEach(to => {
+  var routerList = to.matched
+  store.commit('setBreadcrumbRouter', routerList);
+  store.commit('setRouterDefaultActive', to.name)
 })
 
 export default paration;
