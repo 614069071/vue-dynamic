@@ -1,9 +1,9 @@
 import Vue from 'vue';
-// import { Dialog, Message, Button, Form, FormItem, Input } from 'element-ui';
 import store from '@/store';
 import router from '@/router';
 import Request from '@/fetch';
 import ElementUI, { Message } from 'element-ui';
+// import { Dialog, Message, Button, Form, FormItem, Input } from 'element-ui';
 
 import 'element-ui/lib/theme-chalk/index.css';
 import 'normalize.css';
@@ -45,7 +45,7 @@ router.beforeEach((to, from, next) => {
 router.afterEach(to => {
   var routerList = to.matched
   store.commit('setBreadcrumbRouter', routerList);
-  store.commit('setRouterDefaultActive', to.name)
+  store.commit('setRouterDefaultActive', to.name);
 })
 
 export default paration;
