@@ -96,7 +96,6 @@ const dynamicRouterHome = [
   },
   ...otherRouter
 ];
-console.log(dynamicRouterHome, 'mapDynamicRouterArr');
 
 localStorage.setItem('menuTree', menuTree);
 

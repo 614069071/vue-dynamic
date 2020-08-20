@@ -34,7 +34,6 @@ Vue.prototype.$ELEMENT = { size: 'mini', zIndex: 3000 };
 Vue.config.productionTip = false
 
 router.beforeEach((to, from, next) => {
-  console.log(to, from, 'to');
   if (!store.state.hasPermission) {
     store.commit('setPermission', true);
     next({ ...to, replace: true });

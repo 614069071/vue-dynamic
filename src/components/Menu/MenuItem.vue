@@ -27,7 +27,6 @@ export default {
 	},
 	methods: {
 		gotoRoute(path) {
-			console.log(this.$route.matched);
 			this.$router.push(path);
 			// this.$store.commit('setBreadcrumbRouter', this.$route.matched);
 		},

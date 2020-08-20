@@ -53,7 +53,6 @@ export default {
 
 		const menuTree = JSON.parse(cacheMenuTree);
 		this.list = menuTree;
-		console.log(menuTree, 'menuTree');
 	},
 	computed: {
 		...mapState(['breadcrumbRouter']),
