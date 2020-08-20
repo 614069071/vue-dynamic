@@ -14,12 +14,21 @@ Vue.prototype.$ELEMENT = { size: 'mini', zIndex: 3000 };
 Vue.config.productionTip = false
 
 router.beforeEach((to, from, next) => {
+  console.log(to, from, 'to');
   if (!store.state.hasPermission) {
     store.commit('setPermission', true);
     next({ ...to, replace: true });
   } else {
     next();
   }
+})
+
+router.afterEach((to, from) => {
+  console.log(to, 'afterEach');
+  var routerList = to.matched
+  console.log(routerList);
+  store.commit('setBreadcrumbRouter', routerList);
+  store.commit('setRouterDefaultActive', to.name)
 })
 
 new Vue({

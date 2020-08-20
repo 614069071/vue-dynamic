@@ -6,7 +6,7 @@
 		<section class="layout-content">
 			<div class="layout-content-aside  clear-scroll-bar">
 				<!-- <MenuTree :collapse="toggle" /> -->
-				<Menu :list="list" :collapse="toggle"></Menu>
+				<Menu :list="list" :collapse="toggle" :defaultActive="$store.state.routerDefaultActive"></Menu>
 			</div>
 
 			<div class="layout-content-main">
@@ -53,7 +53,7 @@ export default {
 
 		const menuTree = JSON.parse(cacheMenuTree);
 		this.list = menuTree;
-		// console.log(menuTree, 'menuTree');
+		console.log(menuTree, 'menuTree');
 	},
 	computed: {
 		...mapState(['breadcrumbRouter']),

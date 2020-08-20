@@ -96,7 +96,7 @@ const dynamicRouterHome = [
   },
   ...otherRouter
 ];
-console.log(mapDynamicRouterArr, 'mapDynamicRouterArr');
+console.log(dynamicRouterHome, 'mapDynamicRouterArr');
 
 localStorage.setItem('menuTree', menuTree);
 
@@ -107,7 +107,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     hasPermission: false,
-    breadcrumbRouter: []
+    breadcrumbRouter: [],
+    routerDefaultActive: ''
   },
   mutations: {
     setPermission(state, data = '') {
@@ -116,6 +117,9 @@ export default new Vuex.Store({
     },
     setBreadcrumbRouter(state, data = []) {
       state.breadcrumbRouter = data;
+    },
+    setRouterDefaultActive(state, data = '') {
+      state.routerDefaultActive = data;
     }
   }
 })
