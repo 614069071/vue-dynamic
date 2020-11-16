@@ -111,6 +111,7 @@ export default {
 
 <style scoped>
 .sidebar {
+	overflow-x: hidden;
 	overflow-y: scroll;
 	height: 100%;
 }

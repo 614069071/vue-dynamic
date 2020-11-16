@@ -16,13 +16,13 @@
 						<transition-group name="breadcrumb">
 							<template v-for="(route,i) in breadcrumbRouter">
 								<el-breadcrumb-item :key="route.name" v-if="route.name!='home' && route.meta.name!='首页'" :class="{'is-last-link':i==breadcrumbRouter.length-1}">
-									{{route.meta.name}}
+									{{route.name}}
 								</el-breadcrumb-item>
 							</template>
 						</transition-group>
 					</el-breadcrumb>
 				</div>
-				<div class="page-wrap-content">
+				<div class="page-wrap-content scrollbar">
 					<router-view></router-view>
 				</div>
 			</div>
@@ -72,13 +72,10 @@ export default {
 	}
 	.layout-content-main {
 		flex: 1;
-		// display: none;
 		background-color: #ccc;
-		text-align: center;
-		overflow: auto;
 		box-sizing: border-box;
-		padding-top: 30px;
-		position: relative;
+		display: flex;
+		flex-direction: column;
 	}
 }
 
@@ -88,9 +85,6 @@ export default {
 	display: flex;
 	align-items: center;
 	background-color: #eee;
-	position: absolute;
-	left: 0;
-	top: 0;
 	z-index: 10;
 	&.el-breadcrumb {
 		// display: inline-block;
@@ -156,8 +150,7 @@ export default {
 }
 
 .page-wrap-content {
-	height: 100%;
+	flex: 1;
 	overflow-x: hidden;
-	overflow-y: scroll;
 }
 </style>
