@@ -15,18 +15,16 @@ files.keys().forEach(path => {
   Vue.component(componentName, componentDefault);
 })
 
+Vue.prototype.$ELEMENT = { size: 'mini' };
 /* eslint-disable */
 Message.install = function (Vue, options) {
   Vue.prototype.$message = Message;
-  Vue.prototype.$ELEMENT = { size: 'mini' };
 };
 
-const paration = {
-  install(Vue, options) {
-    Vue.use(ElementUI);
-    Vue.prototype.$axios = Request;
-  }
-};
+const paration = (Vue, options) => {
+  Vue.use(ElementUI);
+  Vue.prototype.$axios = Request;
+}
 /* eslint-enable*/
 
 Vue.prototype.$ELEMENT = { size: 'mini', zIndex: 3000 };
