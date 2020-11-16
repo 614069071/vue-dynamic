@@ -3,7 +3,7 @@ import store from '@/store';
 import router from '@/router';
 import Request from '@/fetch';
 import ElementUI, { Message } from 'element-ui';
-// import { Dialog, Message, Button, Form, FormItem, Input } from 'element-ui';
+Vue.use(ElementUI);
 
 import 'element-ui/lib/theme-chalk/index.css';
 import 'normalize.css';
@@ -15,14 +15,12 @@ files.keys().forEach(path => {
   Vue.component(componentName, componentDefault);
 })
 
-Vue.prototype.$ELEMENT = { size: 'mini' };
 /* eslint-disable */
 Message.install = function (Vue, options) {
   Vue.prototype.$message = Message;
 };
 
 const paration = (Vue, options) => {
-  Vue.use(ElementUI);
   Vue.prototype.$axios = Request;
 }
 /* eslint-enable*/
@@ -42,13 +40,8 @@ router.beforeEach((to, from, next) => {
 
 router.afterEach(to => {
   var routerList = to.matched
-<<<<<<< HEAD
   store.commit('setBreadcrumbRouter', routerList);//分页导航
   store.commit('setRouterDefaultActive', to.name);//上一次打开的菜单
-=======
-  store.commit('setBreadcrumbRouter', routerList);
-  store.commit('setRouterDefaultActive', to.name);
->>>>>>> a98894a... u
 })
 
 export default paration;
