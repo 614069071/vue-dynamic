@@ -31,7 +31,6 @@
 <script>
 export default {
 	name: 'side-bar',
-	props: ['collapse'],
 	props: {
 		collapse: { type: Boolean },
 	},
