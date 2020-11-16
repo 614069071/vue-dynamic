@@ -3,22 +3,17 @@
 		<header class="layout-header">
 			Header
 		</header>
-		<section class="layout-content">
-			<div class="layout-content-aside  clear-scroll-bar">
-				<!-- <MenuTree :collapse="toggle" /> -->
-				<!-- <Menu :list="list" :collapse="toggle" :defaultActive="$store.state.routerDefaultActive"></Menu> -->
 
-				<SideBar :list="list" :collapse="toggle"></SideBar>
-			</div>
+		<section class="layout-content">
+			<side-bar class="layout-content-aside  clear-scroll-bar" :collapse="barCollapse"></side-bar>
 
 			<div class="layout-content-main">
 				<div class="breadcrumb-wrap">
-					<div class="menu-toggle-btn" :class="{active:toggle}" @click="toggle = !toggle">
+					<div class="menu-toggle-btn" :class="{active:barCollapse}" @click="barCollapse = !barCollapse">
 						<span class="menu-icon"></span>
 					</div>
 					<el-breadcrumb separator="/">
 						<transition-group name="breadcrumb">
-							<!-- 防止面包屑导航出现 首页/首页， v-if="route.name!='home'" -->
 							<template v-for="(route,i) in breadcrumbRouter">
 								<el-breadcrumb-item :key="route.name" v-if="route.name!='home' && route.meta.name!='首页'" :class="{'is-last-link':i==breadcrumbRouter.length-1}">
 									{{route.meta.name}}
@@ -41,19 +36,10 @@ export default {
 	components: {},
 	data() {
 		return {
-			list: [],
-			toggle: false,
+			barCollapse: false,
 		};
 	},
-	created() {
-		const index = sessionStorage.getItem('defaultActive') || '';
-		this.defaultActive = index;
-
-		const cacheMenuTree = localStorage.getItem('menuTree') || '[]';
-
-		const menuTree = JSON.parse(cacheMenuTree);
-		this.list = menuTree;
-	},
+	created() {},
 	computed: {
 		...mapState(['breadcrumbRouter']),
 	},
@@ -82,13 +68,11 @@ export default {
 	display: flex;
 	overflow: hidden;
 	.layout-content-aside {
-		height: 100%;
-		// width: 200px;
 		margin-right: 6px;
-		// overflow: auto;
 	}
 	.layout-content-main {
 		flex: 1;
+		// display: none;
 		background-color: #ccc;
 		text-align: center;
 		overflow: auto;
@@ -134,6 +118,7 @@ export default {
 		justify-content: center;
 		transition: all 0.25s;
 		margin-right: 10px;
+		cursor: pointer;
 		&.active {
 			transform: rotate(90deg);
 		}
@@ -147,7 +132,6 @@ export default {
 		height: 3px;
 		background-color: $c;
 		position: relative;
-		cursor: pointer;
 		display: block;
 
 		&::after,
