@@ -5,6 +5,7 @@
 		</header>
 
 		<section class="layout-content">
+			<!-- 若无必要，不要使用折叠，bug => 折叠时，hover菜单会造成内存溢出 -->
 			<side-bar class="layout-content-aside  clear-scroll-bar" :collapse="barCollapse"></side-bar>
 
 			<div class="layout-content-main">
@@ -36,13 +37,13 @@ export default {
 	components: {},
 	data() {
 		return {
-			barCollapse: false,
+			barCollapse: false
 		};
 	},
 	created() {},
 	computed: {
-		...mapState(['breadcrumbRouter']),
-	},
+		...mapState(['breadcrumbRouter'])
+	}
 };
 </script>
 
