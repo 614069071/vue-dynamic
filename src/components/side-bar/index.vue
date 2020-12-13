@@ -1,5 +1,3 @@
-
-
 <template>
 	<div class="sidebar">
 		<el-menu class="sidebar-el-menu" :default-active="onRoutes" background-color="#324157" text-color="#bfcbd9" active-text-color="#20a0ff" unique-opened :collapse="collapse">
@@ -13,7 +11,7 @@ import MiddleMenu from './middle-menu';
 export default {
 	name: 'side-bar',
 	props: {
-		collapse: { type: Boolean } //若无必要，不要使用折叠，bug => 折叠时，hover菜单会造成内存溢出
+		collapse: { type: Boolean }
 	},
 	components: { MiddleMenu },
 	data() {
@@ -59,17 +57,17 @@ export default {
 								},
 								{
 									title: 'markdown编辑器',
-									meta: {}
-									// children: [
-									// 	{
-									// 		title: '权限测试',
-									// 		meta: {}
-									// 	},
-									// 	{
-									// 		title: '404页面',
-									// 		meta: {}
-									// 	}
-									// ]
+									meta: {},
+									children: [
+										{
+											title: '权限测试',
+											meta: {}
+										},
+										{
+											title: '404页面',
+											meta: {}
+										}
+									]
 								}
 							]
 						}
@@ -104,17 +102,33 @@ export default {
 	overflow-x: hidden;
 	overflow-y: scroll;
 	height: 100%;
-}
-.sidebar::-webkit-scrollbar {
-	width: 0;
-}
-.sidebar-el-menu:not(.el-menu--collapse) {
-	width: 230px;
-	// min-width: 230px;该写法，内容会自动撑开，但收起动画会不流畅
-}
 
-.sidebar ul {
-	height: 100%;
+	&::-webkit-scrollbar {
+		width: 0;
+	}
+
+	.sidebar-el-menu:not(.el-menu--collapse) {
+		width: 230px;
+		// min-width: 230px; //该写法，内容会自动撑开，但收起动画会不流畅
+	}
+
+	ul {
+		height: 100%;
+	}
+
+	// 该样式用于解决菜单折叠时 内存溢出bug
+	.el-menu--collapse > div > .el-submenu > .el-submenu__title {
+		span {
+			height: 0;
+			width: 0;
+			overflow: hidden;
+			visibility: hidden;
+			display: inline-block;
+		}
+		.el-submenu__icon-arrow {
+			display: none;
+		}
+	}
 }
 </style>
 
