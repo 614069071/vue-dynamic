@@ -33,8 +33,10 @@
 
 <script>
 import { mapState } from 'vuex';
+import SideBar from '@components/side-bar';
+
 export default {
-	components: {},
+	components: { SideBar },
 	data() {
 		return {
 			barCollapse: false
