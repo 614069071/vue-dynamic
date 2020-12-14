@@ -27,7 +27,7 @@ export default {
 				{
 					icon: '',
 					title: '错误处理',
-					icon: 'el-icon-menu',
+					icon: 'el-icon-warning',
 					meta: {},
 					children: [
 						{
@@ -43,7 +43,7 @@ export default {
 				{
 					icon: '',
 					title: '表单相关',
-					icon: 'el-icon-menu',
+					icon: 'el-icon-s-data',
 					meta: {},
 					children: [
 						{
