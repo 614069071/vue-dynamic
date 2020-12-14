@@ -21,11 +21,13 @@ export default {
 				{
 					icon: '',
 					title: '系统首页',
+					icon: 'el-icon-menu',
 					meta: {}
 				},
 				{
 					icon: '',
 					title: '错误处理',
+					icon: 'el-icon-menu',
 					meta: {},
 					children: [
 						{
@@ -41,6 +43,7 @@ export default {
 				{
 					icon: '',
 					title: '表单相关',
+					icon: 'el-icon-menu',
 					meta: {},
 					children: [
 						{
@@ -108,8 +111,8 @@ export default {
 	}
 
 	.sidebar-el-menu:not(.el-menu--collapse) {
-		width: 230px;
-		// min-width: 230px; //该写法，内容会自动撑开，但收起动画会不流畅
+		width: 210px;
+		// min-width: 210px; //该写法，内容会自动撑开，但收起动画会不流畅
 	}
 
 	ul {

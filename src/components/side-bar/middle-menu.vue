@@ -4,7 +4,7 @@
 		<component :is='(model.children && model.children.length) ? "el-submenu":"el-menu-item"' :index="model.meta.index">
 			<template v-if='model.children && model.children.length'>
 				<template slot='title'>
-					<i :class="model.icon || 'el-icon-menu'"></i>
+					<i v-if="model.icon" :class="model.icon"></i>
 					<span slot='title'>{{model.title}}</span>
 				</template>
 
@@ -14,7 +14,7 @@
 			</template>
 
 			<template v-else>
-				<i :class="model.icon || 'el-icon-menu'"> </i>
+				<i v-if="model.icon" :class="model.icon"></i>
 				<span slot='title'> {{model.title}}</span>
 			</template>
 		</component>
