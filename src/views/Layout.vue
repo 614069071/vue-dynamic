@@ -50,6 +50,7 @@ export default {
 
 
 <style lang="scss" scoped>
+$mr: 6px;
 .layout-wrap {
 	height: 100vh;
 	display: flex;
@@ -61,7 +62,7 @@ export default {
 	display: flex;
 	align-items: center;
 	background-color: #ccc;
-	margin-bottom: 6px;
+	margin-bottom: $mr;
 }
 
 .layout-content {
@@ -70,7 +71,7 @@ export default {
 	display: flex;
 	overflow: hidden;
 	.layout-content-aside {
-		margin-right: 6px;
+		margin-right: $mr;
 	}
 	.layout-content-main {
 		flex: 1;
