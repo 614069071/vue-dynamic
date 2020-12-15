@@ -101,23 +101,23 @@ $mr: 6px;
 	align-items: center;
 	background-color: #eee;
 	z-index: 10;
-	&.el-breadcrumb {
-		// display: inline-block;
-		// vertical-align: middle;
-		// font-size: 14px;
-		// margin-left: 5px;
-		// .el-breadcrumb__inner {
-		// 	&.is-link {
-		// 		display: inline-block;
-		// 		font-weight: normal;
-		// 		color: #424040 !important;
-		// 	}
-		// }
-		// .is-last-link .is-link {
-		// 	font-weight: normal;
-		// 	color: #999 !important;
-		// }
-	}
+	// &.el-breadcrumb {
+	// display: inline-block;
+	// vertical-align: middle;
+	// font-size: 14px;
+	// margin-left: 5px;
+	// .el-breadcrumb__inner {
+	// 	&.is-link {
+	// 		display: inline-block;
+	// 		font-weight: normal;
+	// 		color: #424040 !important;
+	// 	}
+	// }
+	// .is-last-link .is-link {
+	// 	font-weight: normal;
+	// 	color: #999 !important;
+	// }
+	// }
 
 	.menu-toggle-btn {
 		width: 30px;
