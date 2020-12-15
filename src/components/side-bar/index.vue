@@ -25,57 +25,54 @@ export default {
 		mapMenuTree() {
 			const items = [
 				{
-					title: this.$t('menu.ResourceManage'),
+					title: '生产系统',
 					icon: 'el-icon-menu',
-					meta: {},
-				},
-				{
-					title: this.$t('menu.TopicManage'),
-					icon: 'el-icon-warning',
 					meta: {},
 					children: [
 						{
-							title: '权限测试',
-							meta: {},
-						},
-						{
-							title: '404页面',
+							title: '订单管理',
 							meta: {},
 						},
 					],
 				},
 				{
-					title: this.$t('menu.CommentsManage'),
-					icon: 'el-icon-s-data',
+					title: '产品系统',
+					icon: 'el-icon-cloudy',
 					meta: {},
 					children: [
 						{
-							title: '基本表单',
+							title: '产品管理',
 							meta: {},
 						},
 						{
-							title: '三级菜单',
+							title: '软件更新',
 							meta: {},
-							children: [
-								{
-									title: '富文本编辑器',
-									meta: {},
-								},
-								{
-									title: 'markdown编辑器',
-									meta: {},
-									children: [
-										{
-											title: '权限测试',
-											meta: {},
-										},
-										{
-											title: '404页面',
-											meta: {},
-										},
-									],
-								},
-							],
+						},
+					],
+				},
+				{
+					title: '客户系统',
+					icon: 'el-icon-user-solid',
+					meta: {},
+					children: [
+						{
+							title: '客户管理',
+							meta: {},
+						},
+					],
+				},
+				{
+					title: '设置管理',
+					icon: 'el-icon-setting',
+					meta: {},
+					children: [
+						{
+							title: '修改密码',
+							meta: {},
+						},
+						{
+							title: '退出系统',
+							meta: {},
 						},
 					],
 				},
