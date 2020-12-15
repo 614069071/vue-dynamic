@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import router, { dynamicRouter } from '@/router'
-import E404 from '@/views/E404'
-const Layout = () => import(/* webpackChunkName: "test" */ '@/views/Layout.vue')
+import router, { dynamicRouter, otherRouter } from '@/router'
+const Layout = () => import(/* webpackChunkName: "test" */ '@/views/layout.vue')
 
 
 // 将后台返回的菜单列表数据map成新的路由
@@ -71,18 +70,8 @@ const list = [
 ];
 
 
-
 const mapDynamicRouterArr = mapDynamicRouter(list, dynamicRouter);
 const menuTree = JSON.stringify(mapDynamicRouterArr);
-
-// 其他路由
-const otherRouter = [
-  {
-    path: '*',
-    name: 'E404',
-    component: E404
-  }
-]
 
 const dynamicRouterHome = [
   {

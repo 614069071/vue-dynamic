@@ -13,10 +13,10 @@
 				</template>
 			</template>
 
-			<template v-else>
+			<router-link v-else slot='title' :to="model.url || ''">
 				<i v-if="model.icon" :class="model.icon"></i>
-				<span slot='title'> {{model.title}}</span>
-			</template>
+				<span>{{model.title}}</span>
+			</router-link>
 		</component>
 	</div>
 </template>
@@ -26,8 +26,14 @@ export default {
 	props: {
 		model: {
 			type: Object,
-			required: true
-		}
-	}
+			required: true,
+		},
+	},
 };
 </script>
+
+<style scoped>
+.el-menu-item a {
+	display: block;
+}
+</style>

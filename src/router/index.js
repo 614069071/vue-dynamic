@@ -22,11 +22,6 @@ const routes = [
     name: 'Login',
     component: Login
   },
-  {
-    path: '/album',
-    name: 'Album',
-    component: () => import(/* webpackChunkName: "test" */ '@/views/Album/Album')
-  }
 ]
 
 export const dynamicRouter = [
@@ -58,6 +53,51 @@ export const dynamicRouter = [
   }
 ];
 
-const router = new VueRouter({ routes })
+export const dynamicStRouter = [
+  {
+    path: '/',
+    name: 'layout',
+    component: () => import(/* webpackChunkName: "test" */ '@/views/layout'),
+    meta: {
+      name: '首页'
+    },
+    children: [
+      {
+        path: '/',
+        name: 'welcome',
+        component: () => import(/* webpackChunkName: "test" */ '@/views/welcome'),
+        meta: {
+          name: '首页'
+        }
+      },
+      {
+        path: '/product',
+        name: 'product',
+        component: () => import(/* webpackChunkName: "test" */ '@/views/product/index'),
+        meta: { name: '生产系统' },
+        children: [
+          {
+            path: '/product/order',
+            name: 'order',
+            component: () => import(/* webpackChunkName: "test" */ '@/views/product/order'),
+            meta: { name: '订单管理' },
+          }
+        ]
+      },
+    ]
+  },
+
+];
+
+// 其他路由
+export const otherRouter = [
+  {
+    path: '*',
+    name: 'E404',
+    component: import(/* webpackChunkName: "test" */ '@/views/E404')
+  }
+]
+
+const router = new VueRouter({ routes: [...routes, ...dynamicStRouter] })
 
 export default router
