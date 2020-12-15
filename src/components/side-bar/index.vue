@@ -1,7 +1,7 @@
 <template>
 	<div class="sidebar">
 		<el-menu class="sidebar-el-menu" :default-active="onRoutes" background-color="#324157" text-color="#bfcbd9" active-text-color="#20a0ff" unique-opened :collapse="collapse">
-			<middle-menu v-for='item in items' :model='item' :key='item.meta.index' />
+			<middle-menu v-for='item in mapMenuTree' :model='item' :key='item.meta.index' />
 		</el-menu>
 	</div>
 </template>
@@ -15,16 +15,22 @@ export default {
 	},
 	components: { MiddleMenu },
 	data() {
-		return {
-			//模拟菜单
-			items: [
+		return {};
+	},
+	computed: {
+		onRoutes() {
+			//默认选中菜单
+			return '1-0';
+		},
+		mapMenuTree() {
+			const items = [
 				{
-					title: '资源管理',
+					title: this.$t('menu.ResourceManage'),
 					icon: 'el-icon-menu',
 					meta: {},
 				},
 				{
-					title: '话题管理',
+					title: this.$t('menu.TopicManage'),
 					icon: 'el-icon-warning',
 					meta: {},
 					children: [
@@ -39,7 +45,7 @@ export default {
 					],
 				},
 				{
-					title: '评论管理',
+					title: this.$t('menu.CommentsManage'),
 					icon: 'el-icon-s-data',
 					meta: {},
 					children: [
@@ -73,26 +79,20 @@ export default {
 						},
 					],
 				},
-			],
-		};
-	},
-	computed: {
-		onRoutes() {
-			//默认选中菜单
-			return '1-0';
-		},
-	},
-	created() {
-		function deal(arr, pre) {
-			arr.forEach((e, i) => {
-				e.meta.index = pre ? `${pre}-${i}` : `${i}`;
-				if (e.children && e.children.length) {
-					deal(e.children, e.meta.index);
-				}
-			});
-		}
+			];
 
-		deal(this.items);
+			function deal(arr, pre) {
+				arr.forEach((e, i) => {
+					e.meta.index = pre ? `${pre}-${i}` : `${i}`;
+					if (e.children && e.children.length) {
+						deal(e.children, e.meta.index);
+					}
+				});
+			}
+
+			deal(items);
+			return items;
+		},
 	},
 };
 </script>
