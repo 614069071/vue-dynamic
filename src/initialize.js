@@ -14,13 +14,15 @@ Vue.prototype.$axios = Request;
 Vue.prototype.$ELEMENT = { size: 'mini', zIndex: 3000 };
 Vue.config.productionTip = false
 
-const files = require.context('@components', false, /\.vue$/);
+// const files = require.context('@components', false, /\.vue$/);
 
-files.keys().forEach(path => {
-  const instance = files(path).default;
-  const name = path.split(".")[1].slice(1);
-  Vue.component(name, instance);
-});
+// files.keys().forEach(path => {
+//   const instance = files(path).default;
+//   const name = path.split(".")[1].slice(1);
+//   Vue.component(name, instance);
+// });
+
+
 
 /* eslint-disable */
 Message.install = vm => {

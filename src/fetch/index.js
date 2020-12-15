@@ -1,4 +1,6 @@
 import axios from './axios';
 import api from './api';
 
-export const login = data => axios.post(api.login, data);
+export default {
+  login: data => axios.post(api.login, data)
+} 

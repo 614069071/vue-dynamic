@@ -1,8 +1,10 @@
 <template>
 	<div class="layout-wrap">
 		<header class="layout-header">
-			<h2 class="header-left">后台管理系统</h2>
-			<div class="header-right">设置</div>
+			<h2 class="header-left">{{$t('manageSystem')}}</h2>
+			<div class="header-right">
+				<el-button @click="switchLanguage">{{language}}</el-button>
+			</div>
 		</header>
 
 		<section class="layout-content">
@@ -23,9 +25,10 @@
 						</transition-group>
 					</el-breadcrumb>
 				</div>
-				<div class="page-wrap-content scrollbar">
+
+				<main class="page-wrap-content scrollbar">
 					<router-view></router-view>
-				</div>
+				</main>
 			</div>
 		</section>
 	</div>
@@ -45,6 +48,16 @@ export default {
 	created() {},
 	computed: {
 		...mapState(['breadcrumbRouter']),
+		language() {
+			const locale = this.$i18n.locale;
+			const lang = { zh: 'English', en: '中文' };
+			return lang[locale];
+		},
+	},
+	methods: {
+		switchLanguage() {
+			this.$i18n.locale = this.$i18n.locale === 'en' ? 'zh' : 'en';
+		},
 	},
 };
 </script>
