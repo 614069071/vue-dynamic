@@ -1,7 +1,8 @@
 <template>
 	<div class="layout-wrap">
 		<header class="layout-header">
-			Header
+			<h2 class="header-left">后台管理系统</h2>
+			<div class="header-right">设置</div>
 		</header>
 
 		<section class="layout-content">
@@ -38,13 +39,13 @@ export default {
 	components: { SideBar },
 	data() {
 		return {
-			barCollapse: false
+			barCollapse: false,
 		};
 	},
 	created() {},
 	computed: {
-		...mapState(['breadcrumbRouter'])
-	}
+		...mapState(['breadcrumbRouter']),
+	},
 };
 </script>
 
@@ -61,8 +62,14 @@ $mr: 6px;
 	height: 50px;
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 	background-color: #ccc;
 	margin-bottom: $mr;
+	padding: 0 20px;
+}
+.header-left {
+	font-size: 18px;
+	font-weight: bold;
 }
 
 .layout-content {

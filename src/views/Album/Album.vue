@@ -1,28 +1,28 @@
 <template>
-  <div class="content">
-    <div class="list list1">
-      <div class="item"></div>
-      <div class="item"></div>
-      <div class="item"></div>
-      <div class="item"></div>
-    </div>
+	<div class="content">
+		<div class="list list1">
+			<div class="item"></div>
+			<div class="item"></div>
+			<div class="item"></div>
+			<div class="item"></div>
+		</div>
 
-    <div class="list list2">
-      <div class="item"></div>
-      <div class="item"></div>
-      <div class="item"></div>
-      <div class="item"></div>
-    </div>
-  </div>
+		<div class="list list2">
+			<div class="item"></div>
+			<div class="item"></div>
+			<div class="item"></div>
+			<div class="item"></div>
+		</div>
+	</div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {};
-  },
-  created() {},
-  methods: {}
+	data() {
+		return {};
+	},
+	created() {},
+	methods: {},
 };
 </script>
 
@@ -86,12 +86,12 @@ export default {
 // }
 
 @keyframes rotate1 {
-  0% {
-    transform: rotateY(0);
-  }
-  100% {
-    transform: rotateY(360deg);
-  }
+	0% {
+		transform: rotateY(0);
+	}
+	100% {
+		transform: rotateY(360deg);
+	}
 }
 
 // .list .item:nth-child(1) {
@@ -126,5 +126,4 @@ export default {
 // .content div.item:nth-of-type(7) {
 //   background-color: #eee !important;
 // }
-
 </style>

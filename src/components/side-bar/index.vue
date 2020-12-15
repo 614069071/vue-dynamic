@@ -11,7 +11,7 @@ import MiddleMenu from './middle-menu';
 export default {
 	name: 'side-bar',
 	props: {
-		collapse: { type: Boolean }
+		collapse: { type: Boolean },
 	},
 	components: { MiddleMenu },
 	data() {
@@ -19,36 +19,33 @@ export default {
 			//模拟菜单
 			items: [
 				{
-					icon: '',
-					title: '系统首页',
+					title: '资源管理',
 					icon: 'el-icon-menu',
-					meta: {}
+					meta: {},
 				},
 				{
-					icon: '',
-					title: '错误处理',
+					title: '话题管理',
 					icon: 'el-icon-warning',
 					meta: {},
 					children: [
 						{
 							title: '权限测试',
-							meta: {}
+							meta: {},
 						},
 						{
 							title: '404页面',
-							meta: {}
-						}
-					]
+							meta: {},
+						},
+					],
 				},
 				{
-					icon: '',
-					title: '表单相关',
+					title: '评论管理',
 					icon: 'el-icon-s-data',
 					meta: {},
 					children: [
 						{
 							title: '基本表单',
-							meta: {}
+							meta: {},
 						},
 						{
 							title: '三级菜单',
@@ -56,7 +53,7 @@ export default {
 							children: [
 								{
 									title: '富文本编辑器',
-									meta: {}
+									meta: {},
 								},
 								{
 									title: 'markdown编辑器',
@@ -64,26 +61,26 @@ export default {
 									children: [
 										{
 											title: '权限测试',
-											meta: {}
+											meta: {},
 										},
 										{
 											title: '404页面',
-											meta: {}
-										}
-									]
-								}
-							]
-						}
-					]
-				}
-			]
+											meta: {},
+										},
+									],
+								},
+							],
+						},
+					],
+				},
+			],
 		};
 	},
 	computed: {
 		onRoutes() {
 			//默认选中菜单
 			return '1-0';
-		}
+		},
 	},
 	created() {
 		function deal(arr, pre) {
@@ -96,7 +93,7 @@ export default {
 		}
 
 		deal(this.items);
-	}
+	},
 };
 </script>
 

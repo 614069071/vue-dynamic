@@ -17,29 +17,29 @@ Vue.config.productionTip = false
 const files = require.context('@components', false, /\.vue$/);
 
 files.keys().forEach(path => {
-    const instance = files(path).default;
-    const name = path.split(".")[1].slice(1);
-    Vue.component(name, instance);
+  const instance = files(path).default;
+  const name = path.split(".")[1].slice(1);
+  Vue.component(name, instance);
 });
 
 /* eslint-disable */
 Message.install = vm => {
-    vm.prototype.$message = Message;
+  vm.prototype.$message = Message;
 };
 /* eslint-enable*/
 
 // vue router
 router.beforeEach((to, from, next) => {
-    if (!store.state.hasPermission) {
-        store.commit('setPermission', true);
-        next({...to, replace: true });
-    } else {
-        next();
-    }
+  if (!store.state.hasPermission) {
+    store.commit('setPermission', true);
+    next({ ...to, replace: true });
+  } else {
+    next();
+  }
 });
 
 router.afterEach(to => {
-    var routerList = to.matched
-    store.commit('setBreadcrumbRouter', routerList); //分页导航
-    store.commit('setRouterDefaultActive', to.name); //上一次打开的菜单
+  var routerList = to.matched
+  store.commit('setBreadcrumbRouter', routerList); //分页导航
+  store.commit('setRouterDefaultActive', to.name); //上一次打开的菜单
 });
