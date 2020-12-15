@@ -20,7 +20,7 @@
 						<transition-group name="breadcrumb">
 							<template v-for="(route,i) in breadcrumbRouter">
 								<el-breadcrumb-item :key="route.name" v-if="route.name!='home' && route.meta.name!='首页'" :class="{'is-last-link':i==breadcrumbRouter.length-1}">
-									{{route.meta.name}}
+									<router-link :to="route.path">{{route.meta.name}}</router-link>
 								</el-breadcrumb-item>
 							</template>
 						</transition-group>
@@ -113,10 +113,10 @@ $mr: 6px;
 		// 		color: #424040 !important;
 		// 	}
 		// }
-		.is-last-link .is-link {
-			font-weight: normal;
-			color: #999 !important;
-		}
+		// .is-last-link .is-link {
+		// 	font-weight: normal;
+		// 	color: #999 !important;
+		// }
 	}
 
 	.menu-toggle-btn {

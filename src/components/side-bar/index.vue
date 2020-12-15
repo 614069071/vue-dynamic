@@ -32,7 +32,7 @@ export default {
 						{
 							title: '订单管理',
 							meta: {},
-							url: '/product/order',
+							url: '/product',
 						},
 					],
 				},

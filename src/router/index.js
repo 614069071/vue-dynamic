@@ -58,9 +58,8 @@ export const dynamicStRouter = [
         component: () => import(/* webpackChunkName: "test" */ '@/views/product'),
         meta: { name: '生产系统' },
         children: [
-
           {
-            path: '/product/order',
+            path: '/product',
             name: 'order',
             component: () => import(/* webpackChunkName: "test" */ '@/views/product/order'),
             meta: { name: '订单管理' },
