@@ -20,7 +20,7 @@
 						<transition-group name="breadcrumb">
 							<template v-for="(route,i) in breadcrumbRouter">
 								<el-breadcrumb-item :key="route.name" v-if="route.name!='home' && route.meta.name!='首页'" :class="{'is-last-link':i==breadcrumbRouter.length-1}">
-									{{route.name}}
+									{{route.meta.name}}
 								</el-breadcrumb-item>
 							</template>
 						</transition-group>

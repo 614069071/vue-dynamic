@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Login from '../views/Login.vue';
+import Login from '../views/login';
 
 Vue.use(VueRouter);
 
@@ -19,39 +19,21 @@ VueRouter.prototype.replace = function replace(to) {
 const routes = [
   {
     path: '/login',
-    name: 'Login',
+    name: 'login',
     component: Login
   },
 ]
 
-export const dynamicRouter = [
+export const dynamicRouter = [];
+
+// 其他路由
+export const otherRouter = [
   {
-    path: '/about',
-    name: 'About',
-    component: () => import(/* webpackChunkName: "test" */ '@/views/About.vue'),
-    meta: {
-      name: '关于'
-    }
-  },
-  {
-    path: '/test',
-    name: 'Test',
-    component: () => import(/* webpackChunkName: "test" */ '@/views/Test.vue'),
-    meta: {
-      name: '测试'
-    },
-    children: [
-      {
-        path: '/test1',
-        name: 'Test1',
-        component: () => import(/* webpackChunkName: "test" */ '@/views/Test1.vue'),
-        meta: {
-          name: '测试1'
-        },
-      }
-    ]
+    path: '*',
+    name: 'E404',
+    component: import(/* webpackChunkName: "test" */ '@/views/e404')
   }
-];
+]
 
 export const dynamicStRouter = [
   {
@@ -73,30 +55,26 @@ export const dynamicStRouter = [
       {
         path: '/product',
         name: 'product',
-        component: () => import(/* webpackChunkName: "test" */ '@/views/product/index'),
+        component: () => import(/* webpackChunkName: "test" */ '@/views/product'),
         meta: { name: '生产系统' },
         children: [
+
           {
             path: '/product/order',
             name: 'order',
             component: () => import(/* webpackChunkName: "test" */ '@/views/product/order'),
             meta: { name: '订单管理' },
-          }
+          },
         ]
       },
+      ...otherRouter
     ]
   },
 
 ];
 
-// 其他路由
-export const otherRouter = [
-  {
-    path: '*',
-    name: 'E404',
-    component: import(/* webpackChunkName: "test" */ '@/views/E404')
-  }
-]
+
+
 
 const router = new VueRouter({ routes: [...routes, ...dynamicStRouter] })
 
