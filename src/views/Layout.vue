@@ -19,7 +19,7 @@
 					<el-breadcrumb separator="/">
 						<transition-group name="breadcrumb">
 							<template v-for="(route,i) in breadcrumbRouter">
-								<el-breadcrumb-item :key="route.name" v-if="route.name!='home' && route.meta.name!='首页'" :class="{'is-last-link':i==breadcrumbRouter.length-1}">
+								<el-breadcrumb-item :key="i" v-if="route.name!='home' && route.meta.name!='首页'" :class="{'is-last-link':i==breadcrumbRouter.length-1}">
 									<router-link :to="route.path">{{route.meta.name}}</router-link>
 								</el-breadcrumb-item>
 							</template>
@@ -48,12 +48,7 @@ export default {
 		};
 	},
 	beforeRouteEnter(to, form, next) {
-		console.log(to, form);
-		if (store.state.hasPermission) {
-			next();
-		} else {
-			next(false);
-		}
+		store.state.hasPermission ? next() : next(false);
 	},
 	created() {},
 	computed: {
