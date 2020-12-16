@@ -29,16 +29,18 @@ export const dynamicRouter = [];
 // 其他路由
 export const otherRouter = [
   {
+    path: '/error',
+    component: () => import(/* webpackChunkName: "test" */ '@/views/e404')
+  },
+  {
     path: '*',
-    name: 'E404',
-    component: import(/* webpackChunkName: "test" */ '@/views/e404')
-  }
+    redirect: '/error'
+  },
 ]
 
 export const dynamicStRouter = [
   {
     path: '/',
-    name: 'layout',
     component: () => import(/* webpackChunkName: "test" */ '@/views/layout'),
     meta: {
       name: '首页'
@@ -75,6 +77,6 @@ export const dynamicStRouter = [
 
 
 
-const router = new VueRouter({ routes: [...routes, ...dynamicStRouter] })
+const router = new VueRouter({ routes: [...routes, ...dynamicStRouter] });
 
 export default router

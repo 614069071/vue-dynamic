@@ -37,6 +37,7 @@
 
 <script>
 import { mapState } from 'vuex';
+import store from '@store';
 import SideBar from '@components/side-bar';
 
 export default {
@@ -45,6 +46,14 @@ export default {
 		return {
 			barCollapse: false,
 		};
+	},
+	beforeRouteEnter(to, form, next) {
+		console.log(to, form);
+		if (store.state.hasPermission) {
+			next();
+		} else {
+			next(false);
+		}
 	},
 	created() {},
 	computed: {

@@ -20,7 +20,7 @@ export default {
 	computed: {
 		onRoutes() {
 			//默认选中菜单
-			return '1-0';
+			return '';
 		},
 		mapMenuTree() {
 			const items = [
