@@ -77,10 +77,22 @@ export default {
 						},
 					],
 				},
+				{
+					title: '资源管理',
+					icon: 'el-icon-wallet',
+					meta: {},
+					children: [
+						{
+							title: '资源管理',
+							meta: {},
+						},
+					],
+				},
 			];
 
 			function deal(arr, pre) {
 				arr.forEach((e, i) => {
+					if (!e.meta) e.meta = {};
 					e.meta.index = pre ? `${pre}-${i}` : `${i}`;
 					if (e.children && e.children.length) {
 						deal(e.children, e.meta.index);

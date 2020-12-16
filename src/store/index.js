@@ -79,7 +79,7 @@ export default new Store({
     routerDefaultActive: ''
   },
   mutations: {
-    setPermission(state, data = '') {
+    setPermission(state, data) {
       // router.addRoutes(dynamicRouterHome);
       state.hasPermission = data;
     },

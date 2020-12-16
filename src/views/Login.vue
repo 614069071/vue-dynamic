@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import store from '@store';
 import { mapMutations } from 'vuex';
 
 export default {
@@ -27,6 +28,10 @@ export default {
 				password: '',
 			},
 		};
+	},
+	beforeRouteEnter(to, from, next) {
+		store.commit('setPermission', false);
+		next();
 	},
 	created() {},
 	methods: {

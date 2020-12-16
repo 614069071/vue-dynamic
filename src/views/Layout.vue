@@ -36,8 +36,8 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
 import store from '@store';
+import { mapState } from 'vuex';
 import SideBar from '@components/side-bar';
 
 export default {
