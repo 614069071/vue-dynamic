@@ -23,11 +23,6 @@
 <script>
 export default {
 	name: 'middle-menu',
-	props: {
-		model: {
-			type: Object,
-			required: true,
-		},
-	},
+	props: { model: { type: Object, required: true } },
 };
 </script>
