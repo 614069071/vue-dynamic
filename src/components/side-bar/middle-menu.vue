@@ -31,9 +31,3 @@ export default {
 	},
 };
 </script>
-
-<style scoped>
-/* .el-menu-item a {
-	display: block;
-} */
-</style>
