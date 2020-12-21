@@ -1,6 +1,6 @@
 <template>
 	<div class="sidebar">
-		<el-menu class="sidebar-el-menu" :default-active="onRoutes" background-color="#324157" router text-color="#bfcbd9" active-text-color="#20a0ff" unique-opened :collapse="collapse">
+		<el-menu class="sidebar-el-menu" :default-active="onRoutes" background-color="#324157" text-color="#bfcbd9" active-text-color="#20a0ff" unique-opened :collapse="collapse">
 			<middle-menu v-for='item in mapMenuTree' :model='item' :key='item.meta.index' />
 		</el-menu>
 	</div>
@@ -20,10 +20,22 @@ export default {
 	computed: {
 		onRoutes() {
 			//默认选中菜单
-			return '';
+			return this.$store.state.routerDefaultActive;
 		},
 		mapMenuTree() {
 			const items = [
+				{
+					title: '资源管理',
+					icon: 'el-icon-wallet',
+					meta: {},
+					children: [
+						{
+							title: '资源管理',
+							url: '/resource',
+							meta: {},
+						},
+					],
+				},
 				{
 					title: '生产系统',
 					icon: 'el-icon-menu',
@@ -73,17 +85,6 @@ export default {
 						},
 						{
 							title: '退出系统',
-							meta: {},
-						},
-					],
-				},
-				{
-					title: '资源管理',
-					icon: 'el-icon-wallet',
-					meta: {},
-					children: [
-						{
-							title: '资源管理',
 							meta: {},
 						},
 					],

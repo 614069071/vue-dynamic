@@ -1,0 +1,46 @@
+<template>
+	<div class="side-tab-bar-wrap">
+		<div class="side-tab-bar-item side-btn" :class="{active:activeTab === (item.url || item.meta.index)}" v-for="item in model" :key="item.url" @click="link(item)">
+			{{item.title}}
+			<span class="delete-btn el-icon-close"></span>
+		</div>
+	</div>
+</template>
+
+<script>
+export default {
+	name: 'side-tab-bar',
+	props: ['model'],
+	computed: {
+		activeTab() {
+			return this.$store.state.routerDefaultActive;
+		},
+	},
+	methods: {
+		link(data) {
+			data.url && this.$router.push(data.url);
+			this.$store.commit('setBreadcrumbRouter', data);
+			this.$store.commit('setRouterDefaultActive', data);
+		},
+	},
+};
+</script>
+
+<style scoped>
+.side-tab-bar-item {
+	position: relative;
+	padding: 0 20px;
+	display: inline-block;
+	background-color: #aaa;
+}
+
+.side-tab-bar-item.active {
+	background-color: red;
+}
+
+.delete-btn {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+</style>

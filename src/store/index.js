@@ -84,10 +84,13 @@ export default new Store({
       state.hasPermission = data;
     },
     setBreadcrumbRouter(state, data = []) {
-      state.breadcrumbRouter = data;
+      const list = state.breadcrumbRouter;
+      const is = list.find(e => e.url === data.url);
+      if (is) return;
+      list.push(data);
     },
-    setRouterDefaultActive(state, data = '') {
-      state.routerDefaultActive = data;
+    setRouterDefaultActive(state, data = {}) {
+      state.routerDefaultActive = data.url || data.meta.index;
     }
   }
 })

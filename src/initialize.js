@@ -42,6 +42,7 @@ router.beforeEach((to, from, next) => {
 
 router.afterEach(to => {
   var routerList = to.matched
-  store.commit('setBreadcrumbRouter', routerList); //分页导航
-  store.commit('setRouterDefaultActive', to.name); //上一次打开的菜单
+  console.log(to)
+  // store.commit('setBreadcrumbRouter', routerList); //分页导航
+  // store.commit('setRouterDefaultActive', to.name); //上一次打开的菜单
 });

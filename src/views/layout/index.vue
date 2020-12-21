@@ -16,7 +16,7 @@
 					<div class="menu-toggle-btn" :class="{active:barCollapse}" @click="barCollapse = !barCollapse">
 						<span class="menu-icon"></span>
 					</div>
-					<el-breadcrumb separator="/">
+					<!-- <el-breadcrumb separator="/">
 						<transition-group name="breadcrumb">
 							<template v-for="(route,i) in breadcrumbRouter">
 								<el-breadcrumb-item :key="i" v-if="route.name!='home' && route.meta.name!='首页'" :class="{'is-last-link':i==breadcrumbRouter.length-1}">
@@ -24,7 +24,9 @@
 								</el-breadcrumb-item>
 							</template>
 						</transition-group>
-					</el-breadcrumb>
+					</el-breadcrumb> -->
+
+					<side-tab-bar :model="breadcrumbRouter"></side-tab-bar>
 				</div>
 
 				<main class="page-wrap-content scrollbar">
@@ -39,9 +41,10 @@
 import store from '@store';
 import { mapState } from 'vuex';
 import SideBar from '@components/side-bar';
+import SideTabBar from './components/side-tab-bar.vue';
 
 export default {
-	components: { SideBar },
+	components: { SideBar, SideTabBar },
 	data() {
 		return {
 			barCollapse: false,
@@ -100,7 +103,7 @@ $mr: 6px;
 
 .breadcrumb-wrap {
 	width: 100%;
-	height: 30px;
+	// height: 30px;
 	display: flex;
 	align-items: center;
 	background-color: #eee;

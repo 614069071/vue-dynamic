@@ -30,7 +30,7 @@ export const dynamicRouter = [];
 export const otherRouter = [
   {
     path: '/error',
-    component: () => import(/* webpackChunkName: "test" */ '@/views/e404')
+    component: () => import(/* webpackChunkName: "test" */ '@/views/common/e404')
   },
   {
     path: '*',
@@ -53,6 +53,19 @@ export const dynamicStRouter = [
         meta: {
           name: '首页'
         }
+      },
+      {
+        path: '/resource',
+        component: () => import(/* webpackChunkName: "test" */ '@/views/resource'),
+        meta: { name: '资源管理' },
+        children: [
+          {
+            path: '/resource',
+            name: 'resource',
+            component: () => import(/* webpackChunkName: "test" */ '@/views/resource/resource'),
+            meta: { name: '资源管理' },
+          },
+        ]
       },
       {
         path: '/product',
