@@ -57,9 +57,9 @@ export default {
 
 			login_form.validate((valid) => {
 				if (valid) {
-					alert('submit!');
+					// alert('submit!');
+					this.$router.push('/');
 				} else {
-					console.log('error submit!!');
 					return false;
 				}
 			});

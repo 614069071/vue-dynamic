@@ -1,7 +1,7 @@
 <template>
 	<div class="layout-wrap">
 		<header class="layout-header">
-			<h2 class="header-left">神州网络生产系统</h2>
+			<h2 class="header-left">H2管理系统</h2>
 			<div class="header-right">
 				<!-- 角色及设置相关 -->
 				你好 admin
