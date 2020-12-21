@@ -20,11 +20,12 @@ module.exports = {
     config.resolve.alias
       .set('@', resolve('src'))
       .set('@lib', resolve('src/lib'))
-      .set('@assets', resolve('src/assets'))
-      .set('@components', resolve('src/components'))
-      .set('@router', resolve('src/router'))
+      .set('@utils', resolve('src/utils'))
       .set('@store', resolve('src/store'))
-      .set('@views', resolve('src/views'));
+      .set('@views', resolve('src/views'))
+      .set('@assets', resolve('src/assets'))
+      .set('@router', resolve('src/router'))
+      .set('@components', resolve('src/components'))
   },
   configureWebpack: config => { // eslint-disable-line
     if (process.env.NODE_ENV === 'production') {

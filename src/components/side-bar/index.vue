@@ -1,6 +1,6 @@
 <template>
 	<div class="sidebar">
-		<el-menu class="sidebar-el-menu" :default-active="onRoutes" background-color="#324157" text-color="#bfcbd9" active-text-color="#20a0ff" unique-opened :collapse="collapse">
+		<el-menu class="sidebar-el-menu" :default-active="onRoutes" :default-openeds="defaultOpenedsArray" background-color="#324157" text-color="#bfcbd9" active-text-color="#20a0ff" unique-opened :collapse="collapse">
 			<middle-menu v-for='item in mapMenuTree' :model='item' :key='item.meta.index' />
 		</el-menu>
 	</div>
@@ -21,6 +21,9 @@ export default {
 		onRoutes() {
 			//默认选中菜单
 			return this.$store.state.routerDefaultActive;
+		},
+		defaultOpenedsArray() {
+			return this.$store.state.defaultOpenedsArray;
 		},
 		mapMenuTree() {
 			const items = [

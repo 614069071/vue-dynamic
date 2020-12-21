@@ -1,7 +1,9 @@
-import Vue from 'vue'
-import Vuex, { Store } from 'vuex'
+import Vue from 'vue';
+import router from '@router';
+import { storages } from '@utils';
+import Vuex, { Store } from 'vuex';
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 // import router, { dynamicRouter, otherRouter } from '@/router'
 
@@ -70,27 +72,56 @@ Vue.use(Vuex)
 //   }
 // ];
 
-
+const cacheRoutes = storages.get('cacheRoutes') || [];
+const cacheRoute = storages.get('cacheRoute') || '';
 
 export default new Store({
   state: {
     hasPermission: false,
-    breadcrumbRouter: [],
-    routerDefaultActive: ''
+    breadcrumbRouter: cacheRoutes,
+    routerDefaultActive: cacheRoute,
+    defaultOpenedsArray: []
   },
   mutations: {
+    // 登录成功设置
     setPermission(state, data) {
       // router.addRoutes(dynamicRouterHome);
       state.hasPermission = data;
     },
+    // tab 列表
     setBreadcrumbRouter(state, data = []) {
       const list = state.breadcrumbRouter;
       const is = list.find(e => e.url === data.url);
       if (is) return;
       list.push(data);
+      storages.set('cacheRoutes', list);
     },
+    // tab 删除
+    delBreadcrumbRouter(state, i) {
+      let list = state.breadcrumbRouter;
+      list.splice(i, 1);
+      state.breadcrumbRouter = list;
+      storages.set('cacheRoutes', list);
+      console.log(list, 'list');
+      if (list.length) {
+        const last = list[list.length - 1];
+        this.commit('setRouterDefaultActive', last);
+      } else {
+        router.push('/');
+        this.commit('setDefaultOpenedsArray');
+        this.commit('setRouterDefaultActive', { meta: '' });
+      }
+    },
+    // 设置默认展开菜单
     setRouterDefaultActive(state, data = {}) {
-      state.routerDefaultActive = data.url || data.meta.index;
+      const route = data.url || data.meta.index || '';
+      console.log(route)
+      state.routerDefaultActive = route;
+      storages.set('cacheRoute', route);
+    },
+    // 设置菜单收起
+    setDefaultOpenedsArray(state) {
+      state.defaultOpenedsArray = [];
     }
   }
-})
+});

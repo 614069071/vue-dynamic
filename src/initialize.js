@@ -41,8 +41,6 @@ router.beforeEach((to, from, next) => {
 });
 
 router.afterEach(to => {
-  var routerList = to.matched
+  // var routerList = to.matched
   console.log(to)
-  // store.commit('setBreadcrumbRouter', routerList); //分页导航
-  // store.commit('setRouterDefaultActive', to.name); //上一次打开的菜单
 });
