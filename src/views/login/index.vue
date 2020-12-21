@@ -1,11 +1,11 @@
 <template>
 	<div class="login-view-wrap">
 		<div class="login-wrap">
-			<el-form ref="form" :model="loginInfo" label-width="50px">
-				<el-form-item label="账号">
+			<el-form ref="login_form" :model="loginInfo" :rules="rules" label-width="50px">
+				<el-form-item label="账号" prop="username">
 					<el-input v-model="loginInfo.username"></el-input>
 				</el-form-item>
-				<el-form-item label="密码">
+				<el-form-item label="密码" prop="password">
 					<el-input v-model="loginInfo.password"></el-input>
 				</el-form-item>
 				<el-form-item>
@@ -22,10 +22,25 @@ import { mapMutations } from 'vuex';
 
 export default {
 	data() {
+		const validator = (text = '输入不能为空') => (rule, value, callback) => {
+			value ? callback() : callback(new Error(text));
+		};
 		return {
 			loginInfo: {
 				username: '',
 				password: '',
+			},
+			rules: {
+				username: [
+					{
+						validator: validator('请输入账户'),
+					},
+				],
+				password: [
+					{
+						validator: validator('请输入密码'),
+					},
+				],
 			},
 		};
 	},
@@ -38,10 +53,16 @@ export default {
 		...mapMutations(['setPermission']),
 		login() {
 			// 模拟登录
-			setTimeout(() => {
-				this.setPermission(true);
-				this.$router.push('/');
-			}, 2000);
+			const login_form = this.$refs.login_form;
+
+			login_form.validate((valid) => {
+				if (valid) {
+					alert('submit!');
+				} else {
+					console.log('error submit!!');
+					return false;
+				}
+			});
 		},
 	},
 };
