@@ -65,6 +65,12 @@ export const dynamicStRouter = [
             component: () => import(/* webpackChunkName: "test" */ '@/views/resource/resource'),
             meta: { name: '资源管理' },
           },
+          {
+            path: '/resource/map',
+            name: 'resource/map',
+            component: () => import(/* webpackChunkName: "test" */ '@/views/resource/map'),
+            meta: { name: '资源分布' },
+          },
         ]
       },
       {

@@ -37,6 +37,11 @@ export default {
 							url: '/resource',
 							meta: {},
 						},
+						{
+							title: '资源分布',
+							url: '/resource/map',
+							meta: {},
+						},
 					],
 				},
 				{
