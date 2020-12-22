@@ -90,7 +90,7 @@ export default new Store({
       storages.set('__accessToken__', toekn);
       state.__accessToken__ = toekn;
     },
-    // tab 列表
+    // 更新 tab 列表
     UPDATE_CACHE_ROUTER(state, data = { meta: '' }) {
       const list = state.breadcrumbRouter;
       const is = list.find(e => e.meta.index === data.meta.index);
@@ -98,7 +98,7 @@ export default new Store({
       list.push(data);
       storages.set('CACHE_ROUTERS', list);
     },
-    // tab 删除
+    // 删除 tab 项
     DELETE_CACHE_ROUTER(state, i) {
       let list = state.breadcrumbRouter;
       list.splice(i, 1);
@@ -114,7 +114,7 @@ export default new Store({
         this.commit('UPDATE_DEFAULT_ACTIVE', '');
       }
     },
-    // 设置默认展开菜单
+    // 设置默认展开菜单项
     UPDATE_DEFAULT_ACTIVE(state, data = {}) {
       state.routerDefaultActive = data;
       storages.set('DEFAULT_ACTIVE', data);
