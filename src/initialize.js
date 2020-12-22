@@ -32,9 +32,6 @@ Message.install = vm => {
 
 // vue router
 router.beforeEach((to, from, next) => {
-  console.log(to.path, from, 'beforeEach');
-  const cacheRouters = store.state.breadcrumbRouter;
-
   next();
 });
 

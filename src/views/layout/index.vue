@@ -51,7 +51,16 @@ export default {
 		};
 	},
 	beforeRouteEnter(to, form, next) {
+		console.log(to, form, '111');
+
 		store.state.__accessToken__ ? next() : next('/login');
+	},
+	watch: {
+		$route(v) {
+			const list = this.breadcrumbRouter;
+			const item = list.find((e) => e.url === v.path);
+			item && this.$store.commit('UPDATE_DEFAULT_ACTIVE', item.meta.index);
+		},
 	},
 	created() {},
 	computed: {

@@ -104,10 +104,10 @@ export default new Store({
       list.splice(i, 1);
       state.breadcrumbRouter = list;
       storages.set('CACHE_ROUTERS', list);
-      console.log(list, 'list');
       if (list.length) {
-        const last = list[list.length - 1];
-        this.commit('UPDATE_DEFAULT_ACTIVE', last.meta.index);
+        const item = list[list.length - 1];
+        router.push(item.url);
+        this.commit('UPDATE_DEFAULT_ACTIVE', item.meta.index);
       } else {
         router.push('/');
         this.commit('UPDATE_DEFAULT_OPEN');
