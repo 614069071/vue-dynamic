@@ -45,19 +45,19 @@ export default {
 		};
 	},
 	beforeRouteEnter(to, from, next) {
-		store.commit('setPermission', false);
+		store.commit('updateToken', '123456');
 		next();
 	},
 	created() {},
 	methods: {
-		...mapMutations(['setPermission']),
+		...mapMutations(['updateToken']),
 		login() {
 			// 模拟登录
 			const login_form = this.$refs.login_form;
 
 			login_form.validate((valid) => {
 				if (valid) {
-					// alert('submit!');
+					this.updateToken('123456');
 					this.$router.push('/');
 				} else {
 					return false;

@@ -72,21 +72,23 @@ Vue.use(Vuex);
 //   }
 // ];
 
-const cacheRoutes = storages.get('cacheRoutes') || [];
-const cacheRoute = storages.get('cacheRoute') || '';
+const breadcrumbRouter = storages.get('cacheRoutes') || [];
+const routerDefaultActive = storages.get('cacheRoute') || '';
+const __accessToken__ = storages.get('__accessToken__');
 
 export default new Store({
   state: {
-    hasPermission: false,
-    breadcrumbRouter: cacheRoutes,
-    routerDefaultActive: cacheRoute,
+    __accessToken__,
+    breadcrumbRouter,
+    routerDefaultActive,
     defaultOpenedsArray: []
   },
   mutations: {
     // 登录成功设置
-    setPermission(state, data) {
+    updateToken(state, toekn) {
       // router.addRoutes(dynamicRouterHome);
-      state.hasPermission = data;
+      storages.set('__accessToken__', toekn);
+      state.__accessToken__ = toekn;
     },
     // tab 列表
     setBreadcrumbRouter(state, data = []) {

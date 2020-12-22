@@ -32,12 +32,7 @@ Message.install = vm => {
 
 // vue router
 router.beforeEach((to, from, next) => {
-  if (!store.state.hasPermission) {
-    store.commit('setPermission', true);
-    next({ ...to, replace: true });
-  } else {
-    next();
-  }
+  next();
 });
 
 router.afterEach(to => {
