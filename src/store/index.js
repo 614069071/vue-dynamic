@@ -116,8 +116,7 @@ export default new Store({
     },
     // 设置默认展开菜单
     setRouterDefaultActive(state, data = {}) {
-      const route = data.url || data.meta.index || '';
-      console.log(route)
+      const route = data.url || (data.meta && data.meta.index) || '';
       state.routerDefaultActive = route;
       storages.set('cacheRoute', route);
     },

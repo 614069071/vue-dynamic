@@ -35,7 +35,6 @@ router.beforeEach((to, from, next) => {
   next();
 });
 
-router.afterEach(to => {
-  // var routerList = to.matched
-  console.log(to)
+router.afterEach((to, from) => {
+
 });

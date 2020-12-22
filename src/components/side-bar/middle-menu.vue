@@ -27,7 +27,6 @@ export default {
 	props: { model: { type: Object, required: true } },
 	methods: {
 		checkedMenu(data) {
-			console.log(data);
 			data.url && this.$router.push(data.url);
 			this.$store.commit('setBreadcrumbRouter', data);
 			this.$store.commit('setRouterDefaultActive', data);
