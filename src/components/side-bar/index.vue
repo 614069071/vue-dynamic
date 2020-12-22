@@ -131,7 +131,7 @@ export default {
 	}
 
 	// 该样式用于解决菜单折叠时 内存溢出bug
-	.el-menu--collapse > div > .el-submenu > .el-submenu__title {
+	.el-menu--collapse > .middle-menu > .el-submenu > .el-submenu__title {
 		span {
 			height: 0;
 			width: 0;
