@@ -72,8 +72,8 @@ Vue.use(Vuex);
 //   }
 // ];
 
-const breadcrumbRouter = storages.get('cacheRoutes') || [];
-const routerDefaultActive = storages.get('cacheRoute') || '';
+const breadcrumbRouter = storages.get('CACHE_ROUTERS') || [];
+const routerDefaultActive = storages.get('DEFAULT_ACTIVE') || '';
 const __accessToken__ = storages.get('__accessToken__');
 
 export default new Store({
@@ -96,14 +96,14 @@ export default new Store({
       const is = list.find(e => e.meta.index === data.meta.index);
       if (is) return;
       list.push(data);
-      storages.set('cacheRoutes', list);
+      storages.set('CACHE_ROUTERS', list);
     },
     // tab 删除
     DELETE_CACHE_ROUTER(state, i) {
       let list = state.breadcrumbRouter;
       list.splice(i, 1);
       state.breadcrumbRouter = list;
-      storages.set('cacheRoutes', list);
+      storages.set('CACHE_ROUTERS', list);
       console.log(list, 'list');
       if (list.length) {
         const last = list[list.length - 1];
@@ -117,7 +117,7 @@ export default new Store({
     // 设置默认展开菜单
     UPDATE_DEFAULT_ACTIVE(state, data = {}) {
       state.routerDefaultActive = data;
-      storages.set('cacheRoute', data);
+      storages.set('DEFAULT_ACTIVE', data);
     },
     // 设置菜单收起
     UPDATE_DEFAULT_OPEN(state) {
