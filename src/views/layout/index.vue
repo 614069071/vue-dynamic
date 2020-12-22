@@ -51,7 +51,7 @@ export default {
 		};
 	},
 	beforeRouteEnter(to, form, next) {
-		store.state.hasPermission ? next() : next('/login');
+		store.state.__accessToken__ ? next() : next('/login');
 	},
 	created() {},
 	computed: {
