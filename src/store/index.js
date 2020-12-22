@@ -91,9 +91,9 @@ export default new Store({
       state.__accessToken__ = toekn;
     },
     // tab 列表
-    setBreadcrumbRouter(state, data = []) {
+    setBreadcrumbRouter(state, data = { meta: '' }) {
       const list = state.breadcrumbRouter;
-      const is = list.find(e => e.url === data.url);
+      const is = list.find(e => e.meta.index === data.meta.index);
       if (is) return;
       list.push(data);
       storages.set('cacheRoutes', list);
@@ -107,18 +107,17 @@ export default new Store({
       console.log(list, 'list');
       if (list.length) {
         const last = list[list.length - 1];
-        this.commit('setRouterDefaultActive', last);
+        this.commit('setRouterDefaultActive', last.meta.index);
       } else {
         router.push('/');
         this.commit('setDefaultOpenedsArray');
-        this.commit('setRouterDefaultActive', { meta: '' });
+        this.commit('setRouterDefaultActive', '');
       }
     },
     // 设置默认展开菜单
     setRouterDefaultActive(state, data = {}) {
-      const route = data.url || (data.meta && data.meta.index) || '';
-      state.routerDefaultActive = route;
-      storages.set('cacheRoute', route);
+      state.routerDefaultActive = data;
+      storages.set('cacheRoute', data);
     },
     // 设置菜单收起
     setDefaultOpenedsArray(state) {

@@ -1,6 +1,6 @@
 <template>
 	<div class="side-tab-bar-wrap">
-		<div class="side-tab-bar-item side-btn" :class="{active:activeTab === (item.url || item.meta.index)}" v-for="(item,index) in model" :key="item.url" @click="link(item)">
+		<div class="side-tab-bar-item side-btn" :class="{active:activeTab === item.meta.index}" v-for="(item,index) in model" :key="item.url" @click="link(item)">
 			{{item.title}}
 			<span class="delete-btn el-icon-close" @click.stop.self="deleteTab(index)"></span>
 		</div>
@@ -20,7 +20,7 @@ export default {
 		link(data) {
 			data.url && this.$router.push(data.url);
 			this.$store.commit('setBreadcrumbRouter', data);
-			this.$store.commit('setRouterDefaultActive', data);
+			this.$store.commit('setRouterDefaultActive', data.meta.index);
 		},
 		deleteTab(i) {
 			this.$store.commit('delBreadcrumbRouter', i);
