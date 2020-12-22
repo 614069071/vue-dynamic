@@ -19,11 +19,11 @@ export default {
 	methods: {
 		link(data) {
 			data.url && this.$router.push(data.url);
-			this.$store.commit('setBreadcrumbRouter', data);
-			this.$store.commit('setRouterDefaultActive', data.meta.index);
+			this.$store.commit('UPDATE_CACHE_ROUTER', data);
+			this.$store.commit('UPDATE_DEFAULT_ACTIVE', data.meta.index);
 		},
 		deleteTab(i) {
-			this.$store.commit('delBreadcrumbRouter', i);
+			this.$store.commit('DELETE_CACHE_ROUTER', i);
 		},
 	},
 };

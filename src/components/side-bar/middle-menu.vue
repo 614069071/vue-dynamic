@@ -28,8 +28,8 @@ export default {
 	methods: {
 		checkedMenu(data) {
 			data.url && this.$router.push(data.url);
-			this.$store.commit('setBreadcrumbRouter', data);
-			this.$store.commit('setRouterDefaultActive', data.meta.index);
+			this.$store.commit('UPDATE_CACHE_ROUTER', data);
+			this.$store.commit('UPDATE_DEFAULT_ACTIVE', data.meta.index);
 		},
 	},
 };

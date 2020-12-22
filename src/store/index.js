@@ -85,13 +85,13 @@ export default new Store({
   },
   mutations: {
     // 登录成功设置
-    updateToken(state, toekn) {
+    UPDATE_TOKEN(state, toekn) {
       // router.addRoutes(dynamicRouterHome);
       storages.set('__accessToken__', toekn);
       state.__accessToken__ = toekn;
     },
     // tab 列表
-    setBreadcrumbRouter(state, data = { meta: '' }) {
+    UPDATE_CACHE_ROUTER(state, data = { meta: '' }) {
       const list = state.breadcrumbRouter;
       const is = list.find(e => e.meta.index === data.meta.index);
       if (is) return;
@@ -99,7 +99,7 @@ export default new Store({
       storages.set('cacheRoutes', list);
     },
     // tab 删除
-    delBreadcrumbRouter(state, i) {
+    DELETE_CACHE_ROUTER(state, i) {
       let list = state.breadcrumbRouter;
       list.splice(i, 1);
       state.breadcrumbRouter = list;
@@ -107,20 +107,20 @@ export default new Store({
       console.log(list, 'list');
       if (list.length) {
         const last = list[list.length - 1];
-        this.commit('setRouterDefaultActive', last.meta.index);
+        this.commit('UPDATE_DEFAULT_ACTIVE', last.meta.index);
       } else {
         router.push('/');
-        this.commit('setDefaultOpenedsArray');
-        this.commit('setRouterDefaultActive', '');
+        this.commit('UPDATE_DEFAULT_OPEN');
+        this.commit('UPDATE_DEFAULT_ACTIVE', '');
       }
     },
     // 设置默认展开菜单
-    setRouterDefaultActive(state, data = {}) {
+    UPDATE_DEFAULT_ACTIVE(state, data = {}) {
       state.routerDefaultActive = data;
       storages.set('cacheRoute', data);
     },
     // 设置菜单收起
-    setDefaultOpenedsArray(state) {
+    UPDATE_DEFAULT_OPEN(state) {
       state.defaultOpenedsArray = [];
     }
   }
