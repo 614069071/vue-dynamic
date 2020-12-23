@@ -1,29 +1,51 @@
 <template>
-	<div ref="resource_map" class="resource-map" id="resource_map"></div>
+	<div ref="resource_map" class="resource-map" id="resource_map">
+	</div>
 </template>
 
 <script>
 import * as Echarts from 'echarts';
+import 'echarts/dist/extension/bmap.min';
+
+function loadBMap(ak) {
+	return new Promise(function (resolve, reject) {
+		if (typeof BMap !== 'undefined') {
+			resolve(BMap);
+			return true;
+		}
+		window.onBMapCallback = function () {
+			resolve(BMap);
+		};
+		let script = document.createElement('script');
+		script.type = 'text/javascript';
+		script.src =
+			'http://api.map.baidu.com/api?v=2.0&ak=' +
+			ak +
+			'&callback=onBMapCallback';
+		script.onerror = reject;
+		document.head.appendChild(script);
+	});
+}
 
 var data = [
 	{ name: '合肥', value: 229 },
 	{ name: '武汉', value: 273 },
-	{ name: '大庆', value: 279 }
+	{ name: '大庆', value: 279 },
 ];
 var geoCoordMap = {
 	合肥: [117.27, 31.86],
 	武汉: [114.31, 30.52],
-	大庆: [125.03, 46.58]
+	大庆: [125.03, 46.58],
 };
 
-var convertData = function(data) {
+var convertData = function (data) {
 	var res = [];
 	for (var i = 0; i < data.length; i++) {
 		var geoCoord = geoCoordMap[data[i].name];
 		if (geoCoord) {
 			res.push({
 				name: data[i].name,
-				value: geoCoord.concat(data[i].value)
+				value: geoCoord.concat(data[i].value),
 			});
 		}
 	}
@@ -32,18 +54,17 @@ var convertData = function(data) {
 
 var options = {
 	title: {
-		text: '全国主要城市空气质量 - 百度地图'
-		// subtext: 'data from PM25.in',
-		// sublink: 'http://www.pm25.in',
-		// left: 'center'
+		text: '全国主要城市空气质量 - 百度地图',
+		subtext: 'data from PM25.in',
+		sublink: 'http://www.pm25.in',
+		left: 'center',
 	},
 	tooltip: {
-		trigger: 'item'
+		trigger: 'item',
 	},
-	// bmap 不生效，导致地图无法加载出来
 	bmap: {
 		center: [104.114129, 37.550339],
-		zoom: 5,
+		zoom: 3,
 		roam: true,
 		mapStyle: {
 			styleJson: [
@@ -51,11 +72,11 @@ var options = {
 					featureType: 'water',
 					elementType: 'all',
 					stylers: {
-						color: '#d1d1d1'
-					}
-				}
-			]
-		}
+						color: '#d1d1d1',
+					},
+				},
+			],
+		},
 	},
 	series: [
 		{
@@ -63,22 +84,22 @@ var options = {
 			type: 'scatter',
 			coordinateSystem: 'bmap',
 			data: convertData(data),
-			symbolSize: function(val) {
+			symbolSize: function (val) {
 				return val[2] / 10;
 			},
 			encode: {
-				value: 2
+				value: 2,
 			},
 			label: {
 				formatter: '{b}',
 				position: 'right',
-				show: false
+				show: false,
 			},
 			emphasis: {
 				label: {
-					show: true
-				}
-			}
+					show: true,
+				},
+			},
 		},
 		{
 			name: 'Top 5',
@@ -86,56 +107,56 @@ var options = {
 			coordinateSystem: 'bmap',
 			data: convertData(
 				data
-					.sort(function(a, b) {
+					.sort(function (a, b) {
 						return b.value - a.value;
 					})
 					.slice(0, 6)
 			),
-			symbolSize: function(val) {
+			symbolSize: function (val) {
 				return val[2] / 10;
 			},
 			encode: {
-				value: 2
+				value: 2,
 			},
 			showEffectOn: 'render',
 			rippleEffect: {
-				brushType: 'stroke'
+				brushType: 'stroke',
 			},
 			hoverAnimation: true,
 			label: {
 				formatter: '{b}',
 				position: 'right',
-				show: true
+				show: true,
 			},
 			itemStyle: {
 				shadowBlur: 10,
-				shadowColor: '#333'
+				shadowColor: '#333',
 			},
-			zlevel: 1
-		}
-	]
-	// geo:{
-	//   map:'china'
-	// }
+			zlevel: 1,
+		},
+	],
 };
 
 export default {
+	components: { Echarts },
 	data() {
-		return {};
+		return {
+			options: options,
+		};
 	},
 	mounted() {
 		this.initEcharts();
 	},
 	methods: {
 		initEcharts() {
-			this.$nextTick(() => {
+			loadBMap('O3EoPurHdC7eUhGTpEzRm9MwnRtpGHEI').then((BMap) => {
+				console.log(BMap, 'res');
 				const main = this.$refs.resource_map;
-				// const main = document.getElementById('resource_map');
 				const echarts = Echarts.init(main);
-				echarts.setOption(options, true);
+				echarts.setOption(options);
 			});
-		}
-	}
+		},
+	},
 };
 </script>
 
