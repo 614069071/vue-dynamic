@@ -51,7 +51,7 @@ export default {
 		};
 	},
 	beforeRouteEnter(to, form, next) {
-		console.log(to, form, '111');
+		// console.log(to, form, '111');
 
 		store.state.__accessToken__ ? next() : next('/login');
 	},
