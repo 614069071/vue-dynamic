@@ -88,16 +88,8 @@ var options = {
 			name: 'Top 5',
 			type: 'effectScatter',
 			coordinateSystem: 'bmap',
-			data: convertData(
-				data
-					.sort(function (a, b) {
-						return b.value - a.value;
-					})
-					.slice(0, 6)
-			),
-			symbolSize: function (val) {
-				return val[2] / 10;
-			},
+			data: convertData(data.sort((a, b) => b.value - a.value).slice(0, 6)),
+			symbolSize: (val) => val[2] / 10,
 			encode: {
 				value: 2,
 			},
