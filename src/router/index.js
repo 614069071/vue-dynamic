@@ -74,6 +74,19 @@ export const dynamicStRouter = [
         ]
       },
       {
+        path: '/system',
+        component: () => import(/* webpackChunkName: "test" */ '@/views/system'),
+        meta: { name: '资源管理' },
+        children: [
+          {
+            path: '/system',
+            name: 'setting',
+            component: () => import(/* webpackChunkName: "test" */ '@/views/system/setting'),
+            meta: { name: '修改密码' },
+          },
+        ]
+      },
+      {
         path: '/product',
         name: 'product',
         component: () => import(/* webpackChunkName: "test" */ '@/views/product'),

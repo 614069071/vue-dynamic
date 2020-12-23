@@ -45,6 +45,22 @@ export default {
 					],
 				},
 				{
+					title: '系统管理',
+					icon: 'el-icon-setting',
+					meta: {},
+					children: [
+						{
+							title: '修改密码',
+							url: 'system',
+							meta: {},
+						},
+						{
+							title: '退出系统',
+							meta: {},
+						},
+					],
+				},
+				{
 					title: '生产系统',
 					icon: 'el-icon-menu',
 					meta: {},
@@ -78,21 +94,6 @@ export default {
 					children: [
 						{
 							title: '客户管理',
-							meta: {},
-						},
-					],
-				},
-				{
-					title: '设置管理',
-					icon: 'el-icon-setting',
-					meta: {},
-					children: [
-						{
-							title: '修改密码',
-							meta: {},
-						},
-						{
-							title: '退出系统',
 							meta: {},
 						},
 					],
