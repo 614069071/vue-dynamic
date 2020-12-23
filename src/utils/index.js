@@ -223,9 +223,7 @@ export function loadBMap(ak) {
       resolve(BMap);
       return true;
     }
-    window.onBMapCallback = function () {
-      resolve(BMap);
-    };
+
     let script = document.createElement('script');
     script.type = 'text/javascript';
     script.src =
@@ -234,6 +232,11 @@ export function loadBMap(ak) {
       '&callback=onBMapCallback';
     script.onerror = reject;
     document.head.appendChild(script);
+
+    window.onBMapCallback = function () {
+      resolve(BMap);
+      document.head.removeChild(script);
+    };
   });
 }
 
