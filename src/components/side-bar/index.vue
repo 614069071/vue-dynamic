@@ -51,7 +51,7 @@ export default {
 					children: [
 						{
 							title: '修改密码',
-							url: 'system',
+							url: '/system',
 							meta: {},
 						},
 						{
