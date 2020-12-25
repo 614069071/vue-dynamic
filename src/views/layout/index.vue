@@ -30,7 +30,9 @@
 				</div>
 
 				<main class="page-wrap-content scrollbar">
-					<router-view></router-view>
+					<transition name="main" mode="out-in">
+						<router-view></router-view>
+					</transition>
 				</main>
 			</div>
 		</section>
@@ -183,5 +185,20 @@ $mr: 6px;
 .page-wrap-content {
 	flex: 1;
 	overflow-x: hidden;
+}
+</style>
+
+<style>
+.main-enter,
+.main-leave-to {
+	opacity: 0;
+	transform: translateY(30px);
+}
+.main-enter-active {
+	transition: all 0.2s;
+}
+.main-leave-active {
+	position: absolute;
+	transition: all 0.3s;
 }
 </style>
