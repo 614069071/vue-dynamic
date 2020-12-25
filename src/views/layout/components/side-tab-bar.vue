@@ -1,10 +1,10 @@
 <template>
-	<div class="side-tab-bar-wrap">
-		<div class="side-tab-bar-item side-btn" :class="{active:activeTab === item.meta.index}" v-for="(item,index) in model" :key="item.url" @click="link(item)">
+	<transition-group class="side-tab-bar-wrap" name="bar" tag="ul">
+		<li class="side-tab-bar-item side-btn" :class="{active:activeTab === item.meta.index}" v-for="(item,index) in model" :key="item.url" @click="link(item)">
 			{{item.title}}
 			<span class="delete-btn el-icon-close" @click.stop.self="deleteTab(index)"></span>
-		</div>
-	</div>
+		</li>
+	</transition-group>
 </template>
 
 <script>
@@ -30,6 +30,10 @@ export default {
 </script>
 
 <style scoped>
+.side-tab-bar-wrap {
+	overflow: hidden;
+}
+
 .side-tab-bar-item {
 	position: relative;
 	padding: 0 20px;
@@ -45,5 +49,22 @@ export default {
 	position: absolute;
 	right: 0;
 	top: 0;
+}
+</style>
+
+<style>
+.bar-enter,
+.bar-leave-to {
+	opacity: 0;
+	transform: translate3d(-30px, 30px, 0);
+}
+
+.bar-enter-active {
+	transition: all 0.5s;
+}
+
+.bar-leave-active {
+	position: absolute;
+	transition: all 1s;
 }
 </style>
