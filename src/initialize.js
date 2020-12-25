@@ -17,16 +17,6 @@ Vue.config.productionTip = false
 NProgress.inc(0.2)
 NProgress.configure({ easing: "ease", speed: 500, showSpinner: false });
 
-// const files = require.context('@components', false, /\.vue$/);
-
-// files.keys().forEach(path => {
-//   const instance = files(path).default;
-//   const name = path.split(".")[1].slice(1);
-//   Vue.component(name, instance);
-// });
-
-
-
 /* eslint-disable */
 Message.install = vm => {
   vm.prototype.$message = Message;

@@ -240,6 +240,16 @@ export function loadBMap(ak) {
   });
 }
 
+export function autoload() {
+  const files = require.context('@components', false, /\.vue$/);
+
+  files.keys().forEach(path => {
+    const instance = files(path).default;
+    const name = path.split(".")[1].slice(1);
+    Vue.component(name, instance);
+  });
+}
+
 
 // 校验相关
 // 邮箱验证
