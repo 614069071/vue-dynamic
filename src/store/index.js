@@ -101,13 +101,16 @@ export default new Store({
     // 删除 tab 项
     DELETE_CACHE_ROUTER(state, i) {
       let list = state.breadcrumbRouter;
+      const delindex = list[i].meta.index;
       list.splice(i, 1);
       state.breadcrumbRouter = list;
       storages.set('CACHE_ROUTERS', list);
       if (list.length) {
-        const item = list[list.length - 1];
-        router.push(item.url);
-        this.commit('UPDATE_DEFAULT_ACTIVE', item.meta.index);
+        if (state.routerDefaultActive === delindex) {
+          const item = list[list.length - 1];
+          router.push(item.url);
+          this.commit('UPDATE_DEFAULT_ACTIVE', item.meta.index);
+        }
       } else {
         router.push('/');
         this.commit('UPDATE_DEFAULT_OPEN');
