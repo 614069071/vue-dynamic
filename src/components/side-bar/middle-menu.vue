@@ -4,7 +4,7 @@
 		<el-submenu v-if='model.children && model.children.length' :index="model.meta.index">
 			<template slot='title'>
 				<i v-if="model.icon" :class="model.icon"></i>
-				<span slot='title'>{{model.title}}</span>
+				<span>{{model.title}}</span>
 			</template>
 
 			<template v-for="(item,index) in model.children">
