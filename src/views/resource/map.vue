@@ -4,16 +4,16 @@
 		<div ref="resource_map" class="resource-map" id="resource_map"></div>
 
 		<!-- 2021年产品销量图 -->
-		<div ref="resource_sales" class="resource-sales" id="resource_sales"></div>
+		<div ref="resource_sales" class="resource-item resource-sales" id="resource_sales"></div>
 
 		<!-- 销量占比 -->
-		<div ref="resource_sales_scale" class="resource-sales-scale" id="resource_sales_scale"></div>
+		<div ref="resource_sales_scale" class="resource-item resource-sales-scale" id="resource_sales_scale"></div>
 
 		<!-- 设备在线率 -->
-		<div ref="resource_online" class="resource-online" id="resource_online"></div>
+		<div ref="resource_online" class="resource-item resource-online" id="resource_online"></div>
 
 		<!-- 全国用户活跃度 -->
-		<div ref="resource_active" class="resource-active" id="resource_active"></div>
+		<div ref="resource_active" class="resource-item resource-active" id="resource_active"></div>
 	</div>
 </template>
 
@@ -403,29 +403,11 @@ export default {
 	width: 800px;
 	height: 500px;
 }
-.resource-sales {
+
+.resource-item {
 	width: 500px;
 	height: 600px;
 	background-color: #fff;
-}
-
-.resource-sales-scale {
-	padding-top: 30px;
-	width: 500px;
-	height: 400px;
-	background-color: #fff;
-}
-.resource-online {
-	padding-top: 30px;
-	width: 500px;
-	height: 400px;
-	background-color: #fff;
-}
-
-.resource-active {
-	padding-top: 30px;
-	width: 500px;
-	height: 400px;
-	background-color: #fff;
+	margin-top: 20px;
 }
 </style>

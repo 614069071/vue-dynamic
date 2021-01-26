@@ -1,6 +1,6 @@
 <template>
 	<transition-group class="side-tab-bar-wrap" name="bar" tag="ul">
-		<li class="side-tab-bar-item side-btn" :class="{active:activeTab === item.meta.index}" v-for="(item,index) in model" :key="index" @click="link(item)">
+		<li class="side-tab-bar-item side-btn" :class="{active:activeTab === item.meta.index}" v-for="(item,index) in model" :key="item.meta.index" @click="link(item)">
 			{{item.title}}
 			<span class="delete-btn el-icon-close" @click.stop.self="deleteTab(index)"></span>
 		</li>
@@ -15,6 +15,9 @@ export default {
 		activeTab() {
 			return this.$store.state.routerDefaultActive;
 		},
+	},
+	mounted() {
+		console.log(this.model, 'this.model');
 	},
 	methods: {
 		link(data) {
