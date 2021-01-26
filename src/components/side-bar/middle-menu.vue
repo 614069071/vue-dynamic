@@ -13,10 +13,8 @@
 		</el-submenu>
 
 		<el-menu-item v-else :index="model.meta.index" @click="checkedMenu(model)">
-			<template slot="title">
-				<i v-if="model.icon" :class="model.icon"></i>
-				<span>{{model.title}}</span>
-			</template>
+			<i v-if="model.icon" :class="model.icon"></i>
+			<span slot="title">{{model.title}}</span>
 		</el-menu-item>
 	</div>
 </template>
