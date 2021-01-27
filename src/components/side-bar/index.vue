@@ -31,18 +31,18 @@ export default {
 					title: '资源管理',
 					icon: 'el-icon-wallet',
 					meta: {},
-					// children: [
-					// 	{
-					// 		title: '资源管理',
-					// 		url: '/resource',
-					// 		meta: {},
-					// 	},
-					// 	{
-					// 		title: '资源分布',
-					// 		url: '/resource/map',
-					// 		meta: {},
-					// 	},
-					// ],
+					children: [
+						{
+							title: '资源管理',
+							url: '/resource',
+							meta: {},
+						},
+						{
+							title: '资源分布',
+							url: '/resource/map',
+							meta: {},
+						},
+					],
 				},
 				{
 					title: '系统管理',

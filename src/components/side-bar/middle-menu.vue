@@ -1,5 +1,4 @@
 <template>
-	<!-- 添加div元素，解决后期菜单 hover时内存溢出bug -->
 	<div class="middle-menu">
 		<el-submenu v-if='model.children && model.children.length' :index="model.meta.index">
 			<template slot='title'>
