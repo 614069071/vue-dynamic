@@ -28,109 +28,40 @@ export default {
 		mapMenuTree() {
 			const items = [
 				{
-					title: '资源管理',
-					icon: 'el-icon-wallet',
-					meta: {},
-					children: [
-						{
-							title: '资源管理',
-							url: '/resource',
-							meta: {},
-						},
-						{
-							title: '资源分布',
-							url: '/resource/map',
-							meta: {},
-						},
-					],
-				},
-				{
-					title: '系统管理',
-					icon: 'el-icon-setting',
-					meta: {},
-					children: [
-						{
-							title: '修改密码',
-							url: '/system',
-							meta: {},
-						},
-						{
-							title: '退出系统',
-							meta: {},
-						},
-					],
-				},
-				{
-					title: '生产系统',
+					title: '首页综合数据',
 					icon: 'el-icon-menu',
+					url: '/resource/map',
 					meta: {},
-					children: [
-						{
-							title: '订单管理',
-							meta: {},
-							url: '/product',
-						},
-					],
 				},
 				{
-					title: '产品系统',
-					icon: 'el-icon-cloudy',
+					title: '订单数量查询',
+					icon: 'el-icon-menu',
+					url: '/order',
 					meta: {},
-					children: [
-						{
-							title: '产品管理',
-							meta: {},
-						},
-						{
-							title: '软件更新',
-							meta: {},
-						},
-					],
 				},
 				{
-					title: '客户系统',
-					icon: 'el-icon-user-solid',
+					title: '产品数量查询',
+					icon: 'el-icon-menu',
+					url: '/product',
 					meta: {},
-					children: [
-						{
-							title: '客户管理',
-							meta: {},
-						},
-					],
 				},
 				{
-					title: '运营系统',
-					icon: 'el-icon-user-solid',
+					title: '广告编辑',
+					icon: 'el-icon-menu',
+					url: '/banner',
 					meta: {},
-					children: [
-						{
-							title: '首页综合数据',
-							url: '/resource/map',
-							meta: {},
-						},
-						{
-							title: '订单数量查询',
-							meta: {},
-						},
-						{
-							title: '产品数量查询',
-							meta: {},
-						},
-						{
-							title: '广告编辑',
-							url: '/banner',
-							meta: {},
-						},
-						{
-							title: '日志查询',
-							url: '/log',
-							meta: {},
-						},
-						{
-							title: '账号管理',
-							meta: {},
-						},
-					],
+				},
+				{
+					title: '日志查询',
+					icon: 'el-icon-menu',
+					url: '/log',
+					meta: {},
+				},
+				{
+					title: '账号管理',
+					icon: 'el-icon-menu',
+					url: '/system',
+					meta: {},
 				},
 			];
 

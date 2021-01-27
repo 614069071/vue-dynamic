@@ -186,7 +186,7 @@ $mr: 6px;
 
 .page-wrap-content {
 	flex: 1;
-	overflow-x: hidden;
+	overflow-x: auto;
 	padding: 20px;
 }
 </style>

@@ -62,27 +62,22 @@ export const dynamicStRouter = [
           {
             path: '/resource',
             name: 'resource',
-            component: () => import(/* webpackChunkName: "test" */ '@/views/resource/resource'),
-            meta: { name: '资源管理' },
-          },
-          {
-            path: '/resource/map',
-            name: 'resource/map',
             component: () => import(/* webpackChunkName: "test" */ '@/views/resource/map'),
-            meta: { name: '资源分布' },
+            meta: { name: '综合数据' },
           },
         ]
       },
       {
-        path: '/system',
-        component: () => import(/* webpackChunkName: "test" */ '@/views/system'),
-        meta: { name: '资源管理' },
+        path: '/order',
+        name: 'order',
+        component: () => import(/* webpackChunkName: "test" */ '@/views/order'),
+        meta: { name: '订单管理' },
         children: [
           {
-            path: '/system',
-            name: 'setting',
-            component: () => import(/* webpackChunkName: "test" */ '@/views/system/setting'),
-            meta: { name: '修改密码' },
+            path: '/order',
+            name: 'order-inquire',
+            component: () => import(/* webpackChunkName: "test" */ '@/views/order/inquire'),
+            meta: { name: '订单查询' },
           },
         ]
       },
@@ -90,13 +85,13 @@ export const dynamicStRouter = [
         path: '/product',
         name: 'product',
         component: () => import(/* webpackChunkName: "test" */ '@/views/product'),
-        meta: { name: '生产系统' },
+        meta: { name: '产品管理' },
         children: [
           {
             path: '/product',
-            name: 'order',
-            component: () => import(/* webpackChunkName: "test" */ '@/views/product/order'),
-            meta: { name: '订单管理' },
+            name: 'product-inquire',
+            component: () => import(/* webpackChunkName: "test" */ '@/views/product/inquire'),
+            meta: { name: '产品数据查询' },
           },
         ]
       },
@@ -125,6 +120,19 @@ export const dynamicStRouter = [
             name: 'log-inquire',
             component: () => import(/* webpackChunkName: "test" */ '@/views/log/inquire'),
             meta: { name: '广告编辑' },
+          },
+        ]
+      },
+      {
+        path: '/system',
+        component: () => import(/* webpackChunkName: "test" */ '@/views/system'),
+        meta: { name: '账号管理' },
+        children: [
+          {
+            path: '/system',
+            name: 'system-account',
+            component: () => import(/* webpackChunkName: "test" */ '@/views/system/account'),
+            meta: { name: '账号管理' },
           },
         ]
       },
