@@ -98,6 +98,39 @@ export default {
 						},
 					],
 				},
+				{
+					title: '运营系统',
+					icon: 'el-icon-user-solid',
+					meta: {},
+					children: [
+						{
+							title: '首页综合数据',
+							url: '/resource/map',
+							meta: {},
+						},
+						{
+							title: '订单数量查询',
+							meta: {},
+						},
+						{
+							title: '产品数量查询',
+							meta: {},
+						},
+						{
+							title: '广告编辑',
+							url: '/banner',
+							meta: {},
+						},
+						{
+							title: '日志查询',
+							meta: {},
+						},
+						{
+							title: '账号管理',
+							meta: {},
+						},
+					],
+				},
 			];
 
 			function deal(arr, pre) {

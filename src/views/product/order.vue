@@ -1,5 +1,5 @@
 <template>
-	<div>订单管理</div>
+	<div>产品数据查询</div>
 </template>
 
 <script>

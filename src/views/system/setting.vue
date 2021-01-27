@@ -52,6 +52,7 @@ export default {
 
 			login_form.validate((valid) => {
 				if (valid) {
+					return true;
 				} else {
 					return false;
 				}

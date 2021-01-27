@@ -9,7 +9,9 @@
 		</header>
 
 		<section class="layout-content">
-			<side-bar class="layout-content-aside  clear-scroll-bar" :collapse="barCollapse"></side-bar>
+			<div class="layout-content-aside">
+				<side-bar :collapse="barCollapse"></side-bar>
+			</div>
 
 			<div class="layout-content-main">
 				<div class="breadcrumb-wrap">
