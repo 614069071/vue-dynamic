@@ -30,7 +30,7 @@ export default {
 				{
 					title: '首页综合数据',
 					icon: 'el-icon-menu',
-					url: '/resource/map',
+					url: '/resource',
 					meta: {},
 				},
 				{
@@ -55,6 +55,12 @@ export default {
 					title: '日志查询',
 					icon: 'el-icon-menu',
 					url: '/log',
+					meta: {},
+				},
+				{
+					title: '账号管理',
+					icon: 'el-icon-menu',
+					url: '/system',
 					meta: {},
 				},
 				{

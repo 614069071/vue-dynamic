@@ -28,6 +28,33 @@
 		<div class="inner-pagination-wrapper">
 			<el-pagination background layout="prev, pager, next, jumper" :total="1000"></el-pagination>
 		</div>
+
+		<el-dialog title="账号管理" :visible.sync="visible" width="500px">
+			<el-form label-width="100px" :model="accountFormData">
+				<el-form-item label="账号：">
+					<el-input></el-input>
+				</el-form-item>
+				<el-form-item label="密码：">
+					<el-input></el-input>
+				</el-form-item>
+				<el-form-item label="姓名：">
+					<el-input></el-input>
+				</el-form-item>
+				<el-form-item label="绑定邮箱：">
+					<el-input></el-input>
+				</el-form-item>
+				<el-form-item label="权限设定：">
+					<el-input></el-input>
+				</el-form-item>
+				<el-form-item label="权限设定：">
+					<el-input></el-input>
+				</el-form-item>
+			</el-form>
+			<span slot="footer" class="dialog-footer">
+				<el-button @click="accountCancel">取 消</el-button>
+				<el-button type="primary" @click="accountSubmit">确 定</el-button>
+			</span>
+		</el-dialog>
 	</div>
 </template>
 
@@ -46,11 +73,20 @@ export default {
 					name6: '2121-12-12 22:22:22',
 				},
 			],
+			accountFormData: {},
+			visible: false,
 		};
 	},
 	methods: {
 		handleClick(data) {
+			this.visible = true;
 			console.log(data);
+		},
+		accountCancel() {
+			this.visible = false;
+		},
+		accountSubmit() {
+			this.visible = false;
 		},
 	},
 };
