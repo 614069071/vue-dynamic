@@ -1,10 +1,8 @@
 <template>
 	<div class="banner-editor-view-wrapper">
-		<div class="inner-view-header">
+		<div class="inner-header-wrapper"></div>
 
-		</div>
-
-		<div class="inner-view-main banner-list">
+		<div class="inner-container-wrapper banner-list">
 			<el-table ref="multipleTable" :data="tableData" tooltip-effect="dark" style="width: 100%">
 				<el-table-column type="selection" width="55"></el-table-column>
 				<el-table-column prop="name1" label="账号名" width="120"></el-table-column>
@@ -21,6 +19,10 @@
 				</el-table-column>
 			</el-table>
 		</div>
+
+		<div class="inner-pagination-wrapper">
+			<el-pagination background layout="prev, pager, next, jumper" :total="1000"></el-pagination>
+		</div>
 	</div>
 </template>
 
@@ -30,14 +32,6 @@ export default {
 	data() {
 		return {
 			tableData: [
-				{
-					name1: 'admin',
-					name2: '张三',
-					name3: '123456',
-					name4: '',
-					name5: '',
-					name6: '2121-12-12 22:22:22',
-				},
 				{
 					name1: 'admin',
 					name2: '张三',

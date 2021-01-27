@@ -42,6 +42,38 @@
   }
 }
 
+.clearfix:after {
+  content: "";
+  font-size: 0;
+  display: block;
+  visibility: hidden;
+  clear: both;
+  width: 0;
+  height: 0;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+.clearboth {
+  clear: both;
+}
+
 .side-btn {
   cursor: pointer;
+}
+
+.inner-header-wrapper {
+  min-height: 60px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid red;
+}
+
+// .inner-main-wrapper {
+// }
+
+.inner-pagination-wrapper {
+  text-align: right;
+  margin: 20px 0;
 }

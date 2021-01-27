@@ -113,28 +113,8 @@ video {
   max-width: 100%;
 }
 
-.clearfix:after {
-  content: "";
-  font-size: 0;
-  display: block;
-  visibility: hidden;
-  clear: both;
-  width: 0;
-  height: 0;
-}
-
-.clearfix {
-  *zoom: 1;
-}
-
-.clearboth {
-  clear: both;
-}
-
 [role="button"] {
   &:focus {
     outline: 0;
   }
 }
-
-
