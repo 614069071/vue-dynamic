@@ -1,43 +1,30 @@
 <template>
-	<div class="layout-wrap">
-		<header class="layout-header">
-			<h2 class="header-left">H2管理系统</h2>
-			<div class="header-right">
-				<!-- 角色及设置相关 -->
-				你好 admin
-			</div>
-		</header>
-
-		<section class="layout-content">
-			<div class="layout-content-aside">
-				<side-bar :collapse="barCollapse"></side-bar>
+	<div class="layout-wrapper">
+		<div class="layout-aside clear-scroll-bar">
+			<div class="logo-wrapper">
+				<img src="../../assets/images/logo.png" alt="">
 			</div>
 
-			<div class="layout-content-main">
-				<div class="breadcrumb-wrap">
-					<div class="menu-toggle-btn" :class="{active:barCollapse}" @click="barCollapse = !barCollapse">
-						<span class="menu-icon"></span>
-					</div>
-					<!-- <el-breadcrumb separator="/">
-						<transition-group name="breadcrumb">
-							<template v-for="(route,i) in breadcrumbRouter">
-								<el-breadcrumb-item :key="i" v-if="route.name!='home' && route.meta.name!='首页'" :class="{'is-last-link':i==breadcrumbRouter.length-1}">
-									<router-link :to="route.path">{{route.meta.name}}</router-link>
-								</el-breadcrumb-item>
-							</template>
-						</transition-group>
-					</el-breadcrumb> -->
+			<side-bar :collapse="barCollapse"></side-bar>
+		</div>
 
-					<side-tab-bar :model="breadcrumbRouter"></side-tab-bar>
+		<div class="layout-main">
+			<div class="layout-header">admin</div>
+
+			<div class="layout-navigate">
+				<div class="control-menu-collapse" @click="barCollapse = !barCollapse">
+					<i class="el-icon-s-unfold"></i>
 				</div>
 
-				<main class="page-wrap-content scrollbar">
-					<transition name="main" mode="out-in">
-						<router-view></router-view>
-					</transition>
-				</main>
+				<side-tab-bar :model="breadcrumbRouter"></side-tab-bar>
 			</div>
-		</section>
+
+			<main class="layout-content scrollbar">
+				<transition name="layout" mode="out-in">
+					<router-view></router-view>
+				</transition>
+			</main>
+		</div>
 	</div>
 </template>
 
@@ -76,131 +63,73 @@ export default {
 
 
 <style lang="scss" scoped>
-$mr: 6px;
-.layout-wrap {
+.layout-wrapper {
 	height: 100vh;
 	display: flex;
-	flex-direction: column;
-}
 
-.layout-header {
-	height: 50px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	background-color: #eee;
-	margin-bottom: $mr;
-	padding: 0 20px;
-}
-.header-left {
-	font-size: 18px;
-	font-weight: bold;
-}
-
-.layout-content {
-	flex: 1;
-	background-color: #fff;
-	display: flex;
-	overflow: hidden;
-	.layout-content-aside {
-		margin-right: $mr;
+	.layout-header {
+		height: 60px;
+		background-color: pink;
+		border-bottom: 10px solid #eee;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0 20px;
 	}
-	.layout-content-main {
+
+	.layout-aside {
+		min-width: 0;
+		background-color: rgb(50, 65, 87);
+	}
+
+	.layout-main {
 		flex: 1;
-		background-color: #ccc;
-		box-sizing: border-box;
+		overflow: hidden;
+		border-left: 10px solid #eee;
+		background-color: #fff;
+		position: relative;
 		display: flex;
 		flex-direction: column;
 	}
-}
 
-.breadcrumb-wrap {
-	width: 100%;
-	// height: 30px;
-	display: flex;
-	align-items: center;
-	background-color: #eee;
-	z-index: 10;
-	// &.el-breadcrumb {
-	// display: inline-block;
-	// vertical-align: middle;
-	// font-size: 14px;
-	// margin-left: 5px;
-	// .el-breadcrumb__inner {
-	// 	&.is-link {
-	// 		display: inline-block;
-	// 		font-weight: normal;
-	// 		color: #424040 !important;
-	// 	}
-	// }
-	// .is-last-link .is-link {
-	// 	font-weight: normal;
-	// 	color: #999 !important;
-	// }
-	// }
-
-	.menu-toggle-btn {
-		width: 30px;
-		height: 30px;
+	.layout-navigate {
 		display: flex;
-		align-items: center;
-		justify-content: center;
-		transition: all 0.25s;
-		margin-right: 10px;
-		cursor: pointer;
-		&.active {
-			transform: rotate(90deg);
-		}
 	}
 
-	.menu-icon {
-		$h: 7px;
-		$c: #666;
-
-		width: 20px;
-		height: 3px;
-		background-color: $c;
-		position: relative;
-		display: block;
-
-		&::after,
-		&::before {
-			content: '';
-			display: block;
-			width: 20px;
-			height: 3px;
-			background-color: $c;
-			position: absolute;
-			left: 0;
-		}
-
-		&::after {
-			top: $h;
-		}
-
-		&::before {
-			top: -$h;
-		}
+	.layout-content {
+		flex: 1;
+		overflow-x: hidden;
+		overflow-y: scroll;
 	}
 }
 
-.page-wrap-content {
-	flex: 1;
-	overflow-x: auto;
-	padding: 20px;
+.logo-wrapper {
+	height: 56px;
+	width: 56px;
+	border-radius: 50%;
+	margin: 20px auto;
+	overflow: hidden;
+}
+
+.control-menu-collapse {
+	margin-right: 10px;
+	cursor: pointer;
+	i {
+		font-size: 20px;
+	}
 }
 </style>
 
 <style>
-.main-enter,
-.main-leave-to {
+.layout-enter,
+.layout-leave-to {
 	opacity: 0;
 	transform: translateY(30px);
 }
-.main-enter-active {
+.layout-enter-active {
 	transition: all 0.2s;
 }
-.main-leave-active {
+.layout-leave-active {
 	position: absolute;
 	transition: all 0.3s;
 }

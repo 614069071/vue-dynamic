@@ -63,12 +63,6 @@ export default {
 					url: '/system',
 					meta: {},
 				},
-				{
-					title: '账号管理',
-					icon: 'el-icon-menu',
-					url: '/system',
-					meta: {},
-				},
 			];
 
 			function deal(arr, pre) {
@@ -92,7 +86,6 @@ export default {
 .sidebar {
 	overflow-x: hidden;
 	overflow-y: scroll;
-	height: 100%;
 
 	&::-webkit-scrollbar {
 		width: 0;
@@ -101,6 +94,10 @@ export default {
 	.sidebar-el-menu:not(.el-menu--collapse) {
 		width: 220px;
 		// min-width: 210px; //该写法，内容会自动撑开，但收起动画会不流畅
+	}
+
+	.el-menu {
+		border-right: 0;
 	}
 
 	ul {
