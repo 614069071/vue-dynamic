@@ -1,8 +1,10 @@
 <template>
 	<div class="layout-wrapper">
 		<div class="layout-aside clear-scroll-bar">
-			<div class="logo-wrapper">
-				<img src="../../assets/images/logo.png" alt="">
+			<div class="aside-header-wrapper" :class="{collapse:barCollapse}">
+				<div class="logo-wrapper">
+					<img src="../../assets/images/logo.png" alt="">
+				</div>
 			</div>
 
 			<side-bar :collapse="barCollapse"></side-bar>
@@ -13,7 +15,7 @@
 
 			<div class="layout-navigate">
 				<div class="control-menu-collapse" @click="barCollapse = !barCollapse">
-					<i class="el-icon-s-unfold"></i>
+					<i :class="barCollapse ? 'el-icon-s-unfold':'el-icon-s-fold'"></i>
 				</div>
 
 				<side-tab-bar :model="breadcrumbRouter"></side-tab-bar>
@@ -101,12 +103,17 @@ export default {
 	}
 }
 
-.logo-wrapper {
-	height: 56px;
-	width: 56px;
-	border-radius: 50%;
-	margin: 20px auto;
-	overflow: hidden;
+.aside-header-wrapper {
+	display: flex;
+	height: 100px;
+	justify-content: center;
+	align-items: center;
+	.logo-wrapper {
+		width: 56px;
+		height: 56px;
+		border-radius: 50%;
+		overflow: hidden;
+	}
 }
 
 .control-menu-collapse {
