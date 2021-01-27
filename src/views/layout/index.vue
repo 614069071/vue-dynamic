@@ -65,13 +65,15 @@ export default {
 
 
 <style lang="scss" scoped>
+$mr: 1px solid red;
+
 .layout-wrapper {
 	height: 100vh;
 	display: flex;
 
 	.layout-header {
 		height: 60px;
-		background-color: pink;
+		border-bottom: $mr;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -94,6 +96,7 @@ export default {
 
 	.layout-navigate {
 		display: flex;
+		border-bottom: $mr;
 	}
 
 	.layout-content {
@@ -120,7 +123,7 @@ export default {
 	margin-right: 10px;
 	cursor: pointer;
 	i {
-		font-size: 20px;
+		font-size: 26px;
 	}
 }
 </style>

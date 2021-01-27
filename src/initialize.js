@@ -12,7 +12,7 @@ import './styles/common.scss';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 Vue.prototype.$axios = Request;
-Vue.prototype.$ELEMENT = { size: 'small', zIndex: 3000 };
+// Vue.prototype.$ELEMENT = { size: 'small', zIndex: 3000 };
 Vue.config.productionTip = false
 NProgress.inc(0.2)
 NProgress.configure({ easing: "ease", speed: 500, showSpinner: false });
