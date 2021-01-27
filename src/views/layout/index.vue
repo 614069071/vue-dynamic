@@ -70,7 +70,6 @@ export default {
 	.layout-header {
 		height: 60px;
 		background-color: pink;
-		border-bottom: 10px solid #eee;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -85,7 +84,6 @@ export default {
 	.layout-main {
 		flex: 1;
 		overflow: hidden;
-		border-left: 10px solid #eee;
 		background-color: #fff;
 		position: relative;
 		display: flex;

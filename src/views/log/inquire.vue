@@ -1,7 +1,14 @@
 <template>
 	<div class="log-inquire-view-wrapper">
 		<div class="inner-header-wrapper">
-			<el-date-picker type="date" placeholder="选择日期"></el-date-picker>
+			<el-form inline label-width="80px">
+				<el-form-item label="日期：">
+					<el-date-picker type="date" placeholder="选择日期"></el-date-picker>
+				</el-form-item>
+				<el-form-item>
+					<el-button type="primary">查询</el-button>
+				</el-form-item>
+			</el-form>
 		</div>
 
 		<div class="inner-container-wrapper banner-list">
