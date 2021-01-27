@@ -8,7 +8,7 @@
 		</div>
 
 		<div class="inner-container-wrapper banner-list">
-			<el-table ref="multipleTable" :data="tableData" tooltip-effect="dark" style="width: 100%">
+			<el-table ref="multipleTable" :data="dataTable" tooltip-effect="dark" style="width: 100%">
 				<el-table-column type="selection" width="55"></el-table-column>
 				<el-table-column prop="name1" label="账号名" width="120"></el-table-column>
 				<el-table-column prop="name2" label="姓名" width="120"></el-table-column>
@@ -36,15 +36,15 @@ export default {
 	name: 'banner-editor',
 	data() {
 		return {
-			tableData: [
-				// {
-				// 	name1: 'admin',
-				// 	name2: '张三',
-				// 	name3: '123456',
-				// 	name4: '',
-				// 	name5: '',
-				// 	name6: '2121-12-12 22:22:22',
-				// },
+			dataTable: [
+				{
+					name1: 'admin',
+					name2: '张三',
+					name3: '123456',
+					name4: '',
+					name5: '',
+					name6: '2121-12-12 22:22:22',
+				},
 			],
 		};
 	},

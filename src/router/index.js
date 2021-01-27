@@ -114,6 +114,20 @@ export const dynamicStRouter = [
           },
         ]
       },
+      {
+        path: '/log',
+        name: 'log',
+        component: () => import(/* webpackChunkName: "test" */ '@/views/log'),
+        meta: { name: '广告管理' },
+        children: [
+          {
+            path: '/log',
+            name: 'log-inquire',
+            component: () => import(/* webpackChunkName: "test" */ '@/views/log/inquire'),
+            meta: { name: '广告编辑' },
+          },
+        ]
+      },
       ...otherRouter
     ]
   },

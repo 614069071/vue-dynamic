@@ -123,6 +123,7 @@ export default {
 						},
 						{
 							title: '日志查询',
+							url: '/log',
 							meta: {},
 						},
 						{
