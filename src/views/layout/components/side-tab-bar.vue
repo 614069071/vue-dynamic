@@ -1,7 +1,7 @@
 <template>
 	<transition-group class="layout-tabs" name="bar" tag="ul">
 		<li class="layout-tab-item" :class="{active:activeTab === item.meta.index}" v-for="(item,index) in model" :key="item.meta.index" @click="link(item)">
-			{{item.title}}<span class="tab-close" @close="deleteTab(index)"><i class="el-icon-close"></i></span>
+			{{item.title}}<span class="tab-close" @click.stop="deleteTab(index)"><i class="el-icon-close"></i></span>
 		</li>
 	</transition-group>
 </template>
@@ -30,8 +30,7 @@ export default {
 			this.$store.commit('UPDATE_DEFAULT_ACTIVE', data.meta.index);
 		},
 		deleteTab(i) {
-			// this.$store.commit('DELETE_CACHE_ROUTER', i);
-			console.log(i);
+			this.$store.commit('DELETE_CACHE_ROUTER', i);
 		},
 	},
 };
@@ -62,7 +61,7 @@ export default {
 		display: inline-block;
 		width: 0;
 		height: 14px;
-		line-height: 14px;
+		line-height: 13px;
 		text-align: right;
 		overflow: hidden;
 		border-radius: 50%;
