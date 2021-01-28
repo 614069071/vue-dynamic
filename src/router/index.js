@@ -62,7 +62,7 @@ export const dynamicStRouter = [
           {
             path: '/resource',
             name: 'resource',
-            component: () => import(/* webpackChunkName: "test" */ '@/views/resource/map'),
+            component: () => import(/* webpackChunkName: "test" */ '@/views/resource/overview'),
             meta: { name: '综合数据' },
           },
         ]

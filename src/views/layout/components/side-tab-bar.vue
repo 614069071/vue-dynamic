@@ -21,7 +21,7 @@ export default {
 		};
 	},
 	mounted() {
-		console.log(this.model, 'this.model');
+		// console.log(this.model, 'this.model');
 	},
 	methods: {
 		link(data) {
