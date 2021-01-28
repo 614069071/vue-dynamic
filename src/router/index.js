@@ -103,10 +103,24 @@ export const dynamicStRouter = [
         children: [
           {
             path: '/banner',
-            name: 'banner-editor',
-            component: () => import(/* webpackChunkName: "test" */ '@/views/banner/editor'),
-            meta: { name: '广告编辑' },
-          },
+            name: 'banner-manage',
+            component: () => import(/* webpackChunkName: "test" */ '@/views/banner/list'),
+            meta: { name: '广告列表' },
+            children: [
+              {
+                path: '/banner',
+                name: 'banner-list',
+                component: () => import(/* webpackChunkName: "test" */ '@/views/banner/list/list'),
+                meta: { name: '广告列表' },
+              },
+              {
+                path: '/banner/editor',
+                name: 'banner-editor',
+                component: () => import(/* webpackChunkName: "test" */ '@/views/banner/list/editor'),
+                meta: { name: '广告编辑' },
+              }
+            ]
+          }
         ]
       },
       {

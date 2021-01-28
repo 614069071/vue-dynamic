@@ -1,5 +1,5 @@
 <template>
-	<div class="banner-editor-view-wrapper">
+	<div class="banner-list-view-wrapper">
 		<div class="inner-header-wrapper">
 			<el-button type="primary" size="mini">添加</el-button>
 			<el-input placeholder="请输入内容" size="">
@@ -33,7 +33,7 @@
 
 <script>
 export default {
-	name: 'banner-editor',
+	name: 'banner-list',
 	data() {
 		return {
 			dataTable: [
@@ -50,6 +50,8 @@ export default {
 	},
 	methods: {
 		handleClick(data) {
+			this.$router.push('/banner/editor');
+
 			console.log(data);
 		},
 	},
