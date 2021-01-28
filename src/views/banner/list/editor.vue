@@ -3,7 +3,12 @@
 </template>
 
 <script>
-export default {};
+export default {
+	name: 'banner-editor',
+	created() {
+		console.log(this.$route);
+	},
+};
 </script>
 
 <style>
