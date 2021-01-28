@@ -1,8 +1,7 @@
 <template>
-	<transition-group class="side-tab-bar-wrap" name="bar" tag="ul">
-		<li class="side-tab-bar-item side-btn" :class="{active:activeTab === item.meta.index}" v-for="(item,index) in model" :key="item.meta.index" @click="link(item)">
-			{{item.title}}
-			<span class="delete-btn el-icon-close" @click.stop.self="deleteTab(index)"></span>
+	<transition-group class="layout-tabs" name="bar" tag="ul">
+		<li class="layout-tab-item" :class="{active:activeTab === item.meta.index}" v-for="(item,index) in model" :key="item.meta.index" @click="link(item)">
+			{{item.title}}<span class="tab-close" @close="deleteTab(index)"><i class="el-icon-close"></i></span>
 		</li>
 	</transition-group>
 </template>
@@ -16,6 +15,11 @@ export default {
 			return this.$store.state.routerDefaultActive;
 		},
 	},
+	data() {
+		return {
+			editableTabsValue: '',
+		};
+	},
 	mounted() {
 		console.log(this.model, 'this.model');
 	},
@@ -26,32 +30,66 @@ export default {
 			this.$store.commit('UPDATE_DEFAULT_ACTIVE', data.meta.index);
 		},
 		deleteTab(i) {
-			this.$store.commit('DELETE_CACHE_ROUTER', i);
+			// this.$store.commit('DELETE_CACHE_ROUTER', i);
+			console.log(i);
 		},
 	},
 };
 </script>
 
-<style scoped>
-.side-tab-bar-wrap {
+<style lang="scss" scoped>
+.layout-tabs {
+	display: flex;
 	overflow: hidden;
 }
 
-.side-tab-bar-item {
-	position: relative;
+.layout-tab-item {
 	padding: 0 20px;
-	display: inline-block;
-	background-color: #aaa;
+	height: 40px;
+	box-sizing: border-box;
+	line-height: 40px;
+	display: flex;
+	align-items: center;
+	list-style: none;
+	font-size: 14px;
+	font-weight: 500;
+	color: #333;
+	position: relative;
+	cursor: pointer;
+	transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+	.tab-close {
+		display: inline-block;
+		width: 0;
+		height: 14px;
+		line-height: 14px;
+		text-align: right;
+		overflow: hidden;
+		border-radius: 50%;
+		margin-left: 5px;
+		font-size: 12px;
+		line-height: 14px;
+		text-align: center;
+		transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+	}
+
+	.tab-close:hover {
+		background-color: #c0c4cc;
+	}
 }
 
-.side-tab-bar-item.active {
-	background-color: red;
+.layout-tab-item:hover {
+	.tab-close {
+		width: 14px;
+	}
 }
 
-.delete-btn {
-	position: absolute;
-	right: 0;
-	top: 0;
+.layout-tab-item.active {
+	background-color: #f8f9fb;
+	border-bottom: 2px solid #333;
+	.tab-close {
+		width: 14px;
+	}
 }
 </style>
 

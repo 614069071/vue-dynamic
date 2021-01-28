@@ -65,15 +65,12 @@ export default {
 
 
 <style lang="scss" scoped>
-$mr: 1px solid red;
-
 .layout-wrapper {
 	height: 100vh;
 	display: flex;
 
 	.layout-header {
 		height: 60px;
-		border-bottom: $mr;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -96,7 +93,9 @@ $mr: 1px solid red;
 
 	.layout-navigate {
 		display: flex;
-		border-bottom: $mr;
+		border-top: 2px solid #f5f6f7;
+		border-bottom: 2px solid #f5f6f7;
+		margin-bottom: 20px;
 	}
 
 	.layout-content {
@@ -120,10 +119,11 @@ $mr: 1px solid red;
 }
 
 .control-menu-collapse {
-	margin-right: 10px;
+	display: flex;
+	align-items: center;
 	cursor: pointer;
 	i {
-		font-size: 26px;
+		font-size: 24px;
 	}
 }
 </style>
