@@ -50,7 +50,7 @@ export default {
 	display: flex;
 	align-items: center;
 	list-style: none;
-	font-size: 14px;
+	font-size: 15px;
 	font-weight: 500;
 	color: #333;
 	position: relative;

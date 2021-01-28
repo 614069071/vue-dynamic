@@ -79,7 +79,7 @@ export default {
 
 	.layout-aside {
 		min-width: 0;
-		background-color: rgb(50, 65, 87);
+		background-color: #545c64;
 	}
 
 	.layout-main {

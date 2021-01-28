@@ -1,6 +1,6 @@
 <template>
 	<div class="sidebar">
-		<el-menu class="sidebar-el-menu" :default-active="onRoutes" :default-openeds="defaultOpenedsArray" background-color="#324157" text-color="#bfcbd9" active-text-color="#20a0ff" unique-opened :collapse="collapse">
+		<el-menu class="sidebar-el-menu" :default-active="onRoutes" :default-openeds="defaultOpenedsArray" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" unique-opened :collapse="collapse">
 			<middle-menu v-for='item in mapMenuTree' :model='item' :key='item.meta.index' />
 		</el-menu>
 	</div>
