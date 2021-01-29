@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div class="resource-map">
+		<div class="resource-item resource-map">
 			<Heat>全国销售热力图分布</Heat>
 		</div>
 
@@ -12,15 +12,13 @@
 			<Scale>销量占比</Scale>
 		</div> -->
 
-		<div class=" resource-item resource-online">
+		<!-- <div class=" resource-item resource-online">
 			<Online>设备在线率</Online>
-		</div>
+		</div> -->
 
-		<!-- 
-		<div class="resource-item resource-active">
+		<!-- <div class="resource-item resource-active">
 			<Lively>全国用户活跃度</Lively>
-		</div> 
-    -->
+		</div> -->
 	</div>
 </template>
 
@@ -49,5 +47,6 @@ export default {
 
 .resource-map {
 	width: 700px;
+	height: 700px;
 }
 </style>
