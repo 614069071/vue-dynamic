@@ -242,16 +242,20 @@ const options = {
 		},
 	],
 	visualMap: {
-		type: 'continuous',
-		// dimension: 0,
-		// seriesIndex: 0,
 		min: 0,
-		max: 1000,
+		max: 1500,
+		calculable: true,
+		// seriesIndex: [1],
+		inRange: {
+			color: ['#e0ffff', '#006edd'],
+		},
+		show: true,
+		type: 'continuous',
 		left: 300,
 		bottom: 40,
 		align: 'left',
 		orient: 'horizontal',
-		text: ['1K', '0'],
+		// text: ['1K', '0'],
 		pieces: [
 			{
 				gt: 100,
