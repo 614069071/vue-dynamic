@@ -4,7 +4,7 @@
 			<Heat>全国销售热力图分布</Heat>
 		</div>
 
-		<!-- <div class="resource-item resource-sales">
+		<div class="resource-item resource-sales">
 			<Sales>2021年产品销量图</Sales>
 		</div>
 
@@ -15,10 +15,11 @@
 		<div class=" resource-item resource-online">
 			<Online>设备在线率</Online>
 		</div>
-
+		<!-- 
 		<div class="resource-item resource-active">
 			<Lively>全国用户活跃度</Lively>
-		</div> -->
+		</div> 
+    -->
 	</div>
 </template>
 
