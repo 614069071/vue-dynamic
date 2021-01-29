@@ -19,6 +19,7 @@ var salesOption = {
 	tooltip: {
 		trigger: 'axis',
 	},
+	color: ['#eee', '#000'],
 	legend: {
 		itemWidth: 15,
 		itemHeight: 15,
@@ -57,7 +58,7 @@ var salesOption = {
 			stack: '使用情况',
 			data: [10, 20, 36, 10, 10, 20, 40, 22, 18, 35, 42, 40],
 			itemStyle: {
-				normal: { color: '#FF8849' },
+				normal: { color: '#409EFF' },
 			},
 		},
 		{
@@ -66,7 +67,7 @@ var salesOption = {
 			stack: '使用情况',
 			data: [40, 22, 18, 35, 42, 40, 10, 20, 36, 10, 10, 20],
 			itemStyle: {
-				normal: { color: '#3FBB49' },
+				normal: { color: '#5ED0B2' },
 			},
 		},
 	],
