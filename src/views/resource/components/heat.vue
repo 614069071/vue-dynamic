@@ -243,11 +243,11 @@ const options = {
 	],
 	visualMap: {
 		min: 0,
-		max: 1500,
+		max: 120,
 		calculable: true,
 		// seriesIndex: [1],
 		inRange: {
-			color: ['#e0ffff', '#006edd'],
+			color: ['lightskyblue', 'yellow', 'orangered'],
 		},
 		show: true,
 		type: 'continuous',
