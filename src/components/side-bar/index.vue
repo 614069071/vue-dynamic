@@ -28,19 +28,19 @@ export default {
 		mapMenuTree() {
 			const items = [
 				{
-					title: '首页综合数据',
+					title: '综合数据',
 					icon: 'el-icon-menu',
 					url: '/resource',
 					meta: {},
 				},
 				{
-					title: '订单数量查询',
+					title: '订单查询',
 					icon: 'el-icon-menu',
 					url: '/order',
 					meta: {},
 				},
 				{
-					title: '产品数量查询',
+					title: '产品查询',
 					icon: 'el-icon-menu',
 					url: '/product',
 					meta: {},
