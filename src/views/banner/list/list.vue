@@ -1,6 +1,6 @@
 <template>
 	<div class="banner-list-view-wrapper">
-		<div class="inner-header-wrapper inner-item">
+		<div class="inner-header-wrapper">
 			<el-form inline label-width="80px">
 				<el-form-item label="快速查询">
 					<el-input placeholder="请输入关键字搜索" suffix-icon="el-icon-search"></el-input>
@@ -12,7 +12,7 @@
 			</el-form>
 		</div>
 
-		<div class="inner-container-wrapper banner-list inner-item">
+		<div class="inner-container-wrapper banner-list">
 			<div class="inner-container-title">广告管理列表</div>
 			<el-table ref="multipleTable" :data="dataTable" tooltip-effect="dark" style="width: 100%">
 				<el-table-column prop="name1" label="账号名" width="120"></el-table-column>
