@@ -2,6 +2,7 @@
   --default-color: #409eff;
   --second-color: #ecf5ff;
   --font-color: #606266;
+  --font-color-3: #333;
 }
 
 // 清除scroll滚动条
@@ -71,7 +72,7 @@
 }
 
 .inner-header-wrapper {
-  padding: 24px 0;
+  padding: 24px 0 2px 0;
   margin-bottom: 10px;
   background-color: #fff;
   border-radius: 6px;
@@ -81,14 +82,25 @@
   background-color: #fff;
   border-radius: 6px;
   padding: 24px;
+
+  .inner-container-title {
+    height: 70px;
+    line-height: 70px;
+    font-size: 16px;
+    color: var(--font-color-3);
+  }
 }
 
 .inner-pagination-wrapper {
+  background-color: #fff;
   text-align: right;
-  margin: 20px 0;
+  padding: 14px 24px 28px 24px;
 }
 
 // element
+.el-table__header-wrapper thead tr th {
+  background-color: #f5f7fa !important;
+}
 .el-input {
   width: 220px;
 }

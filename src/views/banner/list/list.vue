@@ -1,15 +1,20 @@
 <template>
 	<div class="banner-list-view-wrapper">
 		<div class="inner-header-wrapper">
-			<el-button type="primary" size="mini">添加</el-button>
-			<el-input placeholder="请输入内容" size="">
-				<el-button slot="append" icon="el-icon-search"></el-button>
-			</el-input>
+			<el-form inline label-width="80px">
+				<el-form-item label="快速查询">
+					<el-input placeholder="请输入关键字搜索" suffix-icon="el-icon-search"></el-input>
+				</el-form-item>
+
+				<el-form-item>
+					<el-button type="primary">新增</el-button>
+				</el-form-item>
+			</el-form>
 		</div>
 
 		<div class="inner-container-wrapper banner-list">
+			<div class="inner-container-title">广告管理列表</div>
 			<el-table ref="multipleTable" :data="dataTable" tooltip-effect="dark" style="width: 100%">
-				<el-table-column type="selection" width="55"></el-table-column>
 				<el-table-column prop="name1" label="账号名" width="120"></el-table-column>
 				<el-table-column prop="name2" label="姓名" width="120"></el-table-column>
 				<el-table-column prop="name3" label="投放地域"></el-table-column>
@@ -18,8 +23,8 @@
 				<el-table-column prop="name6" label="创建时间"></el-table-column>
 				<el-table-column label="编辑">
 					<template slot-scope="scope">
-						<el-button @click="handleClick(scope)" type="primary" size="mini">编辑</el-button>
-						<el-button type="danger" size="mini">删除</el-button>
+						<el-button @click="handleClick(scope)" plain type="primary" size="mini">编辑</el-button>
+						<el-button size="mini">删除</el-button>
 					</template>
 				</el-table-column>
 			</el-table>
@@ -41,8 +46,8 @@ export default {
 					name1: 'admin',
 					name2: '张三',
 					name3: '123456',
-					name4: '',
-					name5: '',
+					name4: '小小明',
+					name5: '2021-01-11 至 2021-11-11',
 					name6: '2121-12-12 22:22:22',
 				},
 			],
