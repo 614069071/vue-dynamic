@@ -7,17 +7,21 @@
 				</div>
 			</div>
 
-			<side-bar :collapse="barCollapse"></side-bar>
+			<div class="aside-content-wrapper">
+				<side-bar :collapse="barCollapse"></side-bar>
+			</div>
+
+			<div class="aside-footer-wrapper">
+				<div class="control-menu-collapse" @click="barCollapse = !barCollapse">
+					<i :class="barCollapse ? 'el-icon-s-unfold':'el-icon-s-fold'"></i>
+				</div>
+			</div>
 		</div>
 
 		<div class="layout-main">
 			<div class="layout-header">admin</div>
 
 			<div class="layout-navigate">
-				<div class="control-menu-collapse" @click="barCollapse = !barCollapse">
-					<i :class="barCollapse ? 'el-icon-s-unfold':'el-icon-s-fold'"></i>
-				</div>
-
 				<side-tab-bar :model="breadcrumbRouter"></side-tab-bar>
 			</div>
 
@@ -118,12 +122,21 @@ export default {
 	}
 }
 
+.aside-content-wrapper {
+}
+
+.aside-footer-wrapper {
+}
+
 .control-menu-collapse {
+	width: 64px;
+	height: 56px;
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	cursor: pointer;
 	i {
-		font-size: 24px;
+		font-size: 20px;
 	}
 }
 </style>
