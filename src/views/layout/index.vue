@@ -91,7 +91,7 @@ export default {
 
 	.layout-aside {
 		min-width: 0;
-		background-color: #545c64;
+		background-color: #001529;
 	}
 
 	.layout-main {

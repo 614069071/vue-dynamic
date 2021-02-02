@@ -31,3 +31,9 @@ export default {
 	},
 };
 </script>
+
+<style>
+.el-menu-item.is-active {
+	background-color: var(--default-color) !important;
+}
+</style>
