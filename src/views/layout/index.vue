@@ -157,9 +157,6 @@ export default {
 	}
 }
 
-.aside-footer-wrapper {
-}
-
 .control-menu-collapse {
 	height: 40px;
 	display: flex;

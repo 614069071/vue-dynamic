@@ -71,24 +71,26 @@
   cursor: pointer;
 }
 
-.inner-header-wrapper {
-  padding: 24px 0 2px 0;
-  margin-bottom: 10px;
+// 主体内容布局样式
+.inner-item {
   background-color: #fff;
   border-radius: 6px;
 }
 
-.inner-container-wrapper {
-  background-color: #fff;
-  border-radius: 6px;
-  padding: 24px;
+.inner-header-wrapper {
+  padding: 24px 0 2px 0;
+  margin-bottom: 10px;
+}
 
-  .inner-container-title {
-    height: 70px;
-    line-height: 70px;
-    font-size: 16px;
-    color: var(--font-color-3);
-  }
+.inner-container-wrapper {
+  padding: 24px;
+}
+
+.inner-container-title {
+  height: 70px;
+  line-height: 70px;
+  font-size: 16px;
+  color: var(--font-color-3);
 }
 
 .inner-pagination-wrapper {
