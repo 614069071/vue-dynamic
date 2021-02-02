@@ -43,19 +43,23 @@ export default {
 }
 
 .layout-tab-item {
-	padding: 0 20px;
-	height: 40px;
+	padding: 0 24px;
+	height: 36px;
 	box-sizing: border-box;
-	line-height: 40px;
+	line-height: 36px;
 	display: flex;
 	align-items: center;
 	list-style: none;
 	font-size: 15px;
 	font-weight: 500;
-	color: #333;
+	color: var(--default-color);
+	background-color: var(--second-color);
 	position: relative;
 	cursor: pointer;
 	transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+	margin-right: 2px;
+	border-radius: 4px 4px 0px 0px;
+	min-width: 104px;
 
 	.tab-close {
 		display: inline-block;
@@ -73,7 +77,7 @@ export default {
 	}
 
 	.tab-close:hover {
-		background-color: #c0c4cc;
+		background-color: var(--second-color);
 	}
 }
 
@@ -84,8 +88,8 @@ export default {
 }
 
 .layout-tab-item.active {
-	background-color: #f8f9fb;
-	border-bottom: 2px solid #333;
+	background-color: var(--default-color);
+	color: #fff;
 	.tab-close {
 		width: 14px;
 	}

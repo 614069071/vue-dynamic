@@ -1,3 +1,9 @@
+:root {
+  --default-color: #409eff;
+  --second-color: #ecf5ff;
+  --font-color: #606266;
+}
+
 // 清除scroll滚动条
 .clear-scroll-bar {
   overflow-x: hidden;
@@ -65,13 +71,17 @@
 }
 
 .inner-header-wrapper {
-  min-height: 60px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid red;
+  padding: 24px 0;
+  margin-bottom: 10px;
+  background-color: #fff;
+  border-radius: 6px;
 }
 
-// .inner-main-wrapper {
-// }
+.inner-container-wrapper {
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 24px;
+}
 
 .inner-pagination-wrapper {
   text-align: right;

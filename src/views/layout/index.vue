@@ -19,10 +19,17 @@
 		</div>
 
 		<div class="layout-main">
-			<div class="layout-header">admin</div>
+			<div class="layout-header">
+				<div class="layout-navigate">
+					<side-tab-bar :model="breadcrumbRouter"></side-tab-bar>
+				</div>
 
-			<div class="layout-navigate">
-				<side-tab-bar :model="breadcrumbRouter"></side-tab-bar>
+				<div class="header-info">
+					<div class="info-avator">
+						<img src="../../assets/images/logo.png" alt="">
+					</div>
+					<div class="info-name">用户名</div>
+				</div>
 			</div>
 
 			<main class="layout-content scrollbar">
@@ -74,11 +81,12 @@ export default {
 	display: flex;
 
 	.layout-header {
-		height: 60px;
+		height: 48px;
 		display: flex;
-		align-items: center;
+		align-items: flex-end;
 		justify-content: space-between;
-		padding: 0 20px;
+		padding: 0 10px;
+		background-color: #fff;
 	}
 
 	.layout-aside {
@@ -89,7 +97,7 @@ export default {
 	.layout-main {
 		flex: 1;
 		overflow: hidden;
-		background-color: #fff;
+		background-color: #f5f9fd;
 		position: relative;
 		display: flex;
 		flex-direction: column;
@@ -97,15 +105,14 @@ export default {
 
 	.layout-navigate {
 		display: flex;
-		border-top: 2px solid #f5f6f7;
-		border-bottom: 2px solid #f5f6f7;
-		margin-bottom: 20px;
 	}
 
 	.layout-content {
 		flex: 1;
 		overflow-x: hidden;
 		overflow-y: scroll;
+		padding: 10px;
+		background-color: #f5f9fd;
 	}
 }
 
@@ -119,6 +126,24 @@ export default {
 		height: 56px;
 		border-radius: 50%;
 		overflow: hidden;
+	}
+}
+
+.header-info {
+	height: 48px;
+	display: flex;
+	align-items: center;
+
+	.info-avator {
+		width: 24px;
+		height: 24px;
+		border-radius: 50%;
+		overflow: hidden;
+		margin-right: 8px;
+	}
+
+	.info-name {
+		color: var(--font-color);
 	}
 }
 
