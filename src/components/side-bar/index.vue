@@ -63,6 +63,30 @@ export default {
 					url: '/system',
 					meta: {},
 				},
+				{
+					title: '账号管理',
+					icon: 'el-icon-menu',
+					url: '/system',
+					meta: {},
+				},
+				{
+					title: '账号管理',
+					icon: 'el-icon-menu',
+					url: '/system',
+					meta: {},
+				},
+				{
+					title: '账号管理',
+					icon: 'el-icon-menu',
+					url: '/system',
+					meta: {},
+				},
+				{
+					title: '账号管理',
+					icon: 'el-icon-menu',
+					url: '/system',
+					meta: {},
+				},
 			];
 
 			function deal(arr, pre) {
@@ -92,7 +116,7 @@ export default {
 	}
 
 	.sidebar-el-menu:not(.el-menu--collapse) {
-		width: 220px;
+		width: 160px;
 		// min-width: 210px; //该写法，内容会自动撑开，但收起动画会不流畅
 	}
 

@@ -1,14 +1,14 @@
 <template>
 	<div class="layout-wrapper">
-		<div class="layout-aside clear-scroll-bar">
+		<div class="layout-aside">
 			<div class="aside-header-wrapper" :class="{collapse:barCollapse}">
 				<div class="logo-wrapper">
 					<img src="../../assets/images/logo.png" alt="">
 				</div>
-			</div>
 
-			<div class="aside-content-wrapper">
-				<side-bar :collapse="barCollapse"></side-bar>
+				<div class="aside-content-wrapper clear-scroll-bar">
+					<side-bar :collapse="barCollapse"></side-bar>
+				</div>
 			</div>
 
 			<div class="aside-footer-wrapper">
@@ -92,6 +92,9 @@ export default {
 	.layout-aside {
 		min-width: 0;
 		background-color: #001529;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 	}
 
 	.layout-main {
@@ -118,13 +121,19 @@ export default {
 
 .aside-header-wrapper {
 	display: flex;
-	height: 100px;
-	justify-content: center;
-	align-items: center;
+	flex: 1;
+	flex-direction: column;
+
 	.logo-wrapper {
 		width: 56px;
 		height: 56px;
 		border-radius: 50%;
+		overflow: hidden;
+		margin: 30px auto;
+	}
+
+	.aside-content-wrapper {
+		flex: 1;
 		overflow: hidden;
 	}
 }
@@ -147,21 +156,19 @@ export default {
 	}
 }
 
-.aside-content-wrapper {
-}
-
 .aside-footer-wrapper {
 }
 
 .control-menu-collapse {
-	width: 64px;
-	height: 56px;
+	height: 40px;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	padding-left: 23px;
 	cursor: pointer;
+	border-top: 1px solid rgba(255, 255, 255, 0.65);
 	i {
 		font-size: 20px;
+		color: rgba(255, 255, 255, 0.64);
 	}
 }
 </style>
