@@ -63,30 +63,6 @@ export default {
 					url: '/system',
 					meta: {},
 				},
-				{
-					title: '账号管理',
-					icon: 'el-icon-menu',
-					url: '/system',
-					meta: {},
-				},
-				{
-					title: '账号管理',
-					icon: 'el-icon-menu',
-					url: '/system',
-					meta: {},
-				},
-				{
-					title: '账号管理',
-					icon: 'el-icon-menu',
-					url: '/system',
-					meta: {},
-				},
-				{
-					title: '账号管理',
-					icon: 'el-icon-menu',
-					url: '/system',
-					meta: {},
-				},
 			];
 
 			function deal(arr, pre) {

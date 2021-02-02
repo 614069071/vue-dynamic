@@ -93,6 +93,7 @@ export default {
 		min-width: 0;
 		background-color: #001529;
 		display: flex;
+		height: 100%;
 		flex-direction: column;
 		justify-content: space-between;
 	}
@@ -122,6 +123,7 @@ export default {
 .aside-header-wrapper {
 	display: flex;
 	flex: 1;
+	min-height: 200px;
 	flex-direction: column;
 
 	.logo-wrapper {
@@ -134,7 +136,6 @@ export default {
 
 	.aside-content-wrapper {
 		flex: 1;
-		overflow: hidden;
 	}
 }
 
