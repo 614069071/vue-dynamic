@@ -1,6 +1,6 @@
 <template>
 	<div class="banner-editor-view-wrapper">
-		<div class="banner-editor-content">
+		<div class="banner-editor-content view-wrapper">
 			<div class="inner-item">
 				<div class="inner-container-title">启动页广告</div>
 
@@ -174,7 +174,6 @@ export default {
 	flex-direction: column;
 	justify-content: space-between;
 	.banner-editor-content {
-		padding: 10px;
 		flex: 1;
 	}
 }

@@ -1,14 +1,14 @@
 <template>
-	<div class="product-inquire-view-wrapper">
+	<div class="product-inquire-view-wrapper view-wrapper">
 		<div class="inner-header-wrapper">
 			<el-form :model="dataForm" label-width="80px" inline>
-				<el-form-item label="设备ID：">
+				<el-form-item label="设备ID">
 					<el-input v-model="dataForm.name1"></el-input>
 				</el-form-item>
-				<el-form-item label="SN：">
+				<el-form-item label="SN">
 					<el-input v-model="dataForm.name2"></el-input>
 				</el-form-item>
-				<el-form-item label="手机号：">
+				<el-form-item label="手机号">
 					<el-input v-model="dataForm.name3"></el-input>
 				</el-form-item>
 				<el-form-item>
@@ -56,13 +56,6 @@ export default {
 			],
 		};
 	},
-	methods: {
-		handleClick(data) {
-			console.log(data);
-		},
-	},
+	methods: {},
 };
 </script>
-
-<style>
-</style>

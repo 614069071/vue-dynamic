@@ -1,5 +1,5 @@
 <template>
-	<div class="log-inquire-view-wrapper">
+	<div class="log-inquire-view-wrapper view-wrapper">
 		<div class="inner-header-wrapper">
 			<el-form inline label-width="80px">
 				<el-form-item label="日期：">
@@ -25,6 +25,7 @@
 		</div>
 
 		<div class="inner-pagination-wrapper">
+			<el-button size="mini" plain @click="deleteCheck">删除</el-button>
 			<el-pagination background layout="prev, pager, next, jumper" :total="1000"></el-pagination>
 		</div>
 	</div>
@@ -49,12 +50,24 @@ export default {
 		};
 	},
 	methods: {
-		handleClick(data) {
-			console.log(data);
+		deleteCheck() {
+			console.log('删除');
+			this.$confirm('确定删除？')
+				.then(() => {
+					// 删除成功
+				})
+				.catch(() => {
+					// 取消删除
+				});
 		},
 	},
 };
 </script>
 
-<style>
+<style scoped>
+.log-inquire-view-wrapper .inner-pagination-wrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
 </style>

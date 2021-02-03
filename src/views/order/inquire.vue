@@ -1,17 +1,17 @@
 <template>
-	<div class="order-inquire-view-wrapper">
+	<div class="order-inquire-view-wrapper view-wrapper">
 		<div class="inner-header-wrapper">
 			<el-form inline label-width="100px" :model="dataForm">
-				<el-form-item label="订单编号：">
+				<el-form-item label="订单编号">
 					<el-input placeholder=""></el-input>
 				</el-form-item>
-				<el-form-item label="下单人：">
+				<el-form-item label="下单人">
 					<el-select v-model="dataForm.name2">
 						<el-option label="李四" value="1"></el-option>
 						<el-option label="张三" value="2"></el-option>
 					</el-select>
 				</el-form-item>
-				<el-form-item label="订单状态：">
+				<el-form-item label="订单状态">
 					<el-select v-model="dataForm.name3">
 						<el-option label="已出库" value="1"></el-option>
 						<el-option label="未出库" value="2"></el-option>
@@ -20,19 +20,19 @@
 						<el-option label="全部" value="5"></el-option>
 					</el-select>
 				</el-form-item>
-				<el-form-item label="设备ID：">
+				<el-form-item label="设备ID">
 					<el-select v-model="dataForm.name4">
 						<el-option label="H1" value="1"></el-option>
 						<el-option label="H2" value="2"></el-option>
 					</el-select>
 				</el-form-item>
-				<el-form-item label="客户名称：">
+				<el-form-item label="客户名称">
 					<el-input placeholder=""></el-input>
 				</el-form-item>
-				<el-form-item label="SN：">
+				<el-form-item label="SN">
 					<el-input placeholder=""></el-input>
 				</el-form-item>
-				<el-form-item label="下单日期：">
+				<el-form-item label="下单日期">
 					<el-date-picker v-model="dataForm.name6" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
 					</el-date-picker>
 				</el-form-item>
@@ -95,6 +95,3 @@ export default {
 	},
 };
 </script>
-
-<style>
-</style>
