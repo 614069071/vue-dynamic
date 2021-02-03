@@ -21,7 +21,7 @@
 		<div class="layout-main">
 			<div class="layout-header">
 				<div class="layout-navigate">
-					<side-tab-bar :model="breadcrumbRouter"></side-tab-bar>
+					<tab-card :model="breadcrumbRouter"></tab-card>
 				</div>
 
 				<div class="header-info">
@@ -45,10 +45,10 @@
 import store from '@store';
 import { mapState } from 'vuex';
 import SideBar from '@components/side-bar';
-import SideTabBar from './components/side-tab-bar.vue';
+import TabCard from './components/tab-card.vue';
 
 export default {
-	components: { SideBar, SideTabBar },
+	components: { SideBar, TabCard },
 	data() {
 		return {
 			barCollapse: false,

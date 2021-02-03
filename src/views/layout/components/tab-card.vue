@@ -8,7 +8,7 @@
 
 <script>
 export default {
-	name: 'side-tab-bar',
+	name: 'tab-card',
 	props: ['model'],
 	computed: {
 		activeTab() {
