@@ -5,22 +5,20 @@
 				<div class="inner-container-title">启动页广告</div>
 
 				<div class="editor-item">
-					<!-- <el-button type="primary" size="small">点击上传</el-button> -->
-
 					<div class="la-upload-tip">只能上传jpg/png/h5文件，且不超过5M，建议尺寸为750*1334px
-						<el-popover placement="right" trigger="click" @show="startPopoverShow" @hide="startPopoverHide">
+						<el-popover placement="right" trigger="click" :value.sync="startPopoverVisible" @show="startPopoverShow" @hide="startPopoverHide">
 							<div class="start-sample-popover sample-popover-wrapper">
-								<el-carousel height="505px" arrow="never" :autoplay="startAutoplay" :interval="startNum * 1000" loop>
+								<el-carousel height="505px" arrow="never" trigger="click" :autoplay="startAutoplay" :interval="startNum * 1000" loop>
 									<el-carousel-item v-for="item in startFileList" :key="item.url">
 										<img :src="item.url" alt="">
 									</el-carousel-item>
 								</el-carousel>
 							</div>
-							<button class="la-upload-popover-btn" slot="reference">示例</button>
+							<button class="la-upload-popover-btn" slot="reference" @click.self.stop="startPopoverControl">示例</button>
 						</el-popover>
 					</div>
 
-					<el-upload action="#" list-type="picture-card" :on-preview="handlePictureCardPreview" :on-remove="startUploadRemove" :on-change="startUploadChange" :auto-upload="false" :file-list="startFileList">
+					<el-upload action="#" list-type="picture-card" accept=".png,.jpg,.jpeg" :on-preview="handlePictureCardPreview" :on-remove="startUploadRemove" :on-change="startUploadChange" :auto-upload="false" :file-list="startFileList">
 						<i class="el-icon-plus"></i>
 					</el-upload>
 
@@ -34,22 +32,22 @@
 				<div class="inner-container-title">Banner广告</div>
 
 				<div class="editor-item">
-					<!-- <el-button type="primary" size="small">点击上传</el-button> -->
-
 					<div class="la-upload-tip">只能上传jpg/png/h5文件，且不超过5M，建议尺寸为702*290px
-						<el-popover placement="right" trigger="click" @show="bannerPopoverShow" @hide="bannerPopoverHide">
+						<el-popover placement="right" trigger="click" :value.sync="bannerPopoverVisible" @show="bannerPopoverShow" @hide="bannerPopoverHide">
 							<div class="banner-sample-popover sample-popover-wrapper">
-								<el-carousel height="505px" arrow="never" :autoplay="bannerAutoplay" :interval="bannerNum * 1000">
-									<el-carousel-item v-for="item in bannerFileList" :key="item.url">
-										<img :src="item.url" alt="">
-									</el-carousel-item>
-								</el-carousel>
+								<div class="banner-carousel-wrapper">
+									<el-carousel height="115px" arrow="never" trigger="click" :autoplay="bannerAutoplay" :interval="bannerNum * 1000">
+										<el-carousel-item v-for="item in bannerFileList" :key="item.url">
+											<img :src="item.url" alt="">
+										</el-carousel-item>
+									</el-carousel>
+								</div>
 							</div>
-							<button class="la-upload-popover-btn" slot="reference">示例</button>
+							<button class="la-upload-popover-btn" slot="reference" @click.self="bannerPopoverControl">示例</button>
 						</el-popover>
 					</div>
 
-					<el-upload action="#" list-type="picture-card" :on-preview="handlePictureCardPreview" :on-remove="bannerUploadRemove" :on-change="bannerUploadChange" :auto-upload="false" :http-request="test">
+					<el-upload action="#" list-type="picture-card" accept=".png,.jpg,.jpeg" :on-preview="handlePictureCardPreview" :on-remove="bannerUploadRemove" :on-change="bannerUploadChange" :auto-upload="false">
 						<i class="el-icon-plus"></i>
 					</el-upload>
 
@@ -115,9 +113,11 @@ export default {
 			startNum: 1,
 			startAutoplay: false,
 			startFileList: [],
+			startPopoverVisible: false,
 			bannerNum: 1,
 			bannerAutoplay: false,
 			bannerFileList: [],
+			bannerPopoverVisible: false,
 			previewSrc: '',
 			dialogVisible: false,
 			putFormData: {},
@@ -127,9 +127,6 @@ export default {
 		console.log('banner-editor');
 	},
 	methods: {
-		test() {
-			console.log('ssssss');
-		},
 		handlePictureCardPreview(file) {
 			this.previewSrc = file.url;
 			this.dialogVisible = true;
@@ -150,6 +147,9 @@ export default {
 			console.log(file, files, 'handleRemove');
 			this.startFileList = files;
 		},
+		startPopoverControl() {
+			this.startPopoverVisible = !this.startPopoverVisible;
+		},
 		bannerPopoverShow() {
 			console.log('bannerPopoverShow');
 			this.bannerAutoplay = true;
@@ -165,6 +165,9 @@ export default {
 		bannerUploadRemove(file, files) {
 			console.log(file, files, 'handleRemove');
 			this.bannerFileList = files;
+		},
+		bannerPopoverControl() {
+			this.bannerPopoverVisible = !this.bannerPopoverVisible;
 		},
 		submit() {
 			const form = this.$refs.put_form;
@@ -199,6 +202,13 @@ export default {
 	width: 285px;
 	height: 505px;
 	background-color: pink;
+}
+
+.banner-carousel-wrapper {
+	width: 269px;
+	padding-top: 70px;
+	margin: 0 auto;
+	background-color: #fff;
 }
 
 .show-time {
