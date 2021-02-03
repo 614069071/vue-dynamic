@@ -109,6 +109,32 @@ export default {
 
 	.layout-navigate {
 		display: flex;
+		flex: 1;
+		margin-right: 20px;
+
+		// 超出时显示滚动条
+		overflow-x: auto;
+		overflow-y: hidden;
+
+		&::-webkit-scrollbar {
+			height: 4px;
+		}
+
+		/*定义滚动条轨道 内阴影+圆角*/
+		&::-webkit-scrollbar-track {
+			-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+			box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+			border-radius: 4px;
+			background-color: #fff;
+		}
+
+		/*定义滑块 内阴影+圆角*/
+		&::-webkit-scrollbar-thumb {
+			border-radius: 4px;
+			-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+			box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+			background-color: #999;
+		}
 	}
 
 	.layout-content {

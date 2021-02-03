@@ -39,7 +39,7 @@ export default {
 <style lang="scss" scoped>
 .layout-tabs {
 	display: flex;
-	overflow: hidden;
+	flex-wrap: nowrap;
 }
 
 .layout-tab-item {
@@ -56,8 +56,8 @@ export default {
 	background-color: var(--second-color);
 	position: relative;
 	cursor: pointer;
+	white-space: nowrap;
 	transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-	margin-right: 2px;
 	border-radius: 4px 4px 0px 0px;
 	min-width: 104px;
 
@@ -79,6 +79,10 @@ export default {
 	.tab-close:hover {
 		background-color: var(--second-color);
 	}
+}
+
+.layout-tab-item + .layout-tab-item {
+	margin-left: 2px;
 }
 
 .layout-tab-item:hover {
