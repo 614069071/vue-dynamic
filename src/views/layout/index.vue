@@ -115,7 +115,6 @@ export default {
 		flex: 1;
 		overflow-x: hidden;
 		overflow-y: scroll;
-		padding: 10px;
 		background-color: #f5f9fd;
 	}
 }

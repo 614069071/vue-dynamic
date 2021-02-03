@@ -23,8 +23,8 @@
 				<el-table-column prop="name6" label="创建时间"></el-table-column>
 				<el-table-column label="编辑">
 					<template slot-scope="scope">
-						<el-button @click="handleClick(scope)" plain type="primary" size="mini">编辑</el-button>
-						<el-button size="mini">删除</el-button>
+						<el-button @click="formEditorClick(scope.$index,scope.row)" plain type="primary" size="mini">编辑</el-button>
+						<el-button size="mini" @click="formDeleteClick(scope.$index,scope.row)">删除</el-button>
 					</template>
 				</el-table-column>
 			</el-table>
@@ -54,14 +54,26 @@ export default {
 		};
 	},
 	methods: {
-		handleClick(data) {
+		formEditorClick(index, data) {
 			this.$router.push('/banner/editor');
 
-			console.log(data);
+			console.log(index, data);
+		},
+		formDeleteClick(index, data) {
+			this.$confirm('确定删除？')
+				.then(() => {
+					// 删除成功
+				})
+				.catch(() => {
+					// 取消删除
+				});
 		},
 	},
 };
 </script>
 
-<style>
+<style scoped>
+.banner-list-view-wrapper {
+	padding: 10px;
+}
 </style>
