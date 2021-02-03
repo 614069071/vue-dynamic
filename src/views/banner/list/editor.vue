@@ -63,29 +63,36 @@
 			<div class="inner-item">
 				<div class="inner-container-title">投放范围</div>
 
-				<el-form ref="put_form" :model="putFormData" inline label-width="70px">
-					<el-form-item label="选择订单">
-						<el-select v-model="putFormData.name1" placeholder="请选择订单">
-							<el-option value="1" label="123456"></el-option>
-							<el-option value="2" label="654321"></el-option>
-						</el-select>
-					</el-form-item>
-					<el-form-item label="选择地域">
-						<el-select v-model="putFormData.name2" placeholder="请选择地域">
-							<el-option value="1" label="广东"></el-option>
-							<el-option value="2" label="湖北"></el-option>
-						</el-select>
-					</el-form-item>
-					<el-form-item label="选择日期">
-						<el-date-picker v-model="putFormData.name3" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期"></el-date-picker>
-					</el-form-item>
+				<el-form ref="put_form" class="put-form-wrapper" :model="putFormData" inline label-width="70px">
+					<el-row>
+						<el-form-item label="选择订单">
+							<el-select v-model="putFormData.name1" placeholder="请选择订单">
+								<el-option value="0" label="不限"></el-option>
+								<el-option value="1" label="123456"></el-option>
+								<el-option value="2" label="654321"></el-option>
+							</el-select>
+						</el-form-item>
+						<el-form-item label="选择地域">
+							<el-select v-model="putFormData.name2" placeholder="请选择地域">
+								<el-option value="1" label="不限"></el-option>
+								<el-option value="2" label="湖北"></el-option>
+								<el-option value="3" label="湖北"></el-option>
+							</el-select>
+						</el-form-item>
+						<el-form-item label="选择日期">
+							<el-date-picker v-model="putFormData.name3" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期"></el-date-picker>
+						</el-form-item>
+					</el-row>
 
-					<el-form-item label="选择平台">
-						<el-select v-model="putFormData.name4" placeholder="请选择平台">
-							<el-option value="IOS" label="IOS"></el-option>
-							<el-option value="Android" label="Android"></el-option>
-						</el-select>
-					</el-form-item>
+					<el-row>
+						<el-form-item label="选择平台">
+							<el-select v-model="putFormData.name4" placeholder="请选择平台">
+								<el-option value="0" label="不限"></el-option>
+								<el-option value="IOS" label="IOS"></el-option>
+								<el-option value="Android" label="Android"></el-option>
+							</el-select>
+						</el-form-item>
+					</el-row>
 				</el-form>
 			</div>
 		</div>
@@ -213,6 +220,15 @@ export default {
 	background-color: #fff;
 	.el-button {
 		width: 98px;
+	}
+}
+
+.put-form-wrapper {
+	.el-form-item {
+		margin-right: 48px;
+		.el-input {
+			width: 240px;
+		}
 	}
 }
 </style>
