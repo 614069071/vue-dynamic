@@ -1,6 +1,6 @@
 <template>
 	<transition-group class="layout-tabs" name="bar" tag="ul">
-		<li class="layout-tab-item" :class="{active:$store.state.routerDefaultActive === item.path}" v-for="(item,index) in model" :key="item.path" @click="$router.push(data.path)">
+		<li class="layout-tab-item" :class="{active:$store.state.routerDefaultActive === item.path}" v-for="(item,index) in model" :key="item.path" @click="$router.push(item.path)">
 			{{item.title}}<span class="tab-close" @click.stop="$store.commit('DELETE_CACHE_ROUTER', index)"><i class="el-icon-close"></i></span>
 		</li>
 	</transition-group>
