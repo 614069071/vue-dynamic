@@ -46,6 +46,7 @@ import store from '@store';
 import { mapState } from 'vuex';
 import SideBar from '@components/side-bar';
 import TabCard from './components/tab-card.vue';
+import NProgress from 'nprogress';
 
 export default {
 	name: 'layout',
@@ -57,7 +58,12 @@ export default {
 	},
 	beforeRouteEnter(to, form, next) {
 		// console.log(to, form, '111');// 判断是否存在token，没有则跳至登录
-		store.state.__accessToken__ ? next() : next('/login');
+		if (store.state.__accessToken__) {
+			next();
+		} else {
+			NProgress.done();
+			next({ path: '/login', replace: true });
+		}
 	},
 	watch: {
 		$route(v) {

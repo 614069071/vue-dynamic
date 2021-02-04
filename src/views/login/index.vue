@@ -45,7 +45,7 @@ export default {
 		};
 	},
 	beforeRouteEnter(to, from, next) {
-		store.commit('UPDATE_TOKEN', '123456');
+		store.commit('UPDATE_TOKEN', '');
 		next();
 	},
 	created() {},

@@ -25,11 +25,10 @@ Message.install = vm => {
 
 // vue router
 router.beforeEach((to, from, next) => {
-  NProgress.start()
+  NProgress.start();
   next();
 });
 
 router.afterEach((to, from) => {
-  NProgress.done()
-
+  NProgress.done();
 });
