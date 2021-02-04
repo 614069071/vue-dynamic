@@ -48,6 +48,7 @@ import SideBar from '@components/side-bar';
 import TabCard from './components/tab-card.vue';
 
 export default {
+	name: 'layout',
 	components: { SideBar, TabCard },
 	data() {
 		return {
@@ -55,8 +56,7 @@ export default {
 		};
 	},
 	beforeRouteEnter(to, form, next) {
-		// console.log(to, form, '111');
-
+		// console.log(to, form, '111');// 判断是否存在token，没有则跳至登录
 		store.state.__accessToken__ ? next() : next('/login');
 	},
 	watch: {
@@ -188,7 +188,7 @@ export default {
 	align-items: center;
 	padding-left: 23px;
 	cursor: pointer;
-	border-top: 1px solid rgba(255, 255, 255, 0.65);
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
 	i {
 		font-size: 20px;
 		color: rgba(255, 255, 255, 0.64);

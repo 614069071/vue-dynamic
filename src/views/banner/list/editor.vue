@@ -6,7 +6,7 @@
 
 				<div class="editor-item">
 					<div class="la-upload-tip">只能上传jpg/png/h5文件，且不超过5M，建议尺寸为750*1334px
-						<el-popover placement="right" trigger="click" :value.sync="startPopoverVisible" @show="startPopoverShow" @hide="startPopoverHide">
+						<el-popover placement="right" trigger="click" :disabled="!startFileList.length" @show="startPopoverShow" @hide="startPopoverHide">
 							<div class="start-sample-popover sample-popover-wrapper">
 								<el-carousel height="505px" arrow="never" trigger="click" :autoplay="startAutoplay" :interval="startNum * 1000" loop>
 									<el-carousel-item v-for="item in startFileList" :key="item.url">
@@ -14,7 +14,7 @@
 									</el-carousel-item>
 								</el-carousel>
 							</div>
-							<button class="la-upload-popover-btn" slot="reference" @click.self.stop="startPopoverControl">示例</button>
+							<button class="la-upload-popover-btn" slot="reference">示例</button>
 						</el-popover>
 					</div>
 
@@ -33,7 +33,7 @@
 
 				<div class="editor-item">
 					<div class="la-upload-tip">只能上传jpg/png/h5文件，且不超过5M，建议尺寸为702*290px
-						<el-popover placement="right" trigger="click" :value.sync="bannerPopoverVisible" @show="bannerPopoverShow" @hide="bannerPopoverHide">
+						<el-popover placement="right" trigger="click" :disabled="!bannerFileList.length" @show="bannerPopoverShow" @hide="bannerPopoverHide">
 							<div class="banner-sample-popover sample-popover-wrapper">
 								<div class="banner-carousel-wrapper">
 									<el-carousel height="115px" arrow="never" trigger="click" :autoplay="bannerAutoplay" :interval="bannerNum * 1000">
@@ -43,7 +43,7 @@
 									</el-carousel>
 								</div>
 							</div>
-							<button class="la-upload-popover-btn" slot="reference" @click.self="bannerPopoverControl">示例</button>
+							<button class="la-upload-popover-btn" slot="reference">示例</button>
 						</el-popover>
 					</div>
 
@@ -113,11 +113,9 @@ export default {
 			startNum: 1,
 			startAutoplay: false,
 			startFileList: [],
-			startPopoverVisible: false,
 			bannerNum: 1,
 			bannerAutoplay: false,
 			bannerFileList: [],
-			bannerPopoverVisible: false,
 			previewSrc: '',
 			dialogVisible: false,
 			putFormData: {},
@@ -147,9 +145,6 @@ export default {
 			console.log(file, files, 'handleRemove');
 			this.startFileList = files;
 		},
-		startPopoverControl() {
-			this.startPopoverVisible = !this.startPopoverVisible;
-		},
 		bannerPopoverShow() {
 			console.log('bannerPopoverShow');
 			this.bannerAutoplay = true;
@@ -165,9 +160,6 @@ export default {
 		bannerUploadRemove(file, files) {
 			console.log(file, files, 'handleRemove');
 			this.bannerFileList = files;
-		},
-		bannerPopoverControl() {
-			this.bannerPopoverVisible = !this.bannerPopoverVisible;
 		},
 		submit() {
 			const form = this.$refs.put_form;
@@ -209,6 +201,9 @@ export default {
 	padding-top: 70px;
 	margin: 0 auto;
 	background-color: #fff;
+	.el-carousel {
+		background-color: red;
+	}
 }
 
 .show-time {
