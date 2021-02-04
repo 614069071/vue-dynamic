@@ -24,6 +24,7 @@ export default {
 	props: { model: { type: Object, required: true } },
 	methods: {
 		checkedMenu(data) {
+			console.log(data, 'middle-menu');
 			data.url && this.$router.push(data.url);
 			this.$store.commit('UPDATE_CACHE_ROUTER', data);
 			this.$store.commit('UPDATE_DEFAULT_ACTIVE', data.meta.index);
