@@ -30,37 +30,37 @@ export default {
 				{
 					title: '综合数据',
 					icon: 'el-icon-menu',
-					url: '/resource',
+					path: '/resource',
 					meta: {},
 				},
 				{
 					title: '订单查询',
 					icon: 'el-icon-menu',
-					url: '/order',
+					path: '/order',
 					meta: {},
 				},
 				{
 					title: '产品查询',
 					icon: 'el-icon-menu',
-					url: '/product',
+					path: '/product',
 					meta: {},
 				},
 				{
 					title: '广告编辑',
 					icon: 'el-icon-menu',
-					url: '/banner',
+					path: '/banner',
 					meta: {},
 				},
 				{
 					title: '日志查询',
 					icon: 'el-icon-menu',
-					url: '/log',
+					path: '/log',
 					meta: {},
 				},
 				{
 					title: '账号管理',
 					icon: 'el-icon-menu',
-					url: '/system',
+					path: '/system',
 					meta: {},
 				},
 			];

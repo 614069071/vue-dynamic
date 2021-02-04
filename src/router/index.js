@@ -105,7 +105,7 @@ export const dynamicStRouter = [
             path: '/banner',
             name: 'banner-manage',
             component: () => import(/* webpackChunkName: "test" */ '@/views/banner/list'),
-            meta: { name: '广告列表' },
+            meta: { name: '广告管理' },
             children: [
               {
                 path: '/banner',
@@ -127,13 +127,13 @@ export const dynamicStRouter = [
         path: '/log',
         name: 'log',
         component: () => import(/* webpackChunkName: "test" */ '@/views/log'),
-        meta: { name: '广告管理' },
+        meta: { name: '日志管理' },
         children: [
           {
             path: '/log',
             name: 'log-inquire',
             component: () => import(/* webpackChunkName: "test" */ '@/views/log/inquire'),
-            meta: { name: '广告编辑' },
+            meta: { name: '日志查询' },
           },
         ]
       },

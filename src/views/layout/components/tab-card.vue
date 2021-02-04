@@ -1,7 +1,7 @@
 <template>
 	<transition-group class="layout-tabs" name="bar" tag="ul">
-		<li class="layout-tab-item" :class="{active:activeTab === item.meta.index}" v-for="(item,index) in model" :key="item.meta.index" @click="link(item)">
-			{{item.title}}<span class="tab-close" @click.stop="deleteTab(index)"><i class="el-icon-close"></i></span>
+		<li class="layout-tab-item" :class="{active:$store.state.routerDefaultActive === item.path}" v-for="(item,index) in model" :key="item.path" @click="$router.push(data.path)">
+			{{item.title}}<span class="tab-close" @click.stop="$store.commit('DELETE_CACHE_ROUTER', index)"><i class="el-icon-close"></i></span>
 		</li>
 	</transition-group>
 </template>
@@ -10,29 +10,6 @@
 export default {
 	name: 'tab-card',
 	props: ['model'],
-	computed: {
-		activeTab() {
-			return this.$store.state.routerDefaultActive;
-		},
-	},
-	data() {
-		return {
-			editableTabsValue: '',
-		};
-	},
-	mounted() {
-		// console.log(this.model, 'this.model');
-	},
-	methods: {
-		link(data) {
-			data.url && this.$router.push(data.url);
-			this.$store.commit('UPDATE_CACHE_ROUTER', data);
-			this.$store.commit('UPDATE_DEFAULT_ACTIVE', data.meta.index);
-		},
-		deleteTab(i) {
-			this.$store.commit('DELETE_CACHE_ROUTER', i);
-		},
-	},
 };
 </script>
 

@@ -46,6 +46,7 @@ export default {
 	},
 	beforeRouteEnter(to, from, next) {
 		store.commit('UPDATE_TOKEN', '');
+		// storages.set('CACHE_ROUTERS', []);
 		next();
 	},
 	created() {},

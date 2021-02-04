@@ -93,7 +93,7 @@ export default new Store({
     // 更新 tab 列表
     UPDATE_CACHE_ROUTER(state, data = { meta: '' }) {
       const list = state.breadcrumbRouter;
-      const is = list.find(e => e.meta.index === data.meta.index);
+      const is = list.find(e => e.name === data.name);
       if (is) return;
       list.push(data);
       storages.set('CACHE_ROUTERS', list);
@@ -101,16 +101,13 @@ export default new Store({
     // 删除 tab 项
     DELETE_CACHE_ROUTER(state, i) {
       let list = state.breadcrumbRouter;
-      const delindex = list[i].meta.index;
       list.splice(i, 1);
       state.breadcrumbRouter = list;
       storages.set('CACHE_ROUTERS', list);
       if (list.length) {
-        if (state.routerDefaultActive === delindex) {
-          const item = list[list.length - 1];
-          router.push(item.url);
-          this.commit('UPDATE_DEFAULT_ACTIVE', item.meta.index);
-        }
+        const item = list[i - 1];
+        router.push(item.path);
+        this.commit('UPDATE_DEFAULT_ACTIVE', item.path);
       } else {
         router.push('/');
         this.commit('UPDATE_DEFAULT_OPEN');

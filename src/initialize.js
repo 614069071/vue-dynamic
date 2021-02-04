@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import NProgress from "nprogress"
-// import store from '@/store';
+import store from '@/store';
 import router from '@/router';
 import Request from '@/fetch';
 import ElementUI, { Message } from 'element-ui';
@@ -30,5 +30,12 @@ router.beforeEach((to, from, next) => {
 });
 
 router.afterEach((to, from) => {
+  var routers = to.matched;
+  var arr = routers.length && routers.filter((route) => route.parent && route.parent.path && route.parent.path != '/');
+  var route = arr[arr.length - 1];
+
+  route && store.commit('UPDATE_CACHE_ROUTER', { name: route.name, path: route.path, title: route.meta.name });
+  route && store.commit('UPDATE_DEFAULT_ACTIVE', route.path);
+
   NProgress.done();
 });
