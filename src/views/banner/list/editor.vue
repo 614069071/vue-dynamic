@@ -8,7 +8,7 @@
 					<div class="la-upload-tip">只能上传jpg/png/h5文件，且不超过5M，建议尺寸为750*1334px
 						<el-popover placement="right" trigger="click" :disabled="!startFileList.length" @show="startPopoverShow" @hide="startPopoverHide">
 							<div class="start-sample-popover sample-popover-wrapper">
-								<el-carousel height="505px" arrow="never" trigger="click" :autoplay="startAutoplay" :interval="startNum * 1000" loop>
+								<el-carousel class="banner-editor-carousel" height="505px" arrow="never" trigger="click" :autoplay="startAutoplay" :interval="startNum * 1000" loop>
 									<el-carousel-item v-for="item in startFileList" :key="item.url">
 										<img :src="item.url" alt="">
 									</el-carousel-item>
@@ -18,7 +18,7 @@
 						</el-popover>
 					</div>
 
-					<el-upload action="#" list-type="picture-card" accept=".png,.jpg,.jpeg" :on-preview="handlePictureCardPreview" :on-remove="startUploadRemove" :on-change="startUploadChange" :auto-upload="false" :file-list="startFileList">
+					<el-upload action="#" list-type="picture-card" accept=".png,.jpg,.jpeg" multiple :on-preview="handlePictureCardPreview" :on-remove="startUploadRemove" :on-change="startUploadChange" :auto-upload="false" :file-list="startFileList">
 						<i class="el-icon-plus"></i>
 					</el-upload>
 
@@ -36,7 +36,7 @@
 						<el-popover placement="right" trigger="click" :disabled="!bannerFileList.length" @show="bannerPopoverShow" @hide="bannerPopoverHide">
 							<div class="banner-sample-popover sample-popover-wrapper">
 								<div class="banner-carousel-wrapper">
-									<el-carousel height="115px" arrow="never" trigger="click" :autoplay="bannerAutoplay" :interval="bannerNum * 1000">
+									<el-carousel class="banner-editor-carousel" height="115px" arrow="never" trigger="click" :autoplay="bannerAutoplay" :interval="bannerNum * 1000">
 										<el-carousel-item v-for="item in bannerFileList" :key="item.url">
 											<img :src="item.url" alt="">
 										</el-carousel-item>
@@ -47,7 +47,7 @@
 						</el-popover>
 					</div>
 
-					<el-upload action="#" list-type="picture-card" accept=".png,.jpg,.jpeg" :on-preview="handlePictureCardPreview" :on-remove="bannerUploadRemove" :on-change="bannerUploadChange" :auto-upload="false">
+					<el-upload action="#" list-type="picture-card" accept=".png,.jpg,.jpeg" multiple :on-preview="handlePictureCardPreview" :on-remove="bannerUploadRemove" :on-change="bannerUploadChange" :auto-upload="false">
 						<i class="el-icon-plus"></i>
 					</el-upload>
 
@@ -74,7 +74,7 @@
 							<el-select v-model="putFormData.name2" placeholder="请选择地域">
 								<el-option value="1" label="不限"></el-option>
 								<el-option value="2" label="湖北"></el-option>
-								<el-option value="3" label="湖北"></el-option>
+								<el-option value="3" label="广东"></el-option>
 							</el-select>
 						</el-form-item>
 						<el-form-item label="选择日期">
@@ -179,6 +179,7 @@ export default {
 		flex: 1;
 	}
 }
+
 .la-upload-tip {
 	font-size: 12px;
 	height: 31px;
@@ -193,17 +194,22 @@ export default {
 .sample-popover-wrapper {
 	width: 285px;
 	height: 505px;
-	background-color: pink;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	box-sizing: border-box;
+}
+
+.banner-sample-popover {
+	padding-top: 70px;
+	background-image: url(../../../assets/images/banner-carousel.png);
 }
 
 .banner-carousel-wrapper {
 	width: 269px;
-	padding-top: 70px;
 	margin: 0 auto;
-	background-color: #fff;
-	.el-carousel {
-		background-color: red;
-	}
+	overflow: hidden;
+	border-radius: 4px;
 }
 
 .show-time {
@@ -235,5 +241,11 @@ export default {
 			width: 240px;
 		}
 	}
+}
+
+.banner-editor-carousel .el-carousel__indicator button {
+	width: 4px;
+	height: 4px;
+	border-radius: 50%;
 }
 </style>
