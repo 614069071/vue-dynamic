@@ -63,7 +63,7 @@ export const dynamicRouter = [
         path: '/product',
         name: 'product-inquire',
         component: () => import(/* webpackChunkName: "test" */ '@/views/product/inquire'),
-        meta: { name: '产品数据查询' },
+        meta: { name: '产品查询' },
       },
     ]
   },
