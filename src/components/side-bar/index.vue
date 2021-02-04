@@ -8,6 +8,8 @@
 
 <script>
 import MiddleMenu from './middle-menu';
+// import { dynamicRouter } from '@router';
+
 export default {
 	name: 'side-bar',
 	props: {
