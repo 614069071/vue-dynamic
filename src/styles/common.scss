@@ -81,6 +81,8 @@
 
 .view-wrapper {
   padding: 10px;
+  box-sizing: border-box;
+  min-height: 100%;
 }
 
 .inner-header-wrapper {
