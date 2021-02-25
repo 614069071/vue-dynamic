@@ -10,6 +10,10 @@ import * as Echarts from 'echarts';
 var salesScaleOption = {
 	tooltip: {
 		trigger: 'item',
+		formatter(n) {
+			var scale = parseInt((n.data.value / n.data.sum) * 100) + '%';
+			return `${n.data.name} <br />${n.marker}销量占比&nbsp;&nbsp;&nbsp;${scale}`;
+		},
 	},
 	color: ['#5B8FF9', '#4ECB73', '#FBD437', '#F2637B', '#975FE5'],
 	legend: {
@@ -24,16 +28,33 @@ var salesScaleOption = {
 			radius: ['60%', '80%'],
 			center: ['40%', '50%'],
 			avoidLabelOverlap: false,
-			data: [
-				{ value: 1, name: 'H1' },
-				{ value: 2, name: 'L1' },
-				{ value: 3, name: 'H2' },
-				{ value: 2, name: 'S1' },
-				{ value: 1, name: '其他' },
-			],
+			itemStyle: {
+				borderColor: '#fff',
+				borderWidth: 3,
+			},
 			label: {
 				show: false,
+				position: 'center',
 			},
+			labelLine: {
+				show: false,
+			},
+			emphasis: {
+				label: {
+					show: true,
+					fontSize: '24',
+					formatter(n) {
+						return n.value;
+					},
+				},
+			},
+			data: [
+				{ value: 1, sum: 10, name: 'H1' },
+				{ value: 2, sum: 10, name: 'L1' },
+				{ value: 3, sum: 10, name: 'H2' },
+				{ value: 2, sum: 10, name: 'S1' },
+				{ value: 1, sum: 10, name: '其他' },
+			],
 		},
 	],
 };
