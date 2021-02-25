@@ -27,33 +27,30 @@ export default {
             `;
 					},
 				},
-				graphic: {
-					//图形中间文字
-					type: 'text',
-					left: 'center',
-					top: 'center',
-					// style: {
-					// 	text: this.scale,
-					// 	textAlign: 'center',
-					// 	fill: '#010101',
-					// 	fontSize: 28,
-					// },
-				},
 				series: [
 					{
 						name: '访问来源',
 						type: 'pie',
 						radius: ['60%', '80%'],
 						avoidLabelOverlap: false,
+						itemStyle: {
+							borderColor: '#fff',
+							borderWidth: 3,
+						},
 						label: {
 							show: false,
 							position: 'center',
 						},
 						emphasis: {
 							label: {
-								// show: true,
+								show: true,
 								fontSize: '20',
 								fontWeight: 'bold',
+								color: '#333',
+								formatter(n) {
+									var scale = parseInt((n.data.value / n.data.sum) * 100) + '%';
+									return scale;
+								},
 							},
 						},
 						labelLine: {

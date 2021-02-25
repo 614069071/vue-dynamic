@@ -43,6 +43,7 @@ var salesScaleOption = {
 				label: {
 					show: true,
 					fontSize: '24',
+					color: '#333',
 					formatter(n) {
 						return n.value;
 					},
