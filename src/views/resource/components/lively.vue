@@ -22,7 +22,7 @@ var activeOption = {
 		textStyle: {
 			//文字样式
 			color: '#606266',
-			fontSize: '12',
+			fontSize: '1',
 		},
 	},
 	grid: {
@@ -117,14 +117,12 @@ export default {
 	},
 	methods: {
 		initActiveEcharts() {
-			const el = this.$refs.resource_active;
-			const echarts = Echarts.init(el);
-			echarts.setOption(activeOption);
-			window.onresize = () => {
-				this.$nextTick(() => {
-					echarts.resize();
-				});
-			};
+			this.$nextTick(() => {
+				const el = this.$refs.resource_active;
+				const echarts = Echarts.init(el);
+				echarts.setOption(activeOption);
+				window.onresize = echarts.resize;
+			});
 		},
 	},
 };

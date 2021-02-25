@@ -70,14 +70,12 @@ export default {
 	},
 	methods: {
 		initOnlineEcharts() {
-			const el = this.$refs.resource_online;
-			const echarts = Echarts.init(el);
-			echarts.setOption(this.options);
-			window.onresize = () => {
-				this.$nextTick(() => {
-					echarts.resize();
-				});
-			};
+			this.$nextTick(() => {
+				const el = this.$refs.resource_online;
+				const echarts = Echarts.init(el);
+				echarts.setOption(this.options);
+				window.onresize = echarts.resize;
+			});
 		},
 	},
 };

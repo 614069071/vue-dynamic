@@ -326,14 +326,12 @@ export default {
 	},
 	methods: {
 		initHeatEcharts() {
-			const el = this.$refs.heat_map;
-			const echarts = Echarts.init(el);
-			echarts.setOption(options);
-			window.onresize = () => {
-				this.$nextTick(() => {
-					echarts.resize();
-				});
-			};
+			this.$nextTick(() => {
+				const el = this.$refs.heat_map;
+				const echarts = Echarts.init(el);
+				echarts.setOption(options);
+				window.onresize = echarts.resize;
+			});
 		},
 	},
 };

@@ -79,14 +79,12 @@ export default {
 	},
 	methods: {
 		initSalesScaleEcharts() {
-			const el = this.$refs.resource_sales_scale;
-			const echarts = Echarts.init(el);
-			echarts.setOption(salesScaleOption);
-			window.onresize = () => {
-				this.$nextTick(() => {
-					echarts.resize();
-				});
-			};
+			this.$nextTick(() => {
+				const el = this.$refs.resource_sales_scale;
+				const echarts = Echarts.init(el);
+				echarts.setOption(salesScaleOption);
+				window.onresize = echarts.resize;
+			});
 		},
 	},
 };
