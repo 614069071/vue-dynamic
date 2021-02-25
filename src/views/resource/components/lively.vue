@@ -8,25 +8,20 @@ import * as Echarts from 'echarts';
 
 // 活跃
 var activeOption = {
-	title: {
-		text: '全国用户活跃度',
-		left: '0',
-		textStyle: {
-			color: '#436EEE',
-			fontSize: 13,
-		},
-	},
 	tooltip: {
 		trigger: 'axis',
 	},
+	color: ['#5B8FF9', '#5AD8A6', '#F6BD16', '#E8684A'],
 	legend: {
-		right: 16,
+		left: 16,
+		top: 12,
 		data: ['H2', 'L1', 'S1', 'B1', '全局'],
 	},
 	grid: {
-		left: '3%',
-		right: '4%',
-		bottom: '3%',
+		left: 22,
+		right: 22,
+		bottom: 60,
+		top: 50,
 		containLabel: true,
 	},
 	// toolbox: {
@@ -48,31 +43,59 @@ var activeOption = {
 			type: 'line',
 			stack: '总量',
 			data: [120, 132, 101, 134, 90, 230, 210],
+			itemStyle: {
+				normal: {
+					lineStyle: {
+						color: '#5B8FF9',
+					},
+				},
+			},
 		},
 		{
 			name: 'L1',
 			type: 'line',
 			stack: '总量',
 			data: [220, 182, 191, 234, 290, 330, 310],
+			itemStyle: {
+				normal: {
+					lineStyle: {
+						color: '#5AD8A6',
+					},
+				},
+			},
 		},
 		{
 			name: 'S1',
 			type: 'line',
 			stack: '总量',
 			data: [150, 232, 201, 154, 190, 330, 410],
+			itemStyle: {
+				normal: {
+					lineStyle: {
+						color: '#F6BD16',
+					},
+				},
+			},
 		},
 		{
 			name: 'B1',
 			type: 'line',
 			stack: '总量',
 			data: [320, 332, 301, 334, 390, 330, 320],
+			itemStyle: {
+				normal: {
+					lineStyle: {
+						color: ' #E8684A',
+					},
+				},
+			},
 		},
-		{
-			name: '全局',
-			type: 'line',
-			stack: '总量',
-			data: [820, 932, 901, 934, 1290, 1330, 1320],
-		},
+		// {
+		// 	name: '全局',
+		// 	type: 'line',
+		// 	stack: '总量',
+		// 	data: [820, 932, 901, 934, 1290, 1330, 1320],
+		// },
 	],
 };
 
