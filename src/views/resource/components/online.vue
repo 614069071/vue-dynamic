@@ -16,47 +16,34 @@ export default {
 	computed: {
 		options() {
 			return {
-				title: [
-					{
-						text: '设备在线率',
-						left: '0',
-						textStyle: {
-							color: '#436EEE',
-							fontSize: 15,
-						},
-					},
-					{
-						subtext: '在线总数：25411台',
-						left: '16.67%',
-						top: '75%',
-						textAlign: 'center',
-					},
-				],
-				color: ['#409EFF', '#DCDFE6'],
+				color: ['#6998F7', '#F0F2F5'],
 				tooltip: {
 					trigger: 'item',
+					formatter: function (e, t, n) {
+						const sale = ((e.data.value / e.data.sum) * 100).toFixed(1) + '%';
+						return `
+              在线总数（台）${e.data.sum || 0}<br />
+              在线率：${sale}
+            `;
+					},
 				},
 				graphic: {
 					//图形中间文字
 					type: 'text',
 					left: 'center',
 					top: 'center',
-					style: {
-						text: this.scale,
-						textAlign: 'center',
-						fill: '#010101',
-						fontSize: 28,
-					},
-				},
-				legend: {
-					// orient: 'vertical',
-					right: '0',
+					// style: {
+					// 	text: this.scale,
+					// 	textAlign: 'center',
+					// 	fill: '#010101',
+					// 	fontSize: 28,
+					// },
 				},
 				series: [
 					{
 						name: '访问来源',
 						type: 'pie',
-						radius: ['40%', '70%'],
+						radius: ['60%', '80%'],
 						avoidLabelOverlap: false,
 						label: {
 							show: false,
@@ -73,8 +60,8 @@ export default {
 							show: false,
 						},
 						data: [
-							{ value: 90, name: '在线设备' },
-							{ value: 10, name: '离线设备' },
+							{ value: 900, name: '在线设备', sum: 1000 },
+							{ value: 100, name: '离线设备', sum: 1000 },
 						],
 					},
 				],

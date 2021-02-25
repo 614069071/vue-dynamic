@@ -8,26 +8,22 @@ import * as Echarts from 'echarts';
 
 // 销量占比
 var salesScaleOption = {
-	title: {
-		text: '销量占比',
-		left: '0',
-		textStyle: {
-			color: '#436EEE',
-			fontSize: 15,
-		},
-	},
 	tooltip: {
 		trigger: 'item',
 	},
+	color: ['#5B8FF9', '#4ECB73', '#FBD437', '#F2637B', '#975FE5'],
 	legend: {
-		// orient: 'vertical',
-		right: '0',
+		orient: 'vertical',
+		left: '70%',
+		top: 60,
 	},
 	series: [
 		{
 			name: '销量占比',
 			type: 'pie',
-			radius: ['40%', '70%'],
+			radius: ['60%', '80%'],
+			center: ['40%', '50%'],
+			avoidLabelOverlap: false,
 			data: [
 				{ value: 1, name: 'H1' },
 				{ value: 2, name: 'L1' },
@@ -35,12 +31,8 @@ var salesScaleOption = {
 				{ value: 2, name: 'S1' },
 				{ value: 1, name: '其他' },
 			],
-			emphasis: {
-				itemStyle: {
-					shadowBlur: 10,
-					shadowOffsetX: 0,
-					shadowColor: 'rgba(0, 0, 0, 0.5)',
-				},
+			label: {
+				show: false,
 			},
 		},
 	],
@@ -66,17 +58,3 @@ export default {
 	},
 };
 </script>
-
-<style scoped>
-.resource-map {
-	width: 800px;
-	height: 500px;
-}
-
-.resource-item {
-	width: 500px;
-	height: 600px;
-	background-color: #fff;
-	margin-top: 20px;
-}
-</style>
