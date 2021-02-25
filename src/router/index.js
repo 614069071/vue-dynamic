@@ -27,12 +27,13 @@ const routes = [
 // 权限管理路由
 export const dynamicRouter = [
   {
-    path: '/resource',
+    path: '/',
     component: () => import(/* webpackChunkName: "test" */ '@/views/resource'),
     meta: { name: '资源管理' },
     children: [
       {
-        path: '/resource',
+        // path: '/resource',
+        path: '/',
         name: 'resource',
         component: () => import(/* webpackChunkName: "test" */ '@/views/resource/overview'),
         meta: { name: '综合数据' },
@@ -144,14 +145,14 @@ export const dynamicStRouter = [
       name: '首页'
     },
     children: [
-      {
-        path: '/',
-        name: 'welcome',
-        component: () => import(/* webpackChunkName: "test" */ '@/views/welcome'),
-        meta: {
-          name: '首页'
-        }
-      },
+      // {
+      //   path: '/',
+      //   name: 'welcome',
+      //   component: () => import(/* webpackChunkName: "test" */ '@/views/welcome'),
+      //   meta: {
+      //     name: '首页'
+      //   }
+      // },
       ...dynamicRouter,
       ...otherRouter
     ]

@@ -28,7 +28,7 @@ router.beforeEach((to, from, next) => {
 
 router.afterEach((to, from) => {
   const routers = to.matched;
-  const arr = routers.length && routers.filter((route) => route.parent && route.parent.path && route.parent.path != '/');
+  const arr = routers.length && routers.filter((route) => route.parent && route.parent.path);
   const route = arr[arr.length - 1];
 
   route && store.commit('UPDATE_CACHE_ROUTER', { name: route.name, path: route.path, title: route.meta.name });

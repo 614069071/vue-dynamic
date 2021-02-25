@@ -32,7 +32,7 @@ export default {
 				{
 					title: '综合数据',
 					icon: 'el-icon-menu',
-					path: '/resource',
+					path: '/',
 					meta: {},
 				},
 				{
