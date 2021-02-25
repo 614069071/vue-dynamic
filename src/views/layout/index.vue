@@ -60,7 +60,7 @@
 							<span>yang.xiang@cdatatec.com</span>
 						</div>
 
-						<el-button class="exit-btn" type="primary">退出登录</el-button>
+						<el-button class="exit-btn" @click="$router.push('/login')" type="primary">退出登录</el-button>
 					</div>
 				</el-popover>
 			</div>
