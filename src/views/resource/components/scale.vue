@@ -17,9 +17,18 @@ var salesScaleOption = {
 	},
 	color: ['#5B8FF9', '#4ECB73', '#FBD437', '#F2637B', '#975FE5'],
 	legend: {
+		icon: 'circle',
+		itemWidth: 8,
+		itemHeight: 8,
+		itemGap: 12,
 		orient: 'vertical',
 		left: '70%',
 		top: 60,
+		textStyle: {
+			//文字样式
+			color: '#606266',
+			fontSize: '14',
+		},
 	},
 	series: [
 		{

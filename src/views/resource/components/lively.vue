@@ -16,6 +16,14 @@ var activeOption = {
 		left: 16,
 		top: 16,
 		data: ['H2', 'L1', 'S1', 'B1', '全局'],
+		icon: 'line',
+		itemWidth: 8,
+		itemGap: 24,
+		textStyle: {
+			//文字样式
+			color: '#606266',
+			fontSize: '12',
+		},
 	},
 	grid: {
 		left: 22,
