@@ -22,7 +22,7 @@ var activeOption = {
 		textStyle: {
 			//文字样式
 			color: '#606266',
-			fontSize: '1',
+			fontSize: '12',
 		},
 	},
 	grid: {
