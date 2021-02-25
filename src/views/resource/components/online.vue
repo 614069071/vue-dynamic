@@ -9,9 +9,7 @@ import * as Echarts from 'echarts';
 export default {
 	components: {},
 	data() {
-		return {
-			scale: '90%',
-		};
+		return {};
 	},
 	computed: {
 		options() {
