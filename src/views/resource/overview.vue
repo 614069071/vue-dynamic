@@ -7,12 +7,12 @@
 					<div class="resource-item-other">
 						<div class="resource-other-item">
 							<p>完成年销售额</p>
-							<p>124,543,233元</p>
+							<p>124,543,233<i>元</i></p>
 						</div>
 
 						<div class="resource-other-item" style="marginLeft:120px;">
 							<p>完计划销售额</p>
-							<p>124,543,233元</p>
+							<p>124,543,233<i>元</i></p>
 						</div>
 
 						<div class="resource-other-item" style="marginLeft:106px;">
@@ -108,6 +108,11 @@ export default {
 			height: 28px;
 			line-height: 28px;
 			margin-top: 8px;
+		}
+		i {
+			color: #606266;
+			font-size: 16px;
+			padding-left: 5px;
 		}
 	}
 }
