@@ -84,7 +84,11 @@ export default {
 			const el = this.$refs.resource_sales;
 			const echarts = Echarts.init(el);
 			echarts.setOption(salesOption);
-			window.onresize = echarts.resize;
+			window.onresize = () => {
+				this.$nextTick(() => {
+					echarts.resize();
+				});
+			};
 		},
 	},
 };

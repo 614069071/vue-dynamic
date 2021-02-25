@@ -73,7 +73,11 @@ export default {
 			const el = this.$refs.resource_online;
 			const echarts = Echarts.init(el);
 			echarts.setOption(this.options);
-			window.onresize = echarts.resize;
+			window.onresize = () => {
+				this.$nextTick(() => {
+					echarts.resize();
+				});
+			};
 		},
 	},
 };
