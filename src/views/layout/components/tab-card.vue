@@ -54,6 +54,7 @@ export default {
 
 	.tab-close:hover {
 		background-color: var(--second-color);
+		background-color: rgba(255, 255, 255, 0.4);
 	}
 }
 
