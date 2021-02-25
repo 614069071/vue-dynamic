@@ -8,24 +8,22 @@ import * as Echarts from 'echarts';
 
 //销量
 var salesOption = {
-	title: {
-		text: '2021年产品销量图',
-		left: '0px',
-		textStyle: {
-			color: '#436EEE',
-			fontSize: 15,
-		},
-	},
 	tooltip: {
 		trigger: 'axis',
 	},
-	color: ['#eee', '#000'],
 	legend: {
-		itemWidth: 15,
-		itemHeight: 15,
-		// orient: 'vertical',
-		right: '0',
+		itemWidth: 12,
+		itemHeight: 12,
+		left: 16,
+		top: 16,
 		data: ['H2', 'L1'],
+	},
+	grid: {
+		left: 22,
+		right: 22,
+		top: 60,
+		bottom: 10,
+		containLabel: true,
 	},
 	xAxis: {
 		data: [
@@ -58,7 +56,7 @@ var salesOption = {
 			stack: '使用情况',
 			data: [10, 20, 36, 10, 10, 20, 40, 22, 18, 35, 42, 40],
 			itemStyle: {
-				normal: { color: '#409EFF' },
+				normal: { color: '#5B8FF9' },
 			},
 		},
 		{
@@ -67,7 +65,7 @@ var salesOption = {
 			stack: '使用情况',
 			data: [40, 22, 18, 35, 42, 40, 10, 20, 36, 10, 10, 20],
 			itemStyle: {
-				normal: { color: '#5ED0B2' },
+				normal: { color: '#69DAAD' },
 			},
 		},
 	],
