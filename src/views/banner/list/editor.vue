@@ -5,7 +5,7 @@
 				<div class="inner-container-title">启动页广告</div>
 
 				<div class="editor-item">
-					<div class="la-upload-tip">只能上传jpg/png/h5文件，且不超过5M，建议尺寸为750*1334px
+					<div class="la-upload-tip f-12">只能上传jpg/png/h5文件，且不超过5M，建议尺寸为750*1334px
 						<el-popover placement="right" trigger="click" :disabled="!startFileList.length" @show="startPopoverShow" @hide="startPopoverHide">
 							<div class="start-sample-popover sample-popover-wrapper">
 								<el-carousel class="banner-editor-carousel" height="505px" arrow="never" trigger="click" :autoplay="startAutoplay" :interval="startNum * 1000" loop>
@@ -14,7 +14,7 @@
 									</el-carousel-item>
 								</el-carousel>
 							</div>
-							<button class="la-upload-popover-btn" slot="reference">示例</button>
+							<button class="la-upload-popover-btn f-14" slot="reference">示例</button>
 						</el-popover>
 					</div>
 
@@ -23,7 +23,7 @@
 					</el-upload>
 
 					<div class="start-show-time show-time">
-						<span>显示时长(s)</span>
+						<span class="f-14">显示时长(s)</span>
 						<el-input-number v-model="startNum" controls-position="right" :min="1" :max="10"></el-input-number>
 					</div>
 				</div>
@@ -32,7 +32,7 @@
 				<div class="inner-container-title">Banner广告</div>
 
 				<div class="editor-item">
-					<div class="la-upload-tip">只能上传jpg/png/h5文件，且不超过5M，建议尺寸为702*290px
+					<div class="la-upload-tip f-12">只能上传jpg/png/h5文件，且不超过5M，建议尺寸为702*290px
 						<el-popover placement="right" trigger="click" :disabled="!bannerFileList.length" @show="bannerPopoverShow" @hide="bannerPopoverHide">
 							<div class="banner-sample-popover sample-popover-wrapper">
 								<div class="banner-carousel-wrapper">
@@ -181,14 +181,12 @@ export default {
 }
 
 .la-upload-tip {
-	font-size: 12px;
 	height: 31px;
 	line-height: 26px;
 	color: var(--font-color);
 	.la-upload-popover-btn {
 		color: var(--default-color);
 		cursor: pointer;
-		font-size: 14px;
 	}
 }
 .sample-popover-wrapper {
@@ -217,7 +215,6 @@ export default {
 	& > span {
 		margin-right: 14px;
 		color: var(--font-color);
-		font-size: 14px;
 	}
 	.el-input-number .el-input {
 		width: 180px;

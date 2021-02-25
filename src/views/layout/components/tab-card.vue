@@ -1,7 +1,7 @@
 <template>
 	<transition-group class="layout-tabs" name="bar" tag="ul">
 		<li class="layout-tab-item" :class="{active:$store.state.routerDefaultActive === item.path}" v-for="(item,index) in model" :key="item.path" @click="$router.push(item.path)">
-			{{item.title}}<span class="tab-close" @click.stop="$store.commit('DELETE_CACHE_ROUTER', index)"><i class="el-icon-close"></i></span>
+			{{item.title}}<span class="tab-close f-12" @click.stop="$store.commit('DELETE_CACHE_ROUTER', index)"><i class="el-icon-close"></i></span>
 		</li>
 	</transition-group>
 </template>
@@ -47,7 +47,6 @@ export default {
 		overflow: hidden;
 		border-radius: 50%;
 		margin-left: 5px;
-		font-size: 12px;
 		line-height: 14px;
 		text-align: center;
 		transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
