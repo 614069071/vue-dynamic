@@ -2,9 +2,9 @@
 	<div class="layout-wrapper">
 		<div class="layout-aside">
 			<div class="aside-header-wrapper" :class="{collapse:barCollapse}">
-				<div class="logo-wrapper">
+				<router-link tag="div" to="/" class="logo-wrapper">
 					<img src="../../assets/images/logo.png" alt="">
-				</div>
+				</router-link>
 
 				<div class="aside-content-wrapper clear-scroll-bar">
 					<side-bar :collapse="barCollapse"></side-bar>
@@ -196,6 +196,7 @@ export default {
 		border-radius: 50%;
 		overflow: hidden;
 		margin: 30px auto;
+		cursor: pointer;
 	}
 
 	.aside-content-wrapper {
