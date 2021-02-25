@@ -69,13 +69,11 @@ export default {
 		this.initSalesScaleEcharts();
 	},
 	methods: {
-		setEchart(el, options) {
-			const echarts = Echarts.init(el);
-			echarts.setOption(options);
-		},
 		initSalesScaleEcharts() {
-			const main = this.$refs.resource_sales_scale;
-			this.setEchart(main, salesScaleOption);
+			const el = this.$refs.resource_sales_scale;
+			const echarts = Echarts.init(el);
+			echarts.setOption(salesScaleOption);
+			window.onresize = echarts.resize;
 		},
 	},
 };

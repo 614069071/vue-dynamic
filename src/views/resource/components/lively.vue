@@ -108,13 +108,11 @@ export default {
 		this.initActiveEcharts();
 	},
 	methods: {
-		setEchart(el, options) {
-			const echarts = Echarts.init(el);
-			echarts.setOption(options);
-		},
 		initActiveEcharts() {
-			const main = this.$refs.resource_active;
-			this.setEchart(main, activeOption);
+			const el = this.$refs.resource_active;
+			const echarts = Echarts.init(el);
+			echarts.setOption(activeOption);
+			window.onresize = echarts.resize;
 		},
 	},
 };
