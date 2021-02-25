@@ -13,7 +13,7 @@
 
 			<div class="aside-footer-wrapper">
 				<div class="control-menu-collapse" @click="barCollapse = !barCollapse">
-					<i :class="barCollapse ? 'el-icon-s-unfold':'el-icon-s-fold'"></i>
+					<i class="f-20" :class="barCollapse ? 'el-icon-s-unfold':'el-icon-s-fold'"></i>
 				</div>
 			</div>
 		</div>
@@ -24,12 +24,45 @@
 					<tab-card :model="breadcrumbRouter"></tab-card>
 				</div>
 
-				<div class="header-info">
-					<div class="info-avator">
-						<img src="../../assets/images/logo.png" alt="">
+				<el-popover placement="bottom-end" width="271" trigger="hover">
+					<div class="header-info" slot="reference">
+						<el-avatar :size="24">
+							<img src="../../assets/images/logo.png" alt="">
+						</el-avatar>
+
+						<div class="info-name">用户名</div>
 					</div>
-					<div class="info-name">用户名</div>
-				</div>
+
+					<div class="user-info-popur-wrapper">
+						<div class="popur-info-wrapper">
+							<el-avatar :size="64">
+								<img src="../../assets/images/logo.png" alt="">
+							</el-avatar>
+
+							<div class="popur-info-main">
+								<div class="popur-info-name f-16">蜘蛛子</div>
+								<div class="popur-info-manage-name">admin</div>
+							</div>
+						</div>
+
+						<div class="popur-info-item">
+							<span>角色</span>
+							<span>产品经理</span>
+						</div>
+
+						<div class="popur-info-item">
+							<span>账号状态</span>
+							<span>锁定/已认证</span>
+						</div>
+
+						<div class="popur-info-item">
+							<span>绑定邮箱</span>
+							<span>yang.xiang@cdatatec.com</span>
+						</div>
+
+						<el-button class="exit-btn" type="primary">退出登录</el-button>
+					</div>
+				</el-popover>
 			</div>
 
 			<main class="layout-content scrollbar">
@@ -174,17 +207,11 @@ export default {
 	height: 48px;
 	display: flex;
 	align-items: center;
-
-	.info-avator {
-		width: 24px;
-		height: 24px;
-		border-radius: 50%;
-		overflow: hidden;
-		margin-right: 8px;
-	}
+	cursor: pointer;
 
 	.info-name {
 		color: var(--font-color);
+		margin-left: 8px;
 	}
 }
 
@@ -196,8 +223,49 @@ export default {
 	cursor: pointer;
 	border-top: 1px solid rgba(255, 255, 255, 0.1);
 	i {
-		font-size: 20px;
 		color: rgba(255, 255, 255, 0.64);
+	}
+}
+
+.user-info-popur-wrapper {
+	.popur-info-wrapper {
+		display: flex;
+		align-items: center;
+		padding-bottom: 12px;
+		border-bottom: 1px solid #e4e7ed;
+		margin-bottom: 6px;
+	}
+
+	.popur-info-main {
+		margin-left: 10px;
+
+		.opur-info-name {
+			color: var(font-color-3);
+		}
+
+		.opur-info-manage-name {
+			color: var(font-color-a6);
+		}
+	}
+
+	.popur-info-item {
+		height: 36px;
+		line-height: 36px;
+		display: flex;
+		justify-content: space-between;
+
+		span:first-child {
+			color: var(--font-color-1);
+		}
+
+		span:last-child {
+			color: var(--font-color);
+		}
+	}
+
+	.exit-btn {
+		width: 100%;
+		margin-top: 14px;
 	}
 }
 </style>
