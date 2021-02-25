@@ -121,7 +121,9 @@ export default {
 				const el = this.$refs.resource_active;
 				const echarts = Echarts.init(el);
 				echarts.setOption(activeOption);
-				window.onresize = echarts.resize;
+				window.addEventListener('resize', function () {
+					echarts.resize();
+				});
 			});
 		},
 	},

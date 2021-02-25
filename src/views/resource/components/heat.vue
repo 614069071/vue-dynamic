@@ -330,7 +330,9 @@ export default {
 				const el = this.$refs.heat_map;
 				const echarts = Echarts.init(el);
 				echarts.setOption(options);
-				window.onresize = echarts.resize;
+				window.addEventListener('resize', function () {
+					echarts.resize();
+				});
 			});
 		},
 	},

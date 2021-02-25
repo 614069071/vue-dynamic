@@ -83,7 +83,9 @@ export default {
 				const el = this.$refs.resource_sales_scale;
 				const echarts = Echarts.init(el);
 				echarts.setOption(salesScaleOption);
-				window.onresize = echarts.resize;
+				window.addEventListener('resize', function () {
+					echarts.resize();
+				});
 			});
 		},
 	},
