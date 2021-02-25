@@ -152,95 +152,96 @@ const heatData = [
 ];
 
 const options = {
-	title: [
-		{
-			text: '全国销售热力图分布',
-			left: '0',
-			textStyle: {
-				color: '#436EEE',
-				fontSize: 13,
-			},
-		},
-		{
-			subtext: '产品总数：75450（台）',
-			left: '100',
-			bottom: '40',
-			textAlign: 'center',
-		},
-	],
 	tooltip: {
 		triggerOn: 'mousemove',
 		// 控制悬停文字显示
 		formatter: function (e, t, n) {
 			return `
-        ${e.seriesName}：<br />
+        ${e.name}<br />
+        总计：123456台<br />
         L1：${e.data.L1 || 0}台<br />
         H2：${e.data.H2 || 0}台
       `;
 		},
 	},
-	graphic: [
+	series: [
 		{
-			type: 'text',
-			style: {
-				fill: '#000',
-				text: '完成年销售额：',
-				x: 20,
-				y: 40,
-				fontSize: '18',
-			},
-		},
-		{
-			type: 'text',
-			style: {
-				fill: '#015478',
-				text: '450万',
-				x: 140,
-				y: 40,
-				fontSize: '18',
-			},
-		},
-		{
-			type: 'text',
-			style: {
-				fill: '#000',
-				text: '年计划销售额：',
-				x: 240,
-				y: 40,
-				fontSize: '18',
-			},
-		},
-		{
-			type: 'text',
-			style: {
-				fill: '#015478',
-				text: '1800万',
-				x: 360,
-				y: 40,
-				fontSize: '18',
-			},
-		},
-		{
-			type: 'text',
-			style: {
-				fill: '#000',
-				text: '年计划达成率：',
-				x: 460,
-				y: 40,
-				fontSize: '18',
-			},
-		},
-		{
-			type: 'text',
-			style: {
-				fill: '#015478',
-				text: '25%',
-				x: 580,
-				y: 40,
-				fontSize: '18',
-			},
+			type: 'map',
+			geoIndex: 0,
+			data: heatData,
 		},
 	],
+	// grid: {
+	// 	left: 22,
+	// 	right: 22,
+	// 	top: 100,
+	// 	bottom: 10,
+	// 	containLabel: true,
+	// },
+	// 自定义销售文字
+	// graphic: [
+	// 	{
+	// 		type: 'text',
+	// 		style: {
+	// 			fill: '#999',
+	// 			text: '完成年销售额',
+	// 			x: 24,
+	// 			y: 30,
+	// 			fontSize: '14',
+	// 		},
+	// 	},
+	// 	{
+	// 		type: 'text',
+	// 		style: {
+	// 			fill: '#333',
+	// 			text: '450万',
+	// 			x: 24,
+	// 			y: 52,
+	// 			fontSize: '24',
+	// 		},
+	// 	},
+	// 	{
+	// 		type: 'text',
+	// 		style: {
+	// 			fill: '#999',
+	// 			text: '年计划销售额',
+	// 			x: 274,
+	// 			y: 30,
+	// 			fontSize: '14',
+	// 		},
+	// 	},
+	// 	{
+	// 		type: 'text',
+	// 		style: {
+	// 			fill: '#333',
+	// 			text: '1800万',
+	// 			x: 274,
+	// 			y: 52,
+	// 			fontSize: '24',
+	// 		},
+	// 	},
+	// 	{
+	// 		type: 'text',
+	// 		style: {
+	// 			fill: '#999',
+	// 			text: '年计划达成率',
+	// 			x: 548,
+	// 			y: 30,
+	// 			fontSize: '14',
+	// 		},
+	// 	},
+	// 	{
+	// 		type: 'text',
+	// 		style: {
+	// 			fill: '#333',
+	// 			text: '25%',
+	// 			x: 548,
+	// 			y: 52,
+	// 			fontSize: '24',
+	// 		},
+	// 	},
+	// ],
+	// 定义颜色范围
 	visualMap: {
 		min: 0,
 		max: 120,
@@ -256,36 +257,36 @@ const options = {
 		align: 'left',
 		orient: 'horizontal',
 		// text: ['1K', '0'],
-		pieces: [
-			{
-				gt: 100,
-				label: '> 100 人',
-				color: '#7f1100',
-			},
-			{
-				gte: 10,
-				lte: 100,
-				label: '10 - 100 人',
-				color: '#ff5428',
-			},
-			{
-				gte: 1,
-				lt: 10,
-				label: '1 - 9 人',
-				color: '#ff8c71',
-			},
-			{
-				gt: 0,
-				lt: 1,
-				label: '疑似',
-				color: '#ffd768',
-			},
-			{
-				value: 0,
-				color: '#ffffff',
-			},
-		],
-		show: !0,
+		// pieces: [
+		// 	{
+		// 		gt: 100,
+		// 		label: '> 100 人',
+		// 		color: '#7f1100',
+		// 	},
+		// 	{
+		// 		gte: 10,
+		// 		lte: 100,
+		// 		label: '10 - 100 人',
+		// 		color: '#ff5428',
+		// 	},
+		// 	{
+		// 		gte: 1,
+		// 		lt: 10,
+		// 		label: '1 - 9 人',
+		// 		color: '#ff8c71',
+		// 	},
+		// 	{
+		// 		gt: 0,
+		// 		lt: 1,
+		// 		label: '疑似',
+		// 		color: '#ffd768',
+		// 	},
+		// 	{
+		// 		value: 0,
+		// 		color: '#ffffff',
+		// 	},
+		// ],
+		show: false, //控制分区显示
 	},
 	geo: {
 		map: 'china',
@@ -295,7 +296,6 @@ const options = {
 			max: 2,
 		},
 		zoom: 1.23,
-		top: 120,
 		label: {
 			normal: {
 				show: !0,
@@ -317,14 +317,6 @@ const options = {
 			},
 		},
 	},
-	series: [
-		{
-			name: '总计',
-			type: 'map',
-			geoIndex: 0,
-			data: heatData,
-		},
-	],
 };
 
 export default {
