@@ -242,52 +242,52 @@ const options = {
 	// 	},
 	// ],
 	// 定义颜色范围
-	visualMap: {
-		min: 0,
-		max: 120,
-		calculable: true,
-		// seriesIndex: [1],
-		inRange: {
-			color: ['lightskyblue', 'yellow', 'orangered'],
-		},
-		show: true,
-		type: 'continuous',
-		left: 300,
-		bottom: 40,
-		align: 'left',
-		orient: 'horizontal',
-		// text: ['1K', '0'],
-		// pieces: [
-		// 	{
-		// 		gt: 100,
-		// 		label: '> 100 人',
-		// 		color: '#7f1100',
-		// 	},
-		// 	{
-		// 		gte: 10,
-		// 		lte: 100,
-		// 		label: '10 - 100 人',
-		// 		color: '#ff5428',
-		// 	},
-		// 	{
-		// 		gte: 1,
-		// 		lt: 10,
-		// 		label: '1 - 9 人',
-		// 		color: '#ff8c71',
-		// 	},
-		// 	{
-		// 		gt: 0,
-		// 		lt: 1,
-		// 		label: '疑似',
-		// 		color: '#ffd768',
-		// 	},
-		// 	{
-		// 		value: 0,
-		// 		color: '#ffffff',
-		// 	},
-		// ],
-		show: false, //控制分区显示
-	},
+	// visualMap: {
+	// 	min: 0,
+	// 	max: 120,
+	// 	calculable: true,
+	// 	// seriesIndex: [1],
+	// 	inRange: {
+	// 		color: ['lightskyblue', 'yellow', 'orangered'],
+	// 	},
+	// 	show: true,
+	// 	type: 'continuous',
+	// 	left: 300,
+	// 	bottom: 40,
+	// 	align: 'left',
+	// 	orient: 'horizontal',
+	// 	// text: ['1K', '0'],
+	// 	// pieces: [
+	// 	// 	{
+	// 	// 		gt: 100,
+	// 	// 		label: '> 100 人',
+	// 	// 		color: '#7f1100',
+	// 	// 	},
+	// 	// 	{
+	// 	// 		gte: 10,
+	// 	// 		lte: 100,
+	// 	// 		label: '10 - 100 人',
+	// 	// 		color: '#ff5428',
+	// 	// 	},
+	// 	// 	{
+	// 	// 		gte: 1,
+	// 	// 		lt: 10,
+	// 	// 		label: '1 - 9 人',
+	// 	// 		color: '#ff8c71',
+	// 	// 	},
+	// 	// 	{
+	// 	// 		gt: 0,
+	// 	// 		lt: 1,
+	// 	// 		label: '疑似',
+	// 	// 		color: '#ffd768',
+	// 	// 	},
+	// 	// 	{
+	// 	// 		value: 0,
+	// 	// 		color: '#ffffff',
+	// 	// 	},
+	// 	// ],
+	// 	show: false, //控制分区显示
+	// },
 	geo: {
 		map: 'china',
 		roam: !1,
@@ -299,7 +299,7 @@ const options = {
 		label: {
 			normal: {
 				show: !0,
-				fontSize: '14',
+				fontSize: '12',
 				color: 'rgba(0,0,0,0.7)',
 			},
 		},
