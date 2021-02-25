@@ -14,14 +14,14 @@ var activeOption = {
 	color: ['#5B8FF9', '#5AD8A6', '#F6BD16', '#E8684A'],
 	legend: {
 		left: 16,
-		top: 12,
+		top: 16,
 		data: ['H2', 'L1', 'S1', 'B1', '全局'],
 	},
 	grid: {
 		left: 22,
 		right: 22,
-		bottom: 60,
-		top: 50,
+		top: 60,
+		bottom: 10,
 		containLabel: true,
 	},
 	// toolbox: {
