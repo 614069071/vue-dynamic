@@ -24,7 +24,7 @@
 					<tab-card :model="breadcrumbRouter"></tab-card>
 				</div>
 
-				<el-popover placement="bottom-end" width="271" trigger="hover">
+				<el-popover placement="bottom-end" width="271">
 					<div class="header-info" slot="reference">
 						<el-avatar :size="24">
 							<img src="../../assets/images/logo.png" alt="">
