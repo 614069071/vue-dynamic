@@ -1,9 +1,9 @@
 <template>
 	<div class="log-inquire-view-wrapper view-wrapper">
 		<div class="inner-header-wrapper">
-			<el-form inline label-width="80px">
+			<el-form inline label-width="80px" :model="queryFormData">
 				<el-form-item label="日期：">
-					<el-date-picker type="date" placeholder="选择日期"></el-date-picker>
+					<el-date-picker type="date" placeholder="选择日期" v-model="queryFormData.name1"></el-date-picker>
 				</el-form-item>
 				<el-form-item>
 					<el-button type="primary">查询</el-button>
@@ -36,6 +36,7 @@ export default {
 	name: 'log-inquire',
 	data() {
 		return {
+			queryFormData: {},
 			dataTable: [
 				{
 					name1: '1',
