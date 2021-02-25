@@ -14,7 +14,6 @@
 
 		<div class="inner-container-wrapper banner-list">
 			<el-table ref="multipleTable" :data="dataTable" tooltip-effect="dark" style="width: 100%">
-				<el-table-column type="selection" width="55"></el-table-column>
 				<el-table-column prop="name1" label="账号名" width="120"></el-table-column>
 				<el-table-column prop="name2" label="姓名" width="120"></el-table-column>
 				<el-table-column prop="name3" label="修改密码"></el-table-column>
