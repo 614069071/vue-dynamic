@@ -2,7 +2,7 @@
 	<div class="middle-menu">
 		<el-submenu v-if='model.children && model.children.length' :index="`${model.path}-${index}`">
 			<template slot='title'>
-				<i v-if="model.icon" :class="model.icon"></i>
+				<i class="menu-icon" v-if="model.icon" :class="model.icon"></i>
 				<span>{{model.title}}</span>
 			</template>
 
@@ -12,7 +12,7 @@
 		</el-submenu>
 
 		<el-menu-item v-else :index="model.path" @click="$router.push(model.path)">
-			<i v-if="model.icon" :class="model.icon"></i>
+			<i class="menu-icon" v-if="model.icon" :class="model.icon"></i>
 			<span slot="title">{{model.title}}</span>
 		</el-menu-item>
 	</div>
@@ -29,6 +29,9 @@ export default {
 </script>
 
 <style>
+.el-menu-item > .menu-icon {
+	margin-right: 12px;
+}
 .el-menu-item.is-active {
 	background-color: var(--default-color) !important;
 }

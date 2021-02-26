@@ -31,37 +31,37 @@ export default {
 			const items = [
 				{
 					title: '综合数据',
-					icon: 'el-icon-menu',
+					icon: 'if if-edit-square',
 					path: '/',
 					meta: {},
 				},
 				{
 					title: '订单查询',
-					icon: 'el-icon-menu',
+					icon: 'if if-appstore',
 					path: '/order',
 					meta: {},
 				},
 				{
 					title: '产品查询',
-					icon: 'el-icon-menu',
+					icon: 'if if-linechart',
 					path: '/product',
 					meta: {},
 				},
 				{
 					title: '广告编辑',
-					icon: 'el-icon-menu',
+					icon: 'if if-edit-square',
 					path: '/banner',
 					meta: {},
 				},
 				{
 					title: '日志查询',
-					icon: 'el-icon-menu',
+					icon: 'if if-filesearch',
 					path: '/log',
 					meta: {},
 				},
 				{
 					title: '账号管理',
-					icon: 'el-icon-menu',
+					icon: 'if if-user',
 					path: '/system',
 					meta: {},
 				},
