@@ -10,7 +10,23 @@ import * as Echarts from 'echarts';
 var salesOption = {
 	tooltip: {
 		trigger: 'axis',
+		backgroundColor: '#fff',
+		textStyle: {
+			color: '#333', //设置文字颜色
+		},
 	},
+	dataZoom: [
+		{
+			type: 'slider',
+			start: 0,
+			end: 45,
+		},
+		{
+			type: 'inside',
+			start: 0,
+			end: 45,
+		},
+	],
 	legend: {
 		itemWidth: 12,
 		itemHeight: 12,
@@ -29,7 +45,7 @@ var salesOption = {
 		left: 22,
 		right: 22,
 		top: 60,
-		bottom: 10,
+		bottom: 65,
 		containLabel: true,
 	},
 	xAxis: {

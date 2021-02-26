@@ -17,6 +17,10 @@ export default {
 				color: ['#6998F7', '#F0F2F5'],
 				tooltip: {
 					trigger: 'item',
+					backgroundColor: '#fff',
+					textStyle: {
+						color: '#333', //设置文字颜色
+					},
 					formatter: function (e, t, n) {
 						const sale = ((e.data.value / e.data.sum) * 100).toFixed(1) + '%';
 						return `

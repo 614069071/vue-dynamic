@@ -10,6 +10,10 @@ import * as Echarts from 'echarts';
 var salesScaleOption = {
 	tooltip: {
 		trigger: 'item',
+		backgroundColor: '#fff',
+		textStyle: {
+			color: '#333', //设置文字颜色
+		},
 		formatter(n) {
 			var scale = parseInt((n.data.value / n.data.sum) * 100) + '%';
 			return `${n.data.name} <br />${n.marker}销量占比&nbsp;&nbsp;&nbsp;${scale}`;

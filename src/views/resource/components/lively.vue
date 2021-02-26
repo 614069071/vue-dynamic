@@ -10,8 +10,24 @@ import * as Echarts from 'echarts';
 var activeOption = {
 	tooltip: {
 		trigger: 'axis',
+		backgroundColor: '#fff',
+		textStyle: {
+			color: '#333', //设置文字颜色
+		},
 	},
 	color: ['#5B8FF9', '#5AD8A6', '#F6BD16', '#E8684A'],
+	dataZoom: [
+		{
+			type: 'slider',
+			start: 0,
+			end: 45,
+		},
+		{
+			type: 'inside',
+			start: 0,
+			end: 45,
+		},
+	],
 	legend: {
 		left: 16,
 		top: 16,
@@ -29,7 +45,7 @@ var activeOption = {
 		left: 22,
 		right: 22,
 		top: 60,
-		bottom: 10,
+		bottom: 65,
 		containLabel: true,
 	},
 	// toolbox: {
