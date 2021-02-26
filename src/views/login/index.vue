@@ -103,6 +103,7 @@ export default {
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
+	box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.03);
 }
 
 .login-banner-item-wrapper {
