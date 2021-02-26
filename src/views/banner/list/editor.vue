@@ -1,98 +1,103 @@
 <template>
-	<div class="banner-editor-view-wrapper">
-		<div class="banner-editor-content view-wrapper">
-			<div class="inner-item">
-				<div class="inner-container-title">启动页广告</div>
+	<div class="banner-editor-view-wrapper view-wrapper">
+		<div class="inner-item">
+			<div class="inner-container-title">启动页广告</div>
 
-				<div class="editor-item">
-					<div class="la-upload-tip f-12">只能上传jpg/png/h5文件，且不超过5M，建议尺寸为750*1334px
-						<el-popover placement="right" trigger="click" :disabled="!startFileList.length" @show="startPopoverShow" @hide="startPopoverHide">
-							<div class="start-sample-popover sample-popover-wrapper">
-								<el-carousel class="banner-editor-carousel" height="505px" arrow="never" trigger="click" :autoplay="startAutoplay" :interval="startNum * 1000" loop>
-									<el-carousel-item v-for="item in startFileList" :key="item.url">
+			<div class="editor-item">
+				<div class="la-upload-tip f-12">只能上传jpg/png/h5文件，且不超过5M，建议尺寸为750*1334px
+					<el-popover placement="right" trigger="click" :disabled="!startFileList.length" @show="startPopoverShow" @hide="startPopoverHide">
+						<div class="start-sample-popover sample-popover-wrapper">
+							<el-carousel class="banner-editor-carousel" height="505px" arrow="never" trigger="click" :autoplay="startAutoplay" :interval="startNum * 1000" loop>
+								<el-carousel-item v-for="item in startFileList" :key="item.url">
+									<img :src="item.url" alt="">
+								</el-carousel-item>
+							</el-carousel>
+						</div>
+						<button class="la-upload-popover-btn f-14" slot="reference">示例</button>
+					</el-popover>
+				</div>
+
+				<el-upload action="#" list-type="picture-card" accept=".png,.jpg,.jpeg" multiple :on-preview="handlePictureCardPreview" :on-remove="startUploadRemove" :on-change="startUploadChange" :auto-upload="false" :file-list="startFileList">
+					<i class="el-icon-plus"></i>
+				</el-upload>
+
+				<div class="start-show-time show-time">
+					<span class="f-14">显示时长(s)</span>
+					<el-input-number v-model.number="startNum" controls-position="right" :min="1" :max="10"></el-input-number>
+				</div>
+			</div>
+		</div>
+
+		<div class="inner-item">
+			<div class="inner-container-title">Banner广告</div>
+
+			<div class="editor-item">
+				<div class="la-upload-tip f-12">只能上传jpg/png/h5文件，且不超过5M，建议尺寸为702*290px
+					<el-popover placement="right" trigger="click" :disabled="!bannerFileList.length" @show="bannerPopoverShow" @hide="bannerPopoverHide">
+						<div class="banner-sample-popover sample-popover-wrapper">
+							<div class="banner-carousel-wrapper">
+								<el-carousel class="banner-editor-carousel" height="115px" arrow="never" trigger="click" :autoplay="bannerAutoplay" :interval="bannerNum * 1000">
+									<el-carousel-item v-for="item in bannerFileList" :key="item.url">
 										<img :src="item.url" alt="">
 									</el-carousel-item>
 								</el-carousel>
 							</div>
-							<button class="la-upload-popover-btn f-14" slot="reference">示例</button>
-						</el-popover>
-					</div>
+						</div>
+						<button class="la-upload-popover-btn" slot="reference">示例</button>
+					</el-popover>
+				</div>
 
-					<el-upload action="#" list-type="picture-card" accept=".png,.jpg,.jpeg" multiple :on-preview="handlePictureCardPreview" :on-remove="startUploadRemove" :on-change="startUploadChange" :auto-upload="false" :file-list="startFileList">
-						<i class="el-icon-plus"></i>
-					</el-upload>
+				<el-upload action="#" list-type="picture-card" accept=".png,.jpg,.jpeg" multiple :on-preview="handlePictureCardPreview" :on-remove="bannerUploadRemove" :on-change="bannerUploadChange" :auto-upload="false">
+					<i class="el-icon-plus"></i>
+				</el-upload>
 
-					<div class="start-show-time show-time">
-						<span class="f-14">显示时长(s)</span>
-						<el-input-number v-model="startNum" controls-position="right" :min="1" :max="10"></el-input-number>
-					</div>
+				<div class="banner-show-time show-time">
+					<span>显示时长(s)</span>
+					<el-input-number v-model.number="bannerNum" controls-position="right" :min="1" :max="10"></el-input-number>
 				</div>
 			</div>
-			<div class="inner-item">
-				<div class="inner-container-title">Banner广告</div>
+		</div>
 
-				<div class="editor-item">
-					<div class="la-upload-tip f-12">只能上传jpg/png/h5文件，且不超过5M，建议尺寸为702*290px
-						<el-popover placement="right" trigger="click" :disabled="!bannerFileList.length" @show="bannerPopoverShow" @hide="bannerPopoverHide">
-							<div class="banner-sample-popover sample-popover-wrapper">
-								<div class="banner-carousel-wrapper">
-									<el-carousel class="banner-editor-carousel" height="115px" arrow="never" trigger="click" :autoplay="bannerAutoplay" :interval="bannerNum * 1000">
-										<el-carousel-item v-for="item in bannerFileList" :key="item.url">
-											<img :src="item.url" alt="">
-										</el-carousel-item>
-									</el-carousel>
-								</div>
-							</div>
-							<button class="la-upload-popover-btn" slot="reference">示例</button>
-						</el-popover>
-					</div>
+		<div class="inner-item">
+			<div class="inner-container-title">投放范围</div>
 
-					<el-upload action="#" list-type="picture-card" accept=".png,.jpg,.jpeg" multiple :on-preview="handlePictureCardPreview" :on-remove="bannerUploadRemove" :on-change="bannerUploadChange" :auto-upload="false">
-						<i class="el-icon-plus"></i>
-					</el-upload>
+			<el-form ref="put_form" class="put-form-wrapper" :model="putFormData" inline label-width="70px">
+				<el-col :span="8">
+					<el-form-item label="选择订单">
+						<el-select v-model="putFormData.name1" placeholder="请选择订单">
+							<el-option value="0" label="不限"></el-option>
+							<el-option value="1" label="123456"></el-option>
+							<el-option value="2" label="654321"></el-option>
+						</el-select>
+					</el-form-item>
+				</el-col>
 
-					<div class="banner-show-time show-time">
-						<span>显示时长(s)</span>
-						<el-input-number v-model="bannerNum" controls-position="right" :min="1" :max="10"></el-input-number>
-					</div>
-				</div>
-			</div>
+				<el-col :span="8">
+					<el-form-item label="选择地域">
+						<el-select v-model="putFormData.name2" placeholder="请选择地域">
+							<el-option value="1" label="不限"></el-option>
+							<el-option value="2" label="湖北"></el-option>
+							<el-option value="3" label="广东"></el-option>
+						</el-select>
+					</el-form-item>
+				</el-col>
 
-			<div class="inner-item">
-				<div class="inner-container-title">投放范围</div>
+				<el-col :span="8">
+					<el-form-item label="选择日期">
+						<el-date-picker v-model="putFormData.name3" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期"></el-date-picker>
+					</el-form-item>
+				</el-col>
 
-				<el-form ref="put_form" class="put-form-wrapper" :model="putFormData" inline label-width="70px">
-					<el-row>
-						<el-form-item label="选择订单">
-							<el-select v-model="putFormData.name1" placeholder="请选择订单">
-								<el-option value="0" label="不限"></el-option>
-								<el-option value="1" label="123456"></el-option>
-								<el-option value="2" label="654321"></el-option>
-							</el-select>
-						</el-form-item>
-						<el-form-item label="选择地域">
-							<el-select v-model="putFormData.name2" placeholder="请选择地域">
-								<el-option value="1" label="不限"></el-option>
-								<el-option value="2" label="湖北"></el-option>
-								<el-option value="3" label="广东"></el-option>
-							</el-select>
-						</el-form-item>
-						<el-form-item label="选择日期">
-							<el-date-picker v-model="putFormData.name3" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期"></el-date-picker>
-						</el-form-item>
-					</el-row>
-
-					<el-row>
-						<el-form-item label="选择平台">
-							<el-select v-model="putFormData.name4" placeholder="请选择平台">
-								<el-option value="0" label="不限"></el-option>
-								<el-option value="IOS" label="IOS"></el-option>
-								<el-option value="Android" label="Android"></el-option>
-							</el-select>
-						</el-form-item>
-					</el-row>
-				</el-form>
-			</div>
+				<el-col :span="8">
+					<el-form-item label="选择平台">
+						<el-select v-model="putFormData.name4" placeholder="请选择平台">
+							<el-option value="0" label="不限"></el-option>
+							<el-option value="IOS" label="IOS"></el-option>
+							<el-option value="Android" label="Android"></el-option>
+						</el-select>
+					</el-form-item>
+				</el-col>
+			</el-form>
 		</div>
 
 		<div class="save-wrapper">
@@ -100,7 +105,7 @@
 		</div>
 
 		<el-dialog :visible.sync="dialogVisible">
-			<img width="100%" :src="previewSrc" alt="">
+			<el-image :src="previewSrc"></el-image>
 		</el-dialog>
 	</div>
 </template>
@@ -175,9 +180,6 @@ export default {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	.banner-editor-content {
-		flex: 1;
-	}
 }
 
 .la-upload-tip {
@@ -226,6 +228,10 @@ export default {
 	line-height: 56px;
 	text-align: center;
 	background-color: #fff;
+	position: sticky;
+	bottom: 0;
+	left: 0;
+	z-index: 10;
 	.el-button {
 		width: 98px;
 	}
