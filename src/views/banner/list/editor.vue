@@ -232,6 +232,7 @@ export default {
 	bottom: 0;
 	left: 0;
 	z-index: 10;
+	box-shadow: 0px 0px 30px rgba(53, 53, 53, 0.05);
 	.el-button {
 		width: 98px;
 	}
