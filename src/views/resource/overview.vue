@@ -5,20 +5,26 @@
 				<div class="resource-item-wrapper resource-map">
 					<div class="resource-item-title f-16">全国销售热力图分布</div>
 					<div class="resource-item-other">
-						<div class="resource-other-item">
-							<p>完成年销售额</p>
-							<p>124,543,233<i>元</i></p>
-						</div>
+						<el-col :span="8">
+							<div class="resource-other-item">
+								<p>完成年销售额</p>
+								<p>124,543,233<i>元</i></p>
+							</div>
+						</el-col>
 
-						<div class="resource-other-item" style="marginLeft:120px;">
-							<p>完计划销售额</p>
-							<p>124,543,233<i>元</i></p>
-						</div>
+						<el-col :span="8">
+							<div class="resource-other-item">
+								<p>完计划销售额</p>
+								<p>124,543,233<i>元</i></p>
+							</div>
+						</el-col>
 
-						<div class="resource-other-item" style="marginLeft:106px;">
-							<p>年计划达成率</p>
-							<p>92%</p>
-						</div>
+						<el-col :span="8">
+							<div class="resource-other-item">
+								<p>年计划达成率</p>
+								<p>92%</p>
+							</div>
+						</el-col>
 					</div>
 
 					<div class="resource-item">

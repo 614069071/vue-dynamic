@@ -154,13 +154,23 @@ const heatData = [
 const options = {
 	tooltip: {
 		triggerOn: 'mousemove',
+		backgroundColor: '#fff',
+		textStyle: {
+			color: '#333', //设置文字颜色
+		},
 		// 控制悬停文字显示
 		formatter: function (e, t, n) {
 			return `
-        ${e.name}<br />
-        总计：123456台<br />
-        L1：${e.data.L1 || 0}台<br />
-        H2：${e.data.H2 || 0}台
+        <span style="display:inline-block;width:40px;color:#A5A5A5;">${
+					e.name
+				}</span><br />
+        <span style="display:inline-block;width:40px;color:#A5A5A5;">总计：</span>123456台<br />
+        <span style="display:inline-block;width:40px;color:#A5A5A5;">L1：</span>${
+					e.data.L1 || 0
+				}台<br />
+        <span style="display:inline-block;width:40px;color:#A5A5A5;">H2：</span>${
+					e.data.H2 || 0
+				}台
       `;
 		},
 	},
