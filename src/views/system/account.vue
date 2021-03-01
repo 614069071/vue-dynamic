@@ -20,7 +20,7 @@
 				<el-table-column prop="name4" label="是否锁定"></el-table-column>
 				<el-table-column prop="name5" label="角色"></el-table-column>
 				<el-table-column prop="name6" label="创建时间"></el-table-column>
-				<el-table-column label="编辑">
+				<el-table-column label="编辑" width="160">
 					<template slot-scope="scope">
 						<el-button @click="formEditorClick(scope.$index,scope.row)" plain type="primary" size="mini">编辑</el-button>
 						<el-button size="mini" @click="formDeleteClick(scope.$index,scope.row)">删除</el-button>
