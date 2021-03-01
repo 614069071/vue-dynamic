@@ -64,16 +64,16 @@
 		<div class="inner-container-wrapper banner-list">
 			<el-table ref="multipleTable" :data="dataTable" tooltip-effect="dark" style="width: 100%">
 				<el-table-column prop="name1" label="订单号" width="120"></el-table-column>
-				<el-table-column prop="name2" label="SN"></el-table-column>
+				<el-table-column prop="name2" label="SN" width="190"></el-table-column>
 				<el-table-column prop="name3" label="订单数量"></el-table-column>
 				<el-table-column prop="name4" label="单价"></el-table-column>
 				<el-table-column prop="name5" label="设备型号"></el-table-column>
-				<el-table-column prop="name6" label="下单人"></el-table-column>
+				<el-table-column prop="name6" label="下单人" width="80"></el-table-column>
 				<el-table-column prop="name7" label="客户名称"></el-table-column>
-				<el-table-column prop="name8" label="客户编码"></el-table-column>
-				<el-table-column prop="name9" label="下单日期"></el-table-column>
-				<el-table-column prop="name10" label="合同号"></el-table-column>
-				<el-table-column prop="name11" label="订单状态"></el-table-column>
+				<el-table-column prop="name8" label="客户编码" width="100"></el-table-column>
+				<el-table-column prop="name9" label="下单日期" width="100"></el-table-column>
+				<el-table-column prop="name10" label="合同号" width="120"></el-table-column>
+				<el-table-column prop="name11" label="订单状态" width="100"></el-table-column>
 			</el-table>
 		</div>
 
