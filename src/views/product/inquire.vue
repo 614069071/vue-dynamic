@@ -19,14 +19,14 @@
 
 		<div class="inner-container-wrapper banner-list">
 			<el-table ref="multipleTable" :data="dataTable" tooltip-effect="dark" style="width: 100%">
-				<el-table-column prop="name1" label="设备ID" width="120"></el-table-column>
-				<el-table-column prop="name2" label="SN" width="120"></el-table-column>
-				<el-table-column prop="name3" label="MAC"></el-table-column>
-				<el-table-column prop="name4" label="IP地址"></el-table-column>
-				<el-table-column prop="name5" label="最后心跳时间"></el-table-column>
-				<el-table-column prop="name6" label="绑定时间"></el-table-column>
-				<el-table-column prop="name7" label="绑定手机号"></el-table-column>
-				<el-table-column prop="name8" label="状态"></el-table-column>
+				<el-table-column prop="name1" label="设备ID" width="100"></el-table-column>
+				<el-table-column prop="name2" label="SN" width="100"></el-table-column>
+				<el-table-column prop="name3" label="MAC" min-width="160"></el-table-column>
+				<el-table-column prop="name4" label="IP地址" min-width="160"></el-table-column>
+				<el-table-column prop="name5" label="最后心跳时间" min-width="160"></el-table-column>
+				<el-table-column prop="name6" label="绑定时间" min-width="160"></el-table-column>
+				<el-table-column prop="name7" label="绑定手机号" width="120"></el-table-column>
+				<el-table-column prop="name8" label="状态" width="60"></el-table-column>
 			</el-table>
 		</div>
 
@@ -47,7 +47,7 @@ export default {
 					name1: '15265447',
 					name2: '17424242',
 					name3: '00-E0-4C-1A-7F-15',
-					name4: '20.210.1.124',
+					name4: '192.168.8.163',
 					name5: '2021/1/13  12:23:15',
 					name6: '2021/1/13  12:23:15',
 					name7: '18215485544',
