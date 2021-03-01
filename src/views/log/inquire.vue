@@ -20,7 +20,7 @@
 				<el-table-column prop="name4" label="功能模块"></el-table-column>
 				<el-table-column prop="name5" label="操作"></el-table-column>
 				<el-table-column prop="name6" label="日志摘要"></el-table-column>
-				<el-table-column prop="name7" label="日志时间"></el-table-column>
+				<el-table-column prop="name7" label="日志时间" min-width="160"></el-table-column>
 			</el-table>
 		</div>
 
