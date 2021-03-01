@@ -41,9 +41,6 @@ import { mapMutations } from 'vuex';
 
 export default {
 	data() {
-		const validator = (text = '输入不能为空') => (rule, value, callback) => {
-			value ? callback() : callback(new Error(text));
-		};
 		return {
 			loginInfo: {
 				username: '',
@@ -52,12 +49,24 @@ export default {
 			rules: {
 				username: [
 					{
-						validator: validator('请输入账户'),
+						validator(rule, value, callback) {
+							if (value) {
+								callback();
+							} else {
+								callback(new Error('请输入账号'));
+							}
+						},
 					},
 				],
 				password: [
 					{
-						validator: validator('请输入密码'),
+						validator(rule, value, callback) {
+							if (value) {
+								callback();
+							} else {
+								callback(new Error('请输入密码'));
+							}
+						},
 					},
 				],
 			},
@@ -75,13 +84,17 @@ export default {
 			// 模拟登录
 			const login_form = this.$refs.login_form;
 
-			login_form.validate((valid) => {
-				if (valid) {
-					this.UPDATE_TOKEN('123456');
-					this.$router.push('/');
-				} else {
-					return false;
-				}
+			login_form.validate((...arg) => {
+				console.log(arg);
+				// if (valid) {
+				// 	this.UPDATE_TOKEN('123456');
+				// 	this.$router.push('/');
+				// } else {
+				// 请求
+				// 	setTimeout(() => {
+				// 		callback(new Error('账号密码错误'));
+				// 	}, 1000);
+				// }
 			});
 		},
 	},
