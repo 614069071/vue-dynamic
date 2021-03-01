@@ -14,6 +14,20 @@ var salesOption = {
 		textStyle: {
 			color: '#333', //设置文字颜色
 		},
+		formatter(arr) {
+			const str = arr
+				.map(
+					(e) =>
+						`<p><span>${e.marker}${e.seriesName}</span><span>${e.data}</span></p>`
+				)
+				.join('');
+			return `
+        <div class="echart-tooltip-wrapper">
+          <p><span>${arr[0].axisValueLabel}</span></p>
+          ${str}
+        </div>
+      `;
+		},
 	},
 	dataZoom: [
 		{

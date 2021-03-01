@@ -14,6 +14,21 @@ var activeOption = {
 		textStyle: {
 			color: '#333', //设置文字颜色
 		},
+		formatter(arr) {
+			const str = arr
+				.map(
+					(e) =>
+						`<p><span>${e.marker}${e.seriesName}</span><span>${e.data}</span></p>`
+				)
+				.join('');
+			// return '123';
+			return `
+        <div class="echart-tooltip-wrapper">
+          <p><span>${arr[0].axisValueLabel}</span></p>
+          ${str}
+        </div>
+      `;
+		},
 	},
 	color: ['#5B8FF9', '#5AD8A6', '#F6BD16', '#E8684A'],
 	dataZoom: [
@@ -31,7 +46,7 @@ var activeOption = {
 	legend: {
 		left: 16,
 		top: 16,
-		data: ['H2', 'L1', 'S1', 'B1', '全局'],
+		data: ['H2', 'L1', 'S1', 'B1'],
 		icon: 'line',
 		itemWidth: 8,
 		itemGap: 24,
@@ -114,12 +129,6 @@ var activeOption = {
 				},
 			},
 		},
-		// {
-		// 	name: '全局',
-		// 	type: 'line',
-		// 	stack: '总量',
-		// 	data: [820, 932, 901, 934, 1290, 1330, 1320],
-		// },
 	],
 };
 

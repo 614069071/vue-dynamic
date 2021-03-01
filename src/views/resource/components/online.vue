@@ -23,9 +23,12 @@ export default {
 					},
 					formatter: function (e, t, n) {
 						const sale = ((e.data.value / e.data.sum) * 100).toFixed(1) + '%';
+
 						return `
-              在线总数（台）${e.data.sum || 0}<br />
-              在线率：${sale}
+              <div class="echart-tooltip-wrapper">
+                <p><span>在线总数(台)&nbsp;</span><span>123456台</span></p>
+                <p><span>在线率</span><span>${sale}</span></p>
+              </div>
             `;
 					},
 				},

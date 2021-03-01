@@ -16,7 +16,12 @@ var salesScaleOption = {
 		},
 		formatter(n) {
 			var scale = parseInt((n.data.value / n.data.sum) * 100) + '%';
-			return `${n.data.name} <br />${n.marker}销量占比&nbsp;&nbsp;&nbsp;${scale}`;
+			return `
+        <div class="echart-tooltip-wrapper">
+          <p><span>${n.name}</span></p>
+          <p>${n.marker}<span>销量占比&nbsp;&nbsp;&nbsp;</span><span>${scale}</span></p>
+        </div>
+      `;
 		},
 	},
 	color: ['#5B8FF9', '#4ECB73', '#FBD437', '#F2637B', '#975FE5'],

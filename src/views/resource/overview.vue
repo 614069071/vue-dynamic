@@ -160,3 +160,19 @@ export default {
 	height: 393px;
 }
 </style>
+
+<style>
+.echart-tooltip-wrapper p {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	min-width: 100px;
+}
+
+.echart-tooltip-wrapper p span:first-child {
+	color: #606266;
+}
+.echart-tooltip-wrapper p span:last-child {
+	color: #333;
+}
+</style>

@@ -161,16 +161,12 @@ const options = {
 		// 控制悬停文字显示
 		formatter: function (e, t, n) {
 			return `
-        <span style="display:inline-block;width:40px;color:#A5A5A5;">${
-					e.name
-				}</span><br />
-        <span style="display:inline-block;width:40px;color:#A5A5A5;">总计：</span>123456台<br />
-        <span style="display:inline-block;width:40px;color:#A5A5A5;">L1：</span>${
-					e.data.L1 || 0
-				}台<br />
-        <span style="display:inline-block;width:40px;color:#A5A5A5;">H2：</span>${
-					e.data.H2 || 0
-				}台
+        <div class="echart-tooltip-wrapper">
+          <p><span>${e.name}</span></p>
+          <p><span>总计：</span><span>123456台</span></p>
+          <p><span>H2：</span><span>${e.data.L1 || 0}</span></p>
+          <p><span>L1：</span><span>${e.data.H2 || 0}</span></p>
+        </div>
       `;
 		},
 	},
@@ -353,5 +349,9 @@ export default {
 .resource-heat-map {
 	width: 100%;
 	height: 100%;
+}
+
+.test-ec-wrapper {
+	color: red;
 }
 </style>
