@@ -101,8 +101,8 @@ export default {
 	watch: {
 		$route(v) {
 			const list = this.breadcrumbRouter;
-			const item = list.find((e) => e.url === v.path);
-			item && this.$store.commit('UPDATE_DEFAULT_ACTIVE', item.meta.index);
+			const item = list.find((e) => e.path === v.path);
+			item && this.$store.commit('UPDATE_DEFAULT_ACTIVE', item.path);
 		},
 	},
 	created() {},

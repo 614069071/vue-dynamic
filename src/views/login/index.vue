@@ -37,7 +37,8 @@
 
 <script>
 import store from '@store';
-import { mapMutations } from 'vuex';
+import { storages } from '@utils';
+import { mapMutations, mapState } from 'vuex';
 
 export default {
 	data() {
@@ -74,8 +75,11 @@ export default {
 	},
 	beforeRouteEnter(to, from, next) {
 		store.commit('UPDATE_TOKEN', '');
-		// storages.set('CACHE_ROUTERS', []);
+		// store.commit('CLEAR_CACHE_ROUTER');
 		next();
+	},
+	computed: {
+		...mapState(['routerDefaultActive']),
 	},
 	created() {},
 	methods: {
@@ -84,18 +88,14 @@ export default {
 			// 模拟登录
 			const login_form = this.$refs.login_form;
 
-			login_form.validate((...arg) => {
-				console.log(arg);
-				// if (valid) {
-				// 	this.UPDATE_TOKEN('123456');
-				// 	this.$router.push('/');
-				// } else {
-				// 请求
-				// 	setTimeout(() => {
-				// 		callback(new Error('账号密码错误'));
-				// 	}, 1000);
-				// }
-			});
+			login_form
+				.validate()
+				.then(() => {
+					const activeRoute = this.routerDefaultActive || '/';
+					this.UPDATE_TOKEN('123456');
+					this.$router.push(activeRoute);
+				})
+				.catch(() => {});
 		},
 	},
 };

@@ -114,6 +114,11 @@ export default new Store({
         this.commit('UPDATE_DEFAULT_ACTIVE', '');
       }
     },
+    // 清除 tab 
+    CLEAR_CACHE_ROUTER(state) {
+      state.breadcrumbRouter = [];
+      storages.set('CACHE_ROUTERS', []);
+    },
     // 设置默认展开菜单项
     UPDATE_DEFAULT_ACTIVE(state, data = {}) {
       state.routerDefaultActive = data;
