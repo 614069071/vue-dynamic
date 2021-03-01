@@ -19,9 +19,9 @@
 				<el-table-column prop="name2" label="姓名" width="120"></el-table-column>
 				<el-table-column prop="name3" label="投放地域"></el-table-column>
 				<el-table-column prop="name4" label="投放客户"></el-table-column>
-				<el-table-column prop="name5" label="投放时段"></el-table-column>
-				<el-table-column prop="name6" label="创建时间"></el-table-column>
-				<el-table-column label="编辑">
+				<el-table-column prop="name5" label="投放时段" min-width="140"></el-table-column>
+				<el-table-column prop="name6" label="创建时间" min-width="140"></el-table-column>
+				<el-table-column label="编辑" width="160">
 					<template slot-scope="scope">
 						<el-button @click="formEditorClick(scope.$index,scope.row)" plain type="primary" size="mini">编辑</el-button>
 						<el-button size="mini" @click="formDeleteClick(scope.$index,scope.row)">删除</el-button>
