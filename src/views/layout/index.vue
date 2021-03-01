@@ -76,7 +76,7 @@
 
 <script>
 import store from '@store';
-import { mapState } from 'vuex';
+import { mapState, mapMutations } from 'vuex';
 import SideBar from '@components/side-bar';
 import TabCard from './components/tab-card.vue';
 import NProgress from 'nprogress';
@@ -102,14 +102,16 @@ export default {
 		$route(v) {
 			const list = this.breadcrumbRouter;
 			const item = list.find((e) => e.path === v.path);
-			item && this.$store.commit('UPDATE_DEFAULT_ACTIVE', item.path);
+			item && this.UPDATE_DEFAULT_ACTIVE(item.path);
 		},
 	},
 	created() {},
 	computed: {
 		...mapState(['breadcrumbRouter']),
 	},
-	methods: {},
+	methods: {
+		...mapMutations(['UPDATE_DEFAULT_ACTIVE']),
+	},
 };
 </script>
 

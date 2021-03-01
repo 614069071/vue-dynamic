@@ -8,6 +8,7 @@
 
 <script>
 import MiddleMenu from './middle-menu';
+import { mapState } from 'vuex';
 // import { dynamicRouter } from '@router';
 
 export default {
@@ -20,13 +21,10 @@ export default {
 		return {};
 	},
 	computed: {
-		onRoutes() {
-			//默认选中菜单
-			return this.$store.state.routerDefaultActive;
-		},
-		defaultOpenedsArray() {
-			return this.$store.state.defaultOpenedsArray;
-		},
+		...mapState({
+			onRoutes: 'routerDefaultActive',
+			defaultOpenedsArray: 'defaultOpenedsArray',
+		}),
 		mapMenuTree() {
 			const items = [
 				{
