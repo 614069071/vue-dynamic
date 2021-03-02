@@ -4,7 +4,7 @@
 			<el-form inline label-width="100px" :model="dataForm">
 				<el-col :span="8">
 					<el-form-item label="订单编号">
-						<el-input placeholder=""></el-input>
+						<el-input v-model="dataForm.name1" placeholder=""></el-input>
 					</el-form-item>
 				</el-col>
 
@@ -19,7 +19,7 @@
 
 				<el-col :span="8">
 					<el-form-item label="订单状态">
-						<el-select v-model="dataForm.name8">
+						<el-select v-model="dataForm.name3">
 							<el-option label="已出库" value="1"></el-option>
 							<el-option label="未出库" value="2"></el-option>
 							<el-option label="订单未激活" value="8"></el-option>
@@ -40,23 +40,23 @@
 
 				<el-col :span="8">
 					<el-form-item label="客户名称">
-						<el-input placeholder=""></el-input>
+						<el-input v-model="dataForm.name5" placeholder=""></el-input>
 					</el-form-item>
 				</el-col>
 
 				<el-col :span="8">
 					<el-form-item label="SN">
-						<el-input placeholder=""></el-input>
+						<el-input v-model="dataForm.name6" placeholder=""></el-input>
 					</el-form-item>
 				</el-col>
 
 				<el-form-item label="下单日期">
-					<el-date-picker v-model="dataForm.name6" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
+					<el-date-picker v-model="dataForm.name7" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
 					</el-date-picker>
 				</el-form-item>
 
 				<el-form-item>
-					<el-button type="primary">查询</el-button>
+					<el-button type="primary" :loading="inquireLoading" @click="inquireFormSubmit">查询</el-button>
 				</el-form-item>
 			</el-form>
 		</div>
@@ -89,6 +89,7 @@ export default {
 	data() {
 		return {
 			dataForm: {},
+			inquireLoading: false,
 			dataTable: [
 				{
 					name1: '1125458',
@@ -107,6 +108,12 @@ export default {
 		};
 	},
 	methods: {
+		inquireFormSubmit() {
+			this.inquireLoading = true;
+			setTimeout(() => {
+				this.inquireLoading = false;
+			}, 2000);
+		},
 		handleClick(data) {
 			console.log(data);
 		},
