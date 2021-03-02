@@ -8,14 +8,18 @@
 						<el-col :span="8">
 							<div class="resource-other-item">
 								<p>完成年销售额</p>
-								<p>124,543,233<i>元</i></p>
+								<p>
+									<count-to :startVal="0" :endVal="124543233"></count-to> <i>元</i>
+								</p>
 							</div>
 						</el-col>
 
 						<el-col :span="8">
 							<div class="resource-other-item">
 								<p>完计划销售额</p>
-								<p>124,543,233<i>元</i></p>
+								<p>
+									<count-to :startVal="0" :endVal="124543233"></count-to><i>元</i>
+								</p>
 							</div>
 						</el-col>
 
@@ -80,9 +84,10 @@ import Sales from './components/sales';
 import Scale from './components/scale';
 import Lively from './components/lively';
 import Online from './components/online';
+import CountTo from 'vue-count-to';
 
 export default {
-	components: { Heat, Sales, Scale, Lively, Online },
+	components: { Heat, Sales, Scale, Lively, Online, CountTo },
 	data() {
 		return {};
 	},
