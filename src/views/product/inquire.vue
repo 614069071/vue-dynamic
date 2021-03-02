@@ -12,7 +12,7 @@
 					<el-input v-model="dataForm.name3"></el-input>
 				</el-form-item>
 				<el-form-item>
-					<el-button type="primary">查询</el-button>
+					<el-button type="primary" :loading="inquireLoading" @click="inquireFormSubmit">查询</el-button>
 				</el-form-item>
 			</el-form>
 		</div>
@@ -42,6 +42,7 @@ export default {
 	data() {
 		return {
 			dataForm: {},
+			inquireLoading: false,
 			dataTable: [
 				{
 					name1: '15265447',
@@ -56,6 +57,13 @@ export default {
 			],
 		};
 	},
-	methods: {},
+	methods: {
+		inquireFormSubmit() {
+			this.inquireLoading = true;
+			setTimeout(() => {
+				this.inquireLoading = false;
+			}, 2000);
+		},
+	},
 };
 </script>
