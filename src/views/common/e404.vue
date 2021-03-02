@@ -6,7 +6,7 @@
 
 				<p class="error-404-mes-wrapper">抱歉，你访问的页面不存在</p>
 
-				<el-button type="primary" @click="$router.push('/resource')">返回首页</el-button>
+				<el-button type="primary" @click="$router.push('/')">返回首页</el-button>
 			</div>
 		</div>
 	</div>
