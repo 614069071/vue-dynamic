@@ -159,7 +159,7 @@ const options = {
 			color: '#333', //设置文字颜色
 		},
 		// 控制悬停文字显示
-		formatter: function (e, t, n) {
+		formatter: function (e) {
 			return `
         <div class="echart-tooltip-wrapper">
           <p><span>${e.name}</span></p>

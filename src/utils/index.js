@@ -218,6 +218,7 @@ export function getRandom() {
 
 // 获去百度地址
 export function loadBMap(ak) {
+  /* eslint-disable */
   return new Promise(function (resolve, reject) {
     if (typeof BMap !== 'undefined') {
       resolve(BMap);
@@ -238,9 +239,10 @@ export function loadBMap(ak) {
       document.head.removeChild(script);
     };
   });
+  /* eslint-enable*/
 }
 
-export function autoload() {
+export function autoload(Vue) {
   const files = require.context('@components', false, /\.vue$/);
 
   files.keys().forEach(path => {

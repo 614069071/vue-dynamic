@@ -26,7 +26,7 @@ router.beforeEach((to, from, next) => {
   next();
 });
 
-router.afterEach((to, from) => {
+router.afterEach((to) => {
   const routers = to.matched;
   const arr = routers.length && routers.filter((route) => route.parent && route.parent.path);
   const route = arr[arr.length - 1];

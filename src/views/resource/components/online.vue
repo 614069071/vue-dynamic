@@ -21,7 +21,7 @@ export default {
 					textStyle: {
 						color: '#333', //设置文字颜色
 					},
-					formatter: function (e, t, n) {
+					formatter: function (e) {
 						const sale = ((e.data.value / e.data.sum) * 100).toFixed(1) + '%';
 
 						return `

@@ -94,6 +94,8 @@ export default {
 			console.log(index, data);
 		},
 		formDeleteClick(index, data) {
+			console.log(index, data);
+
 			this.$confirm('确定删除？')
 				.then(() => {
 					// 删除成功

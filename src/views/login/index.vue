@@ -37,7 +37,7 @@
 
 <script>
 import store from '@store';
-import { storages } from '@utils';
+// import { storages } from '@utils';
 import { mapMutations, mapState } from 'vuex';
 
 export default {
