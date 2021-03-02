@@ -6,7 +6,7 @@
 					<el-date-picker type="date" placeholder="选择日期" v-model="inquireFormData.name1"></el-date-picker>
 				</el-form-item>
 				<el-form-item>
-					<el-button type="primary">查询</el-button>
+					<el-button type="primary" :loading="inquireLoading" @click="inquireFormSubmit">查询</el-button>
 				</el-form-item>
 			</el-form>
 		</div>
@@ -37,6 +37,7 @@ export default {
 	data() {
 		return {
 			inquireFormData: {},
+			inquireLoading: false,
 			dataTable: [
 				{
 					name1: '1',
@@ -52,6 +53,12 @@ export default {
 		};
 	},
 	methods: {
+		inquireFormSubmit() {
+			this.inquireLoading = true;
+			setTimeout(() => {
+				this.inquireLoading = false;
+			}, 2000);
+		},
 		selectionChange(v) {
 			this.selectColle = v;
 		},
