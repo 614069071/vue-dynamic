@@ -29,13 +29,13 @@ export default {
 			const items = [
 				{
 					title: '综合数据',
-					icon: 'if if-edit-square',
+					icon: 'if if-appstore',
 					path: '/',
 					meta: {},
 				},
 				{
 					title: '订单查询',
-					icon: 'if if-appstore',
+					icon: 'if if-barchart',
 					path: '/order',
 					meta: {},
 				},
