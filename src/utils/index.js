@@ -109,24 +109,24 @@ export const preview = function (file) {
   return src;
 }
 
+// 统一格式
+export const formatNumber = n => {
+  n = n.toString();
+  return n[1] ? n : '0' + n;
+}
+
 // 序列化时间
 export const formatTime = (date, type = false) => {
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
-  const hour = date.getHours()
-  const minute = date.getMinutes()
-  const second = date.getSeconds()
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  const hour = date.getHours();
+  const minute = date.getMinutes();
+  const second = date.getSeconds();
 
   const ymd = [year, month, day].map(formatNumber).join('-');
   const hms = [hour, minute, second].map(formatNumber).join(':');
   return type ? ymd + ' ' + hms : ymd;
-}
-
-// 统一格式
-export const formatNumber = n => {
-  n = n.toString()
-  return n[1] ? n : '0' + n
 }
 
 // 批量设置cookie
@@ -160,18 +160,6 @@ export function delCookie(data) {
   for (let i = 0; i < data.length; i++) {
     JsCookie.remove(data[i]);
   }
-}
-
-const userinfo = ['token', 'sessionId'];
-
-// 清除用户信息
-export function delInfoCookie() {
-  delCookie(userinfo);
-}
-
-// 获取用户信息
-export function getInfoCookie() {
-  return getCookie(userinfo);
 }
 
 // 是否是数组
