@@ -150,7 +150,7 @@ export const dynamicStRouter = [
       //   name: 'welcome',
       //   component: () => import(/* webpackChunkName: "test" */ '@/views/welcome'),
       //   meta: {
-      //     name: '首页'
+      //     name: '欢迎'
       //   }
       // },
       ...dynamicRouter,
