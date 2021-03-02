@@ -12,7 +12,7 @@
 		</div>
 
 		<div class="inner-container-wrapper banner-list">
-			<el-table ref="multipleTable" :data="dataTable" tooltip-effect="dark" style="width: 100%">
+			<el-table ref="multipleTable" :data="dataTable" tooltip-effect="dark" style="width: 100%" @selection-change="selectionChange">
 				<el-table-column type="selection" width="55"></el-table-column>
 				<el-table-column prop="name1" label="编号" width="120"></el-table-column>
 				<el-table-column prop="name2" label="用户" width="120"></el-table-column>
@@ -26,7 +26,7 @@
 
 		<div class="inner-pagination-wrapper">
 			<el-button size="mini" plain @click="deleteCheck">删除</el-button>
-			<el-pagination background layout="prev, pager, next, jumper" :total="1000"></el-pagination>
+			<el-pagination background layout="prev,pager,next,jumper" :total="1000"></el-pagination>
 		</div>
 	</div>
 </template>
@@ -48,18 +48,24 @@ export default {
 					name7: '2021-12-12 21:22:22',
 				},
 			],
+			selectColle: [],
 		};
 	},
 	methods: {
+		selectionChange(v) {
+			this.selectColle = v;
+		},
 		deleteCheck() {
-			console.log('删除');
-			this.$confirm('确定删除？')
-				.then(() => {
-					// 删除成功
-				})
-				.catch(() => {
-					// 取消删除
-				});
+			this.selectColle.length &&
+				this.$confirm('确定删除？')
+					.then(() => {
+						// 删除成功
+						console.log(this.selectColle);
+					})
+					.catch(() => {
+						// 取消删除
+						console.log('取消删除');
+					});
 		},
 	},
 };
