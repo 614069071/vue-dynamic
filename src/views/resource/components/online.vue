@@ -22,12 +22,13 @@ export default {
 						color: '#333', //设置文字颜色
 					},
 					formatter: function (e, t, n) {
+						console.log(e);
 						const sale = ((e.data.value / e.data.sum) * 100).toFixed(1) + '%';
 
 						return `
               <div class="echart-tooltip-wrapper">
                 <p><span>在线总数(台)&nbsp;</span><span>123456台</span></p>
-                <p><span>在线率</span><span>${sale}</span></p>
+                <p><span>${e.name}率</span><span>${sale}</span></p>
               </div>
             `;
 					},
@@ -62,8 +63,8 @@ export default {
 							show: false,
 						},
 						data: [
-							{ value: 900, name: '在线设备', sum: 1000 },
-							{ value: 100, name: '离线设备', sum: 1000 },
+							{ value: 900, name: '在线', sum: 1000 },
+							{ value: 100, name: '离线', sum: 1000 },
 						],
 					},
 				],
