@@ -169,10 +169,28 @@ export default {
 	min-width: 100px;
 }
 
-.echart-tooltip-wrapper p span:first-child {
+.echart-tooltip-wrapper p > span:first-child {
 	color: #606266;
 }
-.echart-tooltip-wrapper p span:last-child {
+
+.echart-tooltip-wrapper p > span span {
+	width: 10px;
+	height: 10px;
+	display: inline-block;
+	margin-right: 8px;
+}
+
+.echart-tooltip-wrapper p > span span.line {
+	height: 2px;
+	margin-bottom: 4px;
+}
+
+.echart-tooltip-wrapper p > span span.circle {
+	height: 10px;
+	border-radius: 50%;
+}
+
+.echart-tooltip-wrapper p > span:last-child {
 	color: #333;
 }
 </style>

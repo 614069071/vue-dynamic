@@ -18,7 +18,7 @@ var salesOption = {
 			const str = arr
 				.map(
 					(e) =>
-						`<p><span>${e.marker}${e.seriesName}</span><span>${e.data}</span></p>`
+						`<p><span><span style="background-color:${e.color};"></span>${e.seriesName}</span><span>${e.data}</span></p>`
 				)
 				.join('');
 			return `

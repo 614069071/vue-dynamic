@@ -18,10 +18,10 @@ var activeOption = {
 			const str = arr
 				.map(
 					(e) =>
-						`<p><span>${e.marker}${e.seriesName}</span><span>${e.data}</span></p>`
+						`<p><span><span class="line" style="background-color:${e.color};"></span>${e.seriesName}</span><span>${e.data}</span></p>`
 				)
 				.join('');
-			// return '123';
+
 			return `
         <div class="echart-tooltip-wrapper">
           <p><span>${arr[0].axisValueLabel}</span></p>
