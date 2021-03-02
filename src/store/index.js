@@ -5,15 +5,11 @@ import { storages } from '@utils';
 
 Vue.use(Vuex);
 
-const breadcrumbRouter = storages.get('CACHE_ROUTERS') || [];
-const routerDefaultActive = storages.get('DEFAULT_ACTIVE') || '';
-const __accessToken__ = storages.get('__accessToken__');
-
 export default new Store({
   state: {
-    __accessToken__,
-    breadcrumbRouter,
-    routerDefaultActive,
+    __accessToken__: storages.get('__accessToken__') || '',
+    breadcrumbRouter: storages.get('CACHE_ROUTERS') || [],
+    routerDefaultActive: storages.get('DEFAULT_ACTIVE') || '',
     defaultOpenedsArray: []
   },
   mutations: {
