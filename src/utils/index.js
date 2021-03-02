@@ -242,6 +242,7 @@ export function loadBMap(ak) {
   /* eslint-enable*/
 }
 
+// 自动挂载组件
 export function autoload(Vue) {
   const files = require.context('@components', false, /\.vue$/);
 
@@ -250,6 +251,50 @@ export function autoload(Vue) {
     const name = path.split(".")[1].slice(1);
     Vue.component(name, instance);
   });
+}
+
+/* 
+  将后台返回的菜单列表数据map成新的路由
+  @arr1     后端返回的菜单路由
+  @arr2     前端动态路由
+  @return   新的路由列表
+*/
+export function overlapRouter(arr1 = [], arr2 = []) {
+  let arr = [];
+
+  arr1.forEach(({ url, children }) => {
+    let item = {};
+
+    // 方法1 两次循环
+    arr2.forEach(ele => {
+      if (url === ele.path) {
+        item.path = ele.path;
+        item.component = ele.component;
+        item.name = ele.name;
+        item.meta = ele.meta;
+      }
+      if (children && children.length && ele.children && ele.children.length) {
+        item.children = overlapRouter(children, ele.children);
+      }
+    })
+
+    // 方法2 循环 + find方法
+    // const item2 = arr2.find(ele => ele.path === url);
+
+    // if (item2) {
+    //   item.path = item2.path;
+    //   item.component = item2.component;
+    //   item.meta = item2.meta;
+    // }
+
+    // if (children && children.length && item2.children && item2.children.length) {
+    //   item.children = overlapRouter(children, item2.children);
+    // }
+
+    arr.push(item);
+  })
+
+  return arr;
 }
 
 
