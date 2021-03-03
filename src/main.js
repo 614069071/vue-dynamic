@@ -14,9 +14,6 @@ import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.config.productionTip = false;
 
-NProgress.inc(0.2);
-NProgress.configure({ easing: "ease", speed: 500, showSpinner: false });
-
 Vue.use(ElementUI);
 
 router.beforeEach((to, from, next) => {
