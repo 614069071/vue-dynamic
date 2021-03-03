@@ -27,11 +27,11 @@ router.beforeEach((to, from, next) => {
 
 router.afterEach(({ matched = [] }) => {
   const route = matched[matched.length - 1];
-  const includes = ['/login', '/error'];
-  const is = includes.includes(route.path);
+  const exclude = ['/login', '/error'];
+  const isExclude = exclude.includes(route.path);
 
-  !is && store.commit('UPDATE_CACHE_ROUTER', { path: route.path, title: route.meta.name });
-  !is && store.commit('UPDATE_DEFAULT_ACTIVE', route.path);
+  !isExclude && store.commit('UPDATE_CACHE_ROUTER', { path: route.path, title: route.meta.name });
+  !isExclude && store.commit('UPDATE_DEFAULT_ACTIVE', route.path);
 
   NProgress.done();
 });
