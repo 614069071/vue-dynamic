@@ -1,14 +1,20 @@
 <template>
 	<div class="log-inquire-view-wrapper view-wrapper">
 		<div class="inner-header-wrapper">
-			<el-form inline label-width="80px" :model="inquireFormData">
-				<el-form-item label="日期：">
-					<el-date-picker type="date" placeholder="选择日期" v-model="inquireFormData.name1"></el-date-picker>
-				</el-form-item>
-				<el-form-item>
-					<el-button type="primary" :loading="inquireLoading" @click="inquireFormSubmit">查询</el-button>
-				</el-form-item>
-			</el-form>
+			<el-col :span="20">
+				<el-form inline label-width="80px" :model="inquireFormData">
+					<el-form-item label="日期：">
+						<el-date-picker type="date" placeholder="选择日期" v-model="inquireFormData.name1"></el-date-picker>
+					</el-form-item>
+					<el-form-item>
+						<el-button type="primary" :loading="inquireLoading" @click="inquireFormSubmit">查询</el-button>
+					</el-form-item>
+				</el-form>
+			</el-col>
+
+			<el-col :span="4" class="banner-inner-header-right">
+				<el-button plain type="primary">导出</el-button>
+			</el-col>
 		</div>
 
 		<div class="inner-container-wrapper banner-list">
@@ -25,7 +31,9 @@
 		</div>
 
 		<div class="inner-pagination-wrapper">
-			<el-button size="mini" plain @click="deleteCheck">删除</el-button>
+			<div>
+				<el-button v-show="deleteLogBtnVisible" size="mini" plain @click="deleteCheck">删除</el-button>
+			</div>
 			<el-pagination background layout="prev,pager,next,jumper" :total="1000"></el-pagination>
 		</div>
 	</div>
@@ -51,6 +59,11 @@ export default {
 			],
 			selectColle: [],
 		};
+	},
+	computed: {
+		deleteLogBtnVisible() {
+			return this.selectColle.length;
+		},
 	},
 	methods: {
 		inquireFormSubmit() {
@@ -79,6 +92,10 @@ export default {
 </script>
 
 <style scoped>
+.banner-inner-header-right {
+	text-align: right;
+}
+
 .log-inquire-view-wrapper .inner-pagination-wrapper {
 	display: flex;
 	justify-content: space-between;
