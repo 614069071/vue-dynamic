@@ -21,7 +21,7 @@ export default new Store({
     // 更新 tab 列表
     UPDATE_CACHE_ROUTER(state, data = { meta: '' }) {
       const list = state.breadcrumbRouter;
-      const is = list.find(e => e.name === data.name);
+      const is = list.find(e => e.path === data.path);
       if (is) return;
       list.push(data);
       storages.set('CACHE_ROUTERS', list);

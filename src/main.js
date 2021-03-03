@@ -31,7 +31,7 @@ router.afterEach((to) => {
   const arr = routers.length && routers.filter((route) => route.parent && route.parent.path);
   const route = arr[arr.length - 1];
 
-  route && store.commit('UPDATE_CACHE_ROUTER', { name: route.name, path: route.path, title: route.meta.name });
+  route && store.commit('UPDATE_CACHE_ROUTER', { path: route.path, title: route.meta.name });
   route && store.commit('UPDATE_DEFAULT_ACTIVE', route.path);
 
   NProgress.done();
