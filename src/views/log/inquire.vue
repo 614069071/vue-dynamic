@@ -13,7 +13,7 @@
 			</el-col>
 
 			<el-col :span="4" class="banner-inner-header-right">
-				<el-button plain type="primary">导出</el-button>
+				<el-button plain type="primary" @click="exportLogVisible = true">导出</el-button>
 			</el-col>
 		</div>
 
@@ -36,6 +36,13 @@
 			</div>
 			<el-pagination background layout="prev,pager,next,jumper" :total="1000"></el-pagination>
 		</div>
+
+		<el-dialog class="export-dialog-wrapper" :visible.sync="exportLogVisible" :show-close="false" :close-on-click-modal="true" width="362px">
+			<div class="export-dialog-inner-wrapper">
+				<el-progress type="circle" :percentage="exportPercentage" :width="140"></el-progress>
+				<p>数据导出中，请耐心稍等~</p>
+			</div>
+		</el-dialog>
 	</div>
 </template>
 
@@ -58,6 +65,8 @@ export default {
 				},
 			],
 			selectColle: [],
+			exportLogVisible: false,
+			exportPercentage: 10,
 		};
 	},
 	computed: {
@@ -100,5 +109,20 @@ export default {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+}
+
+.export-dialog-inner-wrapper {
+	text-align: center;
+	padding: 20px 0;
+}
+
+.export-dialog-inner-wrapper p {
+	margin-top: 10px;
+}
+</style>
+
+<style>
+.export-dialog-wrapper .el-dialog__header {
+	display: none;
 }
 </style>
