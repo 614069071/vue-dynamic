@@ -27,9 +27,11 @@ router.beforeEach((to, from, next) => {
 
 router.afterEach(({ matched = [] }) => {
   const route = matched[matched.length - 1];
+  const includes = ['/login', '/error'];
+  const is = includes.includes(route.path);
 
-  route.path != '/login' && store.commit('UPDATE_CACHE_ROUTER', { path: route.path, title: route.meta.name });
-  route.path != '/login' && store.commit('UPDATE_DEFAULT_ACTIVE', route.path);
+  !is && store.commit('UPDATE_CACHE_ROUTER', { path: route.path, title: route.meta.name });
+  !is && store.commit('UPDATE_DEFAULT_ACTIVE', route.path);
 
   NProgress.done();
 });
