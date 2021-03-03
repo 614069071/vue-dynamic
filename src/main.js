@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import NProgress from "nprogress";
-import { Menu, MenuItem, Table, TableColumn, Form, FormItem, Radio, Select, Option, Col, Row, Pagination, Popover, Button, Avatar } from 'element-ui';
+import { Menu, MenuItem, Table, TableColumn, Form, FormItem, Radio, Select, Input, InputNumber, DatePicker, Option, Col, Row, Pagination, Popover, Button, Avatar, Dialog, Progress } from 'element-ui';
 import App from './App.vue';
 import router from './router';
 import store from './store';
@@ -29,6 +29,11 @@ Vue.
   use(Button).
   use(Avatar).
   use(Pagination).
+  use(Input).
+  use(InputNumber).
+  use(DatePicker).
+  use(Dialog).
+  use(Progress).
   use(Popover);
 
 router.beforeEach((to, from, next) => {
