@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import NProgress from "nprogress";
-import { Menu, MenuItem, Table, TableColumn, Form, FormItem, Radio, Select, Input, InputNumber, DatePicker, Option, Col, Row, Pagination, Popover, Button, Avatar, Dialog, Progress } from 'element-ui';
+import ElementUI from 'element-ui';
+// import { Menu, MenuItem, Table, TableColumn, Form, FormItem, Radio, Select, Input, InputNumber, DatePicker, Option, Col, Row, Pagination, Popover, Button, Avatar, Dialog, Progress, Carousel, CarouselItem, Upload } from 'element-ui';
 import App from './App.vue';
 import router from './router';
 import store from './store';
@@ -14,27 +15,32 @@ import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.config.productionTip = false;
 
-Vue.
-  use(Menu).
-  use(MenuItem).
-  use(Table).
-  use(TableColumn).
-  use(Form).
-  use(FormItem).
-  use(Radio).
-  use(Select).
-  use(Option).
-  use(Col).
-  use(Row).
-  use(Button).
-  use(Avatar).
-  use(Pagination).
-  use(Input).
-  use(InputNumber).
-  use(DatePicker).
-  use(Dialog).
-  use(Progress).
-  use(Popover);
+Vue.use(ElementUI);
+
+// Vue.
+//   use(Menu).
+//   use(MenuItem).
+//   use(Table).
+//   use(TableColumn).
+//   use(Form).
+//   use(FormItem).
+//   use(Radio).
+//   use(Select).
+//   use(Option).
+//   use(Col).
+//   use(Row).
+//   use(Button).
+//   use(Avatar).
+//   use(Pagination).
+//   use(Input).
+//   use(InputNumber).
+//   use(DatePicker).
+//   use(Dialog).
+//   use(Progress).
+//   use(Carousel).
+//   use(CarouselItem).
+//   use(Upload).
+//   use(Popover);
 
 router.beforeEach((to, from, next) => {
   NProgress.start();
