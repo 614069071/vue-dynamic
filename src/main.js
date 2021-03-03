@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import NProgress from "nprogress";
-import ElementUI from 'element-ui';
+import { Menu, MenuItem, Table, TableColumn, Form, FormItem, Radio, Select, Option, Col, Row, Pagination, Popover, Button, Avatar } from 'element-ui';
 import App from './App.vue';
 import router from './router';
 import store from './store';
@@ -14,7 +14,22 @@ import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.config.productionTip = false;
 
-Vue.use(ElementUI);
+Vue.
+  use(Menu).
+  use(MenuItem).
+  use(Table).
+  use(TableColumn).
+  use(Form).
+  use(FormItem).
+  use(Radio).
+  use(Select).
+  use(Option).
+  use(Col).
+  use(Row).
+  use(Button).
+  use(Avatar).
+  use(Pagination).
+  use(Popover);
 
 router.beforeEach((to, from, next) => {
   NProgress.start();

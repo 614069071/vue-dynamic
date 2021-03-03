@@ -28,14 +28,14 @@ const routes = [
 export const dynamicRouter = [
   {
     path: '/',
-    component: () => import(/* webpackChunkName: "test" */ '@/views/resource'),
+    component: () => import(/* webpackChunkName: "view" */ '@/views/resource'),
     meta: { name: '资源管理' },
     children: [
       {
         // path: '/resource',
         path: '/',
         name: 'resource',
-        component: () => import(/* webpackChunkName: "test" */ '@/views/resource/overview'),
+        component: () => import(/* webpackChunkName: "view" */ '@/views/resource/overview'),
         meta: { name: '综合数据' },
       },
     ]
@@ -43,13 +43,13 @@ export const dynamicRouter = [
   {
     path: '/order',
     name: 'order',
-    component: () => import(/* webpackChunkName: "test" */ '@/views/order'),
+    component: () => import(/* webpackChunkName: "view" */ '@/views/order'),
     meta: { name: '订单管理' },
     children: [
       {
         path: '/order',
         name: 'order-inquire',
-        component: () => import(/* webpackChunkName: "test" */ '@/views/order/inquire'),
+        component: () => import(/* webpackChunkName: "view" */ '@/views/order/inquire'),
         meta: { name: '订单查询' },
       },
     ]
@@ -57,13 +57,13 @@ export const dynamicRouter = [
   {
     path: '/product',
     name: 'product',
-    component: () => import(/* webpackChunkName: "test" */ '@/views/product'),
+    component: () => import(/* webpackChunkName: "view" */ '@/views/product'),
     meta: { name: '产品管理' },
     children: [
       {
         path: '/product',
         name: 'product-inquire',
-        component: () => import(/* webpackChunkName: "test" */ '@/views/product/inquire'),
+        component: () => import(/* webpackChunkName: "view" */ '@/views/product/inquire'),
         meta: { name: '产品查询' },
       },
     ]
@@ -71,25 +71,25 @@ export const dynamicRouter = [
   {
     path: '/banner',
     name: 'banner',
-    component: () => import(/* webpackChunkName: "test" */ '@/views/banner'),
+    component: () => import(/* webpackChunkName: "view" */ '@/views/banner'),
     meta: { name: '广告管理' },
     children: [
       {
         path: '/banner',
         name: 'banner-manage',
-        component: () => import(/* webpackChunkName: "test" */ '@/views/banner/list'),
+        component: () => import(/* webpackChunkName: "view" */ '@/views/banner/list'),
         meta: { name: '广告管理' },
         children: [
           {
             path: '/banner',
             name: 'banner-list',
-            component: () => import(/* webpackChunkName: "test" */ '@/views/banner/list/list'),
+            component: () => import(/* webpackChunkName: "view" */ '@/views/banner/list/list'),
             meta: { name: '广告列表' },
           },
           {
             path: '/banner/editor',
             name: 'banner-editor',
-            component: () => import(/* webpackChunkName: "test" */ '@/views/banner/list/editor'),
+            component: () => import(/* webpackChunkName: "view" */ '@/views/banner/list/editor'),
             meta: { name: '广告编辑' },
           }
         ]
@@ -99,26 +99,26 @@ export const dynamicRouter = [
   {
     path: '/log',
     name: 'log',
-    component: () => import(/* webpackChunkName: "test" */ '@/views/log'),
+    component: () => import(/* webpackChunkName: "view" */ '@/views/log'),
     meta: { name: '日志管理' },
     children: [
       {
         path: '/log',
         name: 'log-inquire',
-        component: () => import(/* webpackChunkName: "test" */ '@/views/log/inquire'),
+        component: () => import(/* webpackChunkName: "view" */ '@/views/log/inquire'),
         meta: { name: '日志查询' },
       },
     ]
   },
   {
     path: '/system',
-    component: () => import(/* webpackChunkName: "test" */ '@/views/system'),
+    component: () => import(/* webpackChunkName: "view" */ '@/views/system'),
     meta: { name: '账号管理' },
     children: [
       {
         path: '/system',
         name: 'system-account',
-        component: () => import(/* webpackChunkName: "test" */ '@/views/system/account'),
+        component: () => import(/* webpackChunkName: "view" */ '@/views/system/account'),
         meta: { name: '账号管理' },
       },
     ]
@@ -129,7 +129,7 @@ export const dynamicRouter = [
 export const otherRouter = [
   {
     path: '/error',
-    component: () => import(/* webpackChunkName: "test" */ '@/views/common/e404')
+    component: () => import(/* webpackChunkName: "view" */ '@/views/common/e404')
   },
   {
     path: '*',
@@ -140,7 +140,7 @@ export const otherRouter = [
 export const dynamicStRouter = [
   {
     path: '/',
-    component: () => import(/* webpackChunkName: "test" */ '@/views/layout'),
+    component: () => import(/* webpackChunkName: "view" */ '@/views/layout'),
     meta: {
       name: '首页'
     },
@@ -148,7 +148,7 @@ export const dynamicStRouter = [
       // {
       //   path: '/',
       //   name: 'welcome',
-      //   component: () => import(/* webpackChunkName: "test" */ '@/views/welcome'),
+      //   component: () => import(/* webpackChunkName: "view" */ '@/views/welcome'),
       //   meta: {
       //     name: '欢迎'
       //   }
