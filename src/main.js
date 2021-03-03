@@ -19,20 +19,17 @@ NProgress.configure({ easing: "ease", speed: 500, showSpinner: false });
 
 Vue.use(ElementUI);
 
-// vue router
 router.beforeEach((to, from, next) => {
   NProgress.start();
 
   next();
 });
 
-router.afterEach((to) => {
-  const routers = to.matched;
-  const arr = routers.length && routers.filter((route) => route.parent && route.parent.path);
-  const route = arr[arr.length - 1];
+router.afterEach(({ matched = [] }) => {
+  const route = matched[matched.length - 1];
 
-  route && store.commit('UPDATE_CACHE_ROUTER', { path: route.path, title: route.meta.name });
-  route && store.commit('UPDATE_DEFAULT_ACTIVE', route.path);
+  route.path != '/login' && store.commit('UPDATE_CACHE_ROUTER', { path: route.path, title: route.meta.name });
+  route.path != '/login' && store.commit('UPDATE_DEFAULT_ACTIVE', route.path);
 
   NProgress.done();
 });
